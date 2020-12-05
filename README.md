@@ -12,7 +12,7 @@ Saving only possible after completing full week.
 
 Gameplay: 
 Title screen appears, player signs up for new game or logs in to continue.
-Engine draws entry stats and renders day 1 screen for new game and last time progress.
+Engine draws entry stats and renders day 1 screen for new game and last time progress for players coming back to game.
 Player know his/her stats, it is day one, morning. Player has few choices to make: keep sleeping, go to school, skip school. Option to use item. Some items automaticcaly work as a move done, other ones work instantly and player still can choose what to do.
 Engine adds or deducts stat points, draws IF random event occurs, if yes, draws random event. Depending on luck factor, positive or negative event.
 Engine modifies stats if needed. Adds buffs/debuffs and items in case of such event. Buffs and debuffs and stats go to data base.
