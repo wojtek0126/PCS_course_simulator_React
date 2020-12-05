@@ -1,7 +1,7 @@
 # PCS_course_simulator_React
 Browser game that simulates programming Course. Project made with React. Contains: starting/login page, game body, final score leader board, special game event popus (different for morning evening and weekend), success game end screen with several ending possibilities, game over screen, warning popups, exam day screen, exam result screen.
 Six modules, each conists of: 4-day learning phase, one day exam phase, weekend phase. One(or two) exam re-tries week after in case of failed exam. After six weeks if survived - final project phase.
-Random events to be drawn/not drawn after each day. Either positive or negative events drawn, depending on luck. First week one possible event, week 2, 3 4 - max two events. Week 5, 6 - max three events. Pre-project - drawing four events. Player stats: health, attitude, sleep, knowledge, focus, luck, points, name, status(buffs and debuffs). **Optionally: Inventory to keep special items that could be drawn from events. Items that modify some stat, give points, gives third chance with exam, add buff, stop negative debuff, clear all buffs and debuffs. Will be using Python course as source for this one.
+Random events to be drawn/not drawn after each day. Either positive or negative events drawn, depending on luck. First week one possible event, week 2, 3 and 4 - max two events. Week 5, 6 - max three events. Pre-project - drawing four events once. Player stats: health, attitude, sleep, knowledge, focus, luck, points, name, status(buffs and debuffs). **Optionally: Inventory to keep special items that could be drawn from events. Items that modify some stat, give points, gives third chance with exam, add buff, stop negative debuff, clear all buffs and debuffs. Will be using Python course as source for this one.
 
 Using React witch fetch
 Using firebase.
@@ -27,6 +27,7 @@ Weekend screen and choices what to do: party, rest, extra work, aid family, char
 Week 2 - second module goes, engine now draws up to two events.
 Exam correction occurs day 2(tuesday) and day 4 thursday(in case of third chance) and takes whole day, player still can use item.
 Repeat until week 6 ends
+Final draw of four events, all buffs and debuffs reset and won't work. Player can use multiple items at once. Must-do events not counting. 
 Final project - engine draws ending result depending on overall score, screen renders appropriate ending screen.
 Hall of fame appears with top 3 players and player ranking underneath. Options to exit to main menu or retry.
 
