@@ -31,3 +31,21 @@ Final draw of four events, all buffs and debuffs reset and won't work. Player ca
 Final project - engine draws ending result depending on overall score, screen renders appropriate ending screen.
 Hall of fame appears with top 3 players and player ranking underneath. Options to exit to main menu or retry.
 
+Must have:
+Landing page with title with two options: continue, new game, leaderboard. Clicking new game shows sign in form, clicking continue shows log in form.
+Success or error login/signup popup.
+Daily screen with player name, player stats, player status(for buffs), score, inventory, day name, day part name, module name, ation buttons - possible moves and use item, confirm button, day part description.
+Pre exam screen - player info, two option buttons, use item button.
+Exam screen - result, summary and score.
+Pre-project screen with options to use items and continue button. Also pre project summary and player stats.
+Ending screen with summary display, option to retry with same login or back to menu.
+Game over screen with retry or return to main menu buttons and space for game over message.
+Pop up screen for events with continue button, shows what events have been drawn.
+Warning popup screen, appears when stats go low.
+Leaderboard screen showing list of 10 best players, and plauer's rank and points.
+Database in google firebase, API fetch
+Db models: login details, player stats, player inventory, player score, player buff status, positive events, negative events, course progress: module description, day, daytime, items, player exam record(score from eah exam), leadreboard
+
+Should have:
+Donate button at the endgame screen and donate option in main menu
+Graphics - styles, pictures and animations.
