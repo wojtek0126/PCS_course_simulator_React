@@ -47,5 +47,8 @@ Database in google firebase, API fetch
 Db models: login details, player stats, player inventory, player score, player buff status, positive events, negative events, course progress: module description, day, daytime, items, player exam record(score from eah exam), leadreboard
 
 Should have:
-Donate button at the endgame screen and donate option in main menu
+Donate button at the endgame screen and donate option in main menu.
 Graphics - styles, pictures and animations.
+Instructions and rules option in menu and during game.
+Player should not be able to manipulate with stats etc. from devOps level.
+
