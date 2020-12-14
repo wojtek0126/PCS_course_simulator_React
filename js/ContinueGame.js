@@ -28,7 +28,7 @@ export const toActionScreen = (e) => {
 
 const ContinueGame = () => {
     return (
-        <div className={"continueGameContainer"} style={{display: "none"}}>
+        <div className={"continueGameContainer"}>
             <p>Witamy ponownie</p>
             <form action="">
                 <label htmlFor="">podaj imię

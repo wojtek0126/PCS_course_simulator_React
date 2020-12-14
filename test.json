@@ -1,0 +1,36 @@
+
+
+{
+  "players": [
+    {
+      "id": 1 ,
+      "name": "Mieciu" ,
+      "timesCompleted": 0,
+      "score": 0,
+      "week": 1,
+      "day": 1,
+      "dayPart": "poranek",
+      "moduleName": "Wprowadzenie do pythona",
+      "buffs": "none",
+      "inventory": "empty",
+      "thirdChanceExam": false,
+      "health": 5,
+      "sleep": 5,
+      "skills": 1,
+      "attitude": 6,
+      "luck": 5,
+      "attendance": 100,
+      "examThirdChance": false,
+      "examPassed": false,
+      "examPoints": 0,
+      "event": "nothing out of ordinary happened",
+      "warnings": "none",
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "ending": false,
+      "endingNumber": 0
+
+    }
+  ]
+
+}
