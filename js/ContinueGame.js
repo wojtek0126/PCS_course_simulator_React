@@ -1,42 +1,34 @@
-import React from "react";
-import WelcomeScreen from "./WelcomeScreen";
-//add password and email after all works in demo, now just a name is enough
-
-
-const start = () => {
-    console.log("nowa gra: dane poszły")
-}
-
-const backToMain = () => {
-
-    const screen = document.querySelector(".menuScreen");
-    const screen2 = document.querySelector(".continueGameContainer");
-    screen.style.display = "flex";
-    screen2.style.display = "none";
-    console.log(screen2)
-}
-
-export const toActionScreen = (e) => {
-    e.preventDefault();
-    const screen4 = document.querySelector(".actionScreenContainer");
-    const screen2 = document.querySelector(".continueGameContainer");
-    screen4.style.display = "flex";
-    screen2.style.display = "none";
-}
-
-
+import React, {useState} from "react";
+import {backToMainMenu, handleContinue} from "./viewControl";
+import {getPlayers, handleRemovePlayer, displayCurrentPlayer} from "./functions";
 
 const ContinueGame = () => {
+    const [playersArr, setPlayersArr] = useState([]);
+    const [player, setPlayer] = useState([]);
+
+    getPlayers(setPlayersArr);
+
+
+    playersArr.map((el) => {
+        console.log(el.id, "elem id from map")
+        console.log(el, "elem id from map")
+    })
+
     return (
         <div className={"continueGameContainer"}>
             <p>Witamy ponownie</p>
-            <form action="">
-                <label htmlFor="">podaj imię
-                    <input type="text"/>
-                </label>
-                <button onClick={toActionScreen}>Kontynuuj</button>
-                <button onClick={backToMain}>Powrót do menu</button>
-            </form>
+            {
+                playersArr.map((player) => {
+                    console.log(player.id, `gracz o id: ${player.id}`)
+                    return (
+                        <li key={player.id}>{player.name} {player.moduleName} {player.id}
+                            <button onClick={() => {handleContinue(player.id)}}>Kontynuuj grę</button>
+                            <button onClick={() => {handleRemovePlayer(player.id)}}>Skasuj gracza</button>
+                        </li>
+                    )
+                })
+            }
+                <button onClick={backToMainMenu}>Powrót do menu</button>
         </div>
     )
 }

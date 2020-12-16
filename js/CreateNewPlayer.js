@@ -1,26 +1,8 @@
-import React, {useState, useEffect} from "react";
-import WelcomeScreen from "./WelcomeScreen";
-import {newPlayerCreate} from "./fetch";
-import {mainMenu, actionGame} from "./WelcomeScreen";
-//add password and email after all works in demo, now just a name is enough
+import React, {useState} from "react";
+import {createNewPlayer} from "./functions";
+import {backToMainMenu} from "./viewControl";
 
-
-
-const backToMainMenu = () => {
-
-    // const screen = document.querySelector(".menuScreen");
-    // const screen2 = document.querySelector(".startGameContainer");
-    // screen.style.display = "flex";
-    // screen2.style.display = "none";
-    // console.log(screen2)
-}
-
-// export const startNewGame = (e) => {
-//     const screen4 = document.querySelector(".actionScreenContainer");
-//     const screen2 = document.querySelector(".startGameContainer");
-//     screen4.style.display = "flex";
-//     screen2.style.display = "none";
-// }
+//add login after engine works
 
 const CreateNewPlayer = () => {
 
@@ -42,61 +24,6 @@ const CreateNewPlayer = () => {
     // const [attendance, setAttendance] = useState(100);
 
 
-    // bez prevent default tym razem
-    const createNewPlayer = () => {
-        // e.preventDefault()
-        const newPlr = {
-            name: playerName
-        };
-        console.log(newPlr, "dane do wysłania po wpisaniu i submicie");
-        newPlayerCreate(newPlr)
-
-            localStorage.setItem('actionScreen', 'true');
-            localStorage.setItem('welcomeScreen', 'false');
-            localStorage.setItem('continueGameScreen', 'false');
-            localStorage.setItem('createNewPlayerScreen', 'false');
-        location.reload()
-
-        
-        // const screen4 = document.querySelector(".actionScreenContainer");
-        // const screen2 = document.querySelector(".startGameContainer");
-        // screen4.style.display = "flex";
-        // screen2.style.display = "none";
-
-
-        // console.log(newPlayer, " newPlayer")
-
-
-
-    }
-    const backToMainMenu = () => {
-
-        localStorage.setItem('welcomeScreen', 'true');
-        localStorage.setItem('continueGameScreen', 'false');
-        localStorage.setItem('createNewPlayerScreen', 'false');
-        localStorage.setItem('actionScreen', 'false');
-        location.reload()
-
-    }
-
-
-
-    // const SubmitPlayerName = (e) => {
-    //     e.preventDefault();
-    //     console.log(newPlayer)
-    // }
-
-
-
-    // useEffect(() => {-
-    //     const screen4 = document.querySelector(".actionScreenContainer");
-    //     const screen2 = document.querySelector(".startGameContainer");
-    //     screen4.style.display = "flex";
-    //     screen2.style.display = "none";
-    // },[]);
-
-
-
 
     return (
             <div className={"startGameContainer"}>
@@ -105,15 +32,11 @@ const CreateNewPlayer = () => {
                     <label htmlFor="">podaj imię
                         <input  onChange={e => setPlayerName(e.target.value)} type="text"/>
                     </label>
-                    <button type="submit"  onClick={createNewPlayer} >Rozpocznij grę</button>
+                    <button type="submit"  onClick={() => createNewPlayer(playerName)} >Rozpocznij grę</button>
                     <button  onClick={backToMainMenu}>Powrót do menu</button>
                 </form>
             </div>
     )
-
-
 }
-
-
 
 export default CreateNewPlayer

@@ -9,9 +9,7 @@
   ],
   "players": [
     {
-      "id": 1,
-      "name": "Mieciu",
-      "timesCompleted": 0,
+      "name": "hfffhfghf",
       "score": 0,
       "week": 1,
       "day": 1,
@@ -21,9 +19,9 @@
       "inventory": "empty",
       "thirdChanceExam": false,
       "health": 5,
-      "sleep": 5,
-      "skills": 1,
-      "attitude": 6,
+      "sleep": 6,
+      "skills": 2,
+      "attitude": 2,
       "luck": 5,
       "attendance": 100,
       "examThirdChance": false,
@@ -34,259 +32,89 @@
       "finalProjectDone": false,
       "finalProjectScore": 0,
       "ending": false,
-      "endingNumber": 0
+      "endingNumber": 0,
+      "id": 1
     },
     {
-      "id": 2
-    },
-    {
+      "name": "hyj",
+      "score": 0,
+      "week": 1,
+      "day": 1,
+      "dayPart": "poranek",
+      "moduleName": "Wprowadzenie do pythona",
+      "buffs": "none",
+      "inventory": "empty",
+      "thirdChanceExam": false,
+      "health": 6,
+      "sleep": 6,
+      "skills": 6,
+      "attitude": 7,
+      "luck": 4,
+      "attendance": 100,
+      "examThirdChance": false,
+      "examPassed": false,
+      "examPoints": 0,
+      "event": "nothing out of ordinary happened",
+      "warnings": "none",
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "ending": false,
+      "endingNumber": 0,
       "id": 3
     },
-    [],
-    [],
     {
-      "playerName": "fizio777",
-      "id": 6
-    },
-    {
-      "name": "franc",
+      "name": "tertetete",
+      "score": 0,
+      "week": 1,
+      "day": 1,
+      "dayPart": "poranek",
+      "moduleName": "Wprowadzenie do pythona",
+      "buffs": "none",
+      "inventory": "empty",
+      "thirdChanceExam": false,
+      "health": 6,
+      "sleep": 3,
+      "skills": 3,
+      "attitude": 6,
+      "luck": 4,
+      "attendance": 100,
+      "examThirdChance": false,
+      "examPassed": false,
+      "examPoints": 0,
+      "event": "nothing out of ordinary happened",
+      "warnings": "none",
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "ending": false,
+      "endingNumber": 0,
       "id": 7
     },
     {
-      "name": "alojzy",
+      "name": "dasdasdasdasdsssss",
+      "score": 0,
+      "week": 1,
+      "day": 1,
+      "dayPart": "poranek",
+      "moduleName": "Wprowadzenie do pythona",
+      "buffs": "none",
+      "inventory": "empty",
+      "thirdChanceExam": false,
+      "health": 5,
+      "sleep": 6,
+      "skills": 2,
+      "attitude": 5,
+      "luck": 6,
+      "attendance": 100,
+      "examThirdChance": false,
+      "examPassed": false,
+      "examPoints": 0,
+      "event": "nothing out of ordinary happened",
+      "warnings": "none",
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "ending": false,
+      "endingNumber": 0,
       "id": 8
-    },
-    {
-      "name": "alojzy",
-      "id": 9
-    },
-    {
-      "name": "alojzy",
-      "id": 10
-    },
-    {
-      "name": "bamber36",
-      "id": 11
-    },
-    {
-      "name": "bamber36",
-      "id": 12
-    },
-    {
-      "name": "piecuch",
-      "id": 13
-    },
-    {
-      "name": "piecuch",
-      "id": 14
-    },
-    {
-      "name": "skot",
-      "id": 15
-    },
-    {
-      "name": "mauryc",
-      "id": 16
-    },
-    {
-      "name": "jack",
-      "id": 17
-    },
-    {
-      "name": "dido",
-      "id": 18
-    },
-    {
-      "name": "as",
-      "id": 19
-    },
-    {
-      "name": "zool",
-      "id": 20
-    },
-    {
-      "name": "dobr",
-      "id": 21
-    },
-    {
-      "name": "ciciu",
-      "id": 22
-    },
-    {
-      "name": "nowy66",
-      "id": 23
-    },
-    {
-      "name": "sajg",
-      "id": 24
-    },
-    {
-      "name": "ben",
-      "id": 25
-    },
-    {
-      "name": "benny",
-      "id": 26
-    },
-    {
-      "name": "benito",
-      "id": 27
-    },
-    {
-      "name": "benito",
-      "id": 28
-    },
-    {
-      "name": "antek",
-      "id": 29
-    },
-    {
-      "name": "janina",
-      "id": 30
-    },
-    {
-      "name": "janina",
-      "id": 31
-    },
-    {
-      "name": "jasiu",
-      "id": 32
-    },
-    {
-      "name": "jasiu",
-      "id": 33
-    },
-    {
-      "name": "felek",
-      "id": 34
-    },
-    {
-      "name": "felek",
-      "id": 35
-    },
-    {
-      "name": "weu",
-      "id": 36
-    },
-    {
-      "name": "weuna",
-      "id": 37
-    },
-    {
-      "name": "",
-      "id": 38
-    },
-    {
-      "name": "",
-      "id": 39
-    },
-    {
-      "name": "",
-      "id": 40
-    },
-    {
-      "name": "",
-      "id": 41
-    },
-    {
-      "name": "",
-      "id": 42
-    },
-    {
-      "name": "",
-      "id": 43
-    },
-    {
-      "name": "",
-      "id": 44
-    },
-    {
-      "name": "",
-      "id": 45
-    },
-    {
-      "name": "",
-      "id": 46
-    },
-    {
-      "name": "",
-      "id": 47
-    },
-    {
-      "name": "",
-      "id": 48
-    },
-    {
-      "name": "zenek",
-      "id": 49
-    },
-    {
-      "name": "zenek",
-      "id": 50
-    },
-    {
-      "name": "miecix",
-      "id": 51
-    },
-    {
-      "name": "miecixjo",
-      "id": 52
-    },
-    {
-      "name": "pix",
-      "id": 53
-    },
-    {
-      "name": "pix",
-      "id": 54
-    },
-    {
-      "name": "muuu",
-      "id": 55
-    },
-    {
-      "name": "muuu",
-      "id": 56
-    },
-    {
-      "name": "",
-      "id": 57
-    },
-    {
-      "name": "wwwwwwwww",
-      "id": 58
-    },
-    {
-      "name": "",
-      "id": 59
-    },
-    {
-      "name": "",
-      "id": 60
-    },
-    {
-      "name": "dddddd",
-      "id": 61
-    },
-    {
-      "name": "zyx",
-      "id": 62
-    },
-    {
-      "name": "",
-      "id": 63
-    },
-    {
-      "name": "dsdsdsdsd",
-      "id": 64
-    },
-    {
-      "name": "",
-      "id": 65
-    },
-    {
-      "name": "aloyzz",
-      "id": 66
     }
   ],
   "events": [
