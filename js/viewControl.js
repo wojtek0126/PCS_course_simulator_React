@@ -73,7 +73,7 @@ export const skipSchoolAndRest = () => {
 
 }
 
-export const handleContinue = (id, setData) => {
+export const wentToSchool = (id) => {
     localStorage.setItem('welcomeScreen', 'false');
     localStorage.setItem('continueGameScreen', 'false');
     localStorage.setItem('createNewPlayerScreen', 'false');
@@ -82,7 +82,8 @@ export const handleContinue = (id, setData) => {
     localStorage.setItem('skipAndRestScreen', 'false');
     console.log(id, "id z handleContinue")
 
-    getPlayerById(id, setData)
+g
+
     location.reload()
 }
 

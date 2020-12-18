@@ -54,7 +54,9 @@ const ActionScreen = () => {
                 <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}</li>
                 <li style={actionScreenListElements}>PUNKTY: {score}</li>
             </ul>
-            <div className={"actionInventory"} style={actionElement}>inwentarz:  </div>
+            <div className={"actionInventory"} style={actionElement}>inwentarz:
+
+            </div>
             <div className={"actionBuffs"} style={actionElement}>buffy i debuffy: </div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>

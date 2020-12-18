@@ -132,3 +132,22 @@ export const removePlayer = (id, successCallback) => {
         })
         .catch(err => console.log(err));
 };
+
+export const updatePlayerStats = (id, modifier, successCallback) => {
+    fetch(`${API}/players/${id}`, {
+        headers: {
+            // "Authorization": API_KEY,
+            "Content-Type": "application/json",
+        },
+        method: "PUT",
+        body: JSON.stringify(modifier)
+    })
+        .then(r => r.json())
+        .then(data => {
+            if (data.error === false && typeof successCallback === "function") {
+                successCallback(data.data);
+            }
+        })
+        .catch(err => console.log(err));
+};
+
