@@ -1,5 +1,5 @@
 import React from "react";
-import {newPlayerCreate, removePlayer} from "./fetch";
+import {newPlayerCreate, removePlayer, getLastPlayerFromList} from "./fetch";
 import {activateActionScreen} from "./viewControl";
 import {API} from "./variables";
 
@@ -7,18 +7,17 @@ export const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-export const getPlayers = (setArray) => {
-    fetch(`${API}/players`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            setArray(data);
-            console.log(setArray, " array z getPlayers");
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
+// export const getPlayers = (setArray) => {
+//     fetch(`${API}/players`)
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data);
+//             setArray(data);
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         });
+// }
 
 export const createNewPlayer = (nameData) => {
 
@@ -52,41 +51,45 @@ export const createNewPlayer = (nameData) => {
         endingNumber: 0
     };
     console.log(newPlr, "dane do wysłania po wpisaniu i submicie");
-    newPlayerCreate(newPlr)
-    activateActionScreen()
+    newPlayerCreate(newPlr);
+    activateActionScreen();
+    getLastPlayerFromList();
+
 }
 
 export const handleRemovePlayer = (id) => {
     removePlayer(id);
     location.reload()
 }
+// setPlayerName(data.players[data.players.length - 1].name); - ostatni z listy
 
-export const displayCurrentPlayer = (
-    setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
-    setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent
+
+export const displayCurrentPlayer = (id,
+                                     setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
+                                     setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent
 ) => {
-    fetch(`${API}/db`)
+    fetch(`${API}/players/${id}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.players);
-            console.log(data.players[data.players.length - 1].name, "imie ostatniego gracza");
-            setPlayerName(data.players[data.players.length - 1].name);
-            setCurrentModule(data.players[0].moduleName);
-            setWeek(data.players[0].week);
-            setDay(data.players[0].day);
-            setDayPart(data.players[0].dayPart);
+            console.log(data);
+            console.log(data.name, "imie ostatniego gracza");
+            setPlayerName(data.name);
+            setCurrentModule(data.moduleName);
+            setWeek(data.week);
+            setDay(data.day);
+            setDayPart(data.dayPart);
 
-            setBuffs(data.players[0].buffs);
-            setInventory(data.players[0].inventory);
+            setBuffs(data.buffs);
+            setInventory(data.inventory);
 
-            setHealth(data.players[0].health);
-            setAttitude(data.players[0].attitude);
-            setLuck(data.players[0].luck);
-            setSleep(data.players[0].sleep);
-            setScore(data.players[0].score);
-            setSkills(data.players[0].skills);
+            setHealth(data.health);
+            setAttitude(data.attitude);
+            setLuck(data.luck);
+            setSleep(data.sleep);
+            setScore(data.score);
+            setSkills(data.skills);
 
-            setEvent(data.players[0].event);
+            setEvent(data.event);
 
         })
         .catch(error => {

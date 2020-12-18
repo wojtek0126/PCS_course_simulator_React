@@ -28,7 +28,7 @@ const App = () => {
     }
     if (actionScreen === "true") {
         return (
-            <ActionScreen />
+            <ActionScreen ID={3}/>
         )
     }
     if (continueGameScreen === "true") {

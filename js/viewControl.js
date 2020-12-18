@@ -1,5 +1,5 @@
 import React from "react";
-import {getPlayerById} from "./fetch";
+import {getLastPlayerFromList, getPlayerById} from "./fetch";
 
 //main menu below
 export const startNewFromMenuScreen = () => {
@@ -84,4 +84,13 @@ export const handleContinue = (id, setData) => {
 
     getPlayerById(id, setData)
     location.reload()
+}
+
+const toActionScreenFromCreateNewPlayer = () => {
+    localStorage.setItem('welcomeScreen', 'false');
+    localStorage.setItem('continueGameScreen', 'false');
+    localStorage.setItem('createNewPlayerScreen', 'false');
+    localStorage.setItem('actionScreen', 'true');
+    localStorage.setItem('goToSchoolScreen', 'false');
+    localStorage.setItem('skipAndRestScreen', 'false');
 }

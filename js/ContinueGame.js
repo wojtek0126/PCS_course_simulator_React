@@ -1,20 +1,45 @@
-import React, {useState} from "react";
-import {backToMainMenu, handleContinue} from "./viewControl";
-import {getPlayers, handleRemovePlayer, displayCurrentPlayer} from "./functions";
+import React, {useState,useEffect} from "react";
+import {backToMainMenu, activateActionScreen} from "./viewControl";
+import {handleRemovePlayer, displayCurrentPlayer, ha} from "./functions";
+import {getPlayers} from "./fetch";
+
 
 const ContinueGame = () => {
     const [playersArr, setPlayersArr] = useState([]);
-    const [player, setPlayer] = useState([]);
+    const [playerId, setPlayerId] = useState([]);
 
-    getPlayers(setPlayersArr);
+    // const actionScreen = localStorage.getItem('actionScreen');
+    // console.log(actionScreen, ' action')
+
+    useEffect(() => {
+        getPlayers(setPlayersArr);
+
+    },[])
+    console.log(playerId, "playerId w continue game")
+    const data = (playerId);
+    console.log(data, " id do localstorage")
+    const saveId = (dataToSave) => {
+        localStorage.setItem('continuePlayerId', dataToSave)
+    }
+    saveId(data)
+
+    const handleContinue = (id) => {
+        playersArr.map((el) => {
+            console.log(el.id, "elem id from map");
+            console.log(el, "elem from map");
+            setPlayerId(id)
+
+            console.log(playerId, " player id po wcisnieciu continue w map");
+            console.log(playersArr, "playerId w continue game");
+            console.log(playerId, "playerId w continue game poza map");
 
 
-    playersArr.map((el) => {
-        console.log(el.id, "elem id from map")
-        console.log(el, "elem id from map")
-    })
+        })
+        activateActionScreen()
+    }
 
     return (
+
         <div className={"continueGameContainer"}>
             <p>Witamy ponownie</p>
             {
@@ -22,7 +47,7 @@ const ContinueGame = () => {
                     console.log(player.id, `gracz o id: ${player.id}`)
                     return (
                         <li key={player.id}>{player.name} {player.moduleName} {player.id}
-                            <button onClick={() => {handleContinue(player.id)}}>Kontynuuj grę</button>
+                            <button onClick={() => handleContinue(player.id)}>Kontynuuj grę</button>
                             <button onClick={() => {handleRemovePlayer(player.id)}}>Skasuj gracza</button>
                         </li>
                     )

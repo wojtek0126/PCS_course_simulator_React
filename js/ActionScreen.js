@@ -1,12 +1,20 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, handleContinue} from "./viewControl";
+import {getLastPlayerFromList, getPlayerById,getSelectedPlayerFromList} from "./fetch";
 import {displayCurrentPlayer} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements, actionElement} from "./styles/styles";
 
 // it loads form localstorage --> all new views need to be mounted in app.js and viewControl.js
-
+//get player by id instead of get last player from list, set id as props send it to both
+//create new game and continue game so it gives back players id for action screen
+//when player picks new game and sub data from name input by pressing start button it gets player id from created player
+//and returns props(player id) to action screen
 const ActionScreen = () => {
-    let [newPlayer, setNewPlayer] = useState([]);
+    const resultId = localStorage.getItem('continuePlayerId')
+    let [playerId, setPlayerId] = useState(resultId);
+
+    console.log(resultId, "........id w map w handlecontinue")
+   //load playerid from localstorage here
     const [playerName, setPlayerName] = useState("");
     const [health, setHealth] = useState("");
     const [sleep, setSleep] = useState("");
@@ -22,12 +30,17 @@ const ActionScreen = () => {
     const [week, setWeek] = useState("");
     const [event, setEvent] = useState("");
     const [attendance, setAttendance] = useState(100);
+    // console.log(playerId, " playerId z propsa");
 //dopisz id do displaycurrentplayera
     useEffect(() => {
-       displayCurrentPlayer(
+
+        setPlayerId(10)
+       getSelectedPlayerFromList(playerId,
            setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
            setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent
        )
+
+       console.log(playerId, " playerId w useeffect")
     }, [])
 
     return (
