@@ -7,6 +7,9 @@ export const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+export const buttonOnOff = (btn, value) => {
+    btn.style.display = value
+}
 // export const getPlayers = (setArray) => {
 //     fetch(`${API}/players`)
 //         .then(response => response.json())
@@ -95,5 +98,35 @@ export const displayCurrentPlayer = (id,
         .catch(error => {
             console.log(error);
         });
+}
+
+export const switchModuleForward = (currentDay, lastDay, weekNumber, setNewWeek) => {
+    const newWeek = (weekNumber + 1);
+    if (currentDay === lastDay) {
+        setNewWeek = newWeek;
+    }
+    // if (dayCounter === 10) {
+    //     weekFw = (weekNumber+ 1);
+    //     newModuleName = "Wstęp do baz danych";
+    // }
+    // if (dayCounter === 15) {
+    //     weekFw = (weekNumber+ 1);
+    //     newModuleName = "Wstęp do baz danych";
+    // }
+    // if (dayCounter === 20) {
+    //     weekFw = (weekNumber+ 1);
+    //     newModuleName = "Wstęp do baz danych";
+    // }
+    // if (dayCounter === 25) {
+    //     weekFw = (weekNumber+ 1);
+    //     newModuleName = "Wstęp do baz danych";
+    // }
+    // if (dayCounter === 30) {
+    //     newModuleName = "Wstęp do baz danych";
+    //     weekFw = (weekNumber+ 1);
+    // }
+    else {
+        setNewWeek = weekNumber;
+    }
 }
 

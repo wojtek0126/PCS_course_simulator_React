@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen, backToMainMenu, wentToSchool} from "./viewControl";
-import {getLastPlayerFromList, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {switchModuleForward} from "./functions";
+import {moduleNames} from "./variables";
 
-const GoToSchool = () => {
-    const resultId = localStorage.getItem('continuePlayerId')
+
+const DoHomework = () => {
+    const resultId = localStorage.getItem('continuePlayerId');
+
     let [playerId, setPlayerId] = useState(resultId);
     const [playerName, setPlayerName] = useState("");
     const [health, setHealth] = useState("");
@@ -20,39 +24,63 @@ const GoToSchool = () => {
     const [week, setWeek] = useState("");
     const [event, setEvent] = useState("");
     const [attendance, setAttendance] = useState(100);
-    console.log(playerId, " playerid w go to school");
+    // console.log(playerId, " playerid w go to school");
+
+
 
     useEffect(() => {
         getSelectedPlayerFromList(playerId,
-        setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
+            setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
             setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent);
+
+        // const moduleNamesArr1 = moduleNames;
+        // setCurrentModule(moduleNames[week-1]);
+        // console.log(week, " numer tygodnia w dohomework");
+        // console.log(moduleNames[week-1], " moduly namesy[od week]");
     },[]);
 
-    const wentToSchoolContinue = () => {
+    console.log(moduleNames[week-1], "mod");
+    console.log(week, "week111");
+    console.log(day, "day")
+    localStorage.setItem('weekNumber', week);
+
+
+    const doHomeworkContinue = () => {
+
         const sleepDown = parseInt(sleep - 1);
         const skillsUp = parseInt(skills + 1);
-        const scoreUp = parseInt(score + 5);
-        const setEvening = "wieczór";
-        // const dayForward = (day + 1);
-        // const dayPartForward = (dayPart + 1);
+        const scoreUp = parseInt(score + 10);
+        const setEvening = "poranek";
+        const dayForward = parseInt(day + 1);
+        const attitudeUp = parseInt(attitude + 1);
+        let dayCount = day;
+        let weekNumber = parseInt(week);
+        let moduleName = moduleNames[weekNumber-1];
 
-
+        if (dayCount == 5 || dayCount == 10 || dayCount == 15 || dayCount == 20 || dayCount == 25 || dayCount == 30) {
+            weekNumber++;
+            moduleName = moduleNames[weekNumber-1];
+        }
+        else {
+            weekNumber = parseInt(week);
+            moduleName = moduleNames[weekNumber-1];
+        }
 
         const modified = {
             id: playerId,
             name: playerName,
             score: scoreUp,
-            week: week,
-            day: day,
+            week: weekNumber,
+            day: dayForward,
             dayPart: setEvening,
-            moduleName: currentModule,
+            moduleName: moduleName,
             buffs: buffs,
             inventory: inventory,
             thirdChanceExam: false,
             health: health,
             sleep: sleepDown,
             skills: skillsUp,
-            attitude: attitude,
+            attitude: attitudeUp,
             luck: luck,
             attendance: attendance,
             examThirdChance: false,
@@ -66,23 +94,19 @@ const GoToSchool = () => {
             endingNumber: 0
         };
 
-        /**
-         * @function updateTask - API function
-         */
         updatePlayerStats(playerId, modified);
-        console.log(skills, sleep, score, " player stats w go to school");
         activateActionScreen();
     };
 
     return (
         <>
-        <h1>Poszedłeś do szkoły</h1>
-        <p>wiedza+1, sen -1, punkty + 5</p>
-            <button onClick={wentToSchoolContinue}>Wracaj ze szkoły do domu, losowanie eventu</button>
+            <h1>Po szkole odrabiasz pracę domową</h1>
+            <p>wiedza+1, sen -1, samopoczucie + 1, punkty + 10</p>
+            <button onClick={doHomeworkContinue}>Wracaj ze szkoły do domu, losowanie eventu</button>
             <button>Odwiedź sklep</button>
             <button onClick={backToMainMenu}>Powrót do menu</button>
-            </>
+        </>
     )
 }
 
-export default GoToSchool
+export default DoHomework

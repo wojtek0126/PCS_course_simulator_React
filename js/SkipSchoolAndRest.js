@@ -29,13 +29,13 @@ const SkipSchoolAndRest = () => {
     },[]);
 
     const skipSchoolContinue = () => {
-        const sleepUp = (sleep + 1);
-        const skillsDown = (skills - 1);
-        const healthUp = (health + 1);
-        const attitudeDown = (attitude - 1);
-        const scoreUp2 = (score + 2);
+        const sleepUp = parseInt(sleep + 1);
+        const skillsDown = parseInt(skills - 1);
+        const healthUp = parseInt(health + 1);
+        const attitudeDown = parseInt(attitude - 1);
+        const scoreUp2 = parseInt(score + 2);
         const setEvening = "wieczór";
-        const attendanceDown = (attendance - 3);
+        const attendanceDown = parseInt(attendance - 3);
         // const dayForward = (day + 1);
 
         const modifiy = {

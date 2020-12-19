@@ -10,6 +10,7 @@ export const startNewFromMenuScreen = () => {
     localStorage.setItem('createNewPlayerScreen', 'true');
     localStorage.setItem('actionScreen', 'false');
     localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
 
     location.reload()
 
@@ -23,6 +24,7 @@ export const continueFromMenuScreen = () => {
     localStorage.setItem('createNewPlayerScreen', 'false');
     localStorage.setItem('actionScreen', 'false');
     localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
 
     location.reload()
 }
@@ -34,6 +36,7 @@ export const backToMainMenu = () => {
     localStorage.setItem('createNewPlayerScreen', 'false');
     localStorage.setItem('actionScreen', 'false');
     localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
 
     location.reload()
 }
@@ -45,6 +48,7 @@ export const activateActionScreen = () => {
     localStorage.setItem('createNewPlayerScreen', 'false');
     localStorage.setItem('actionScreen', 'true');
     localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
 
     location.reload()
 }
@@ -56,6 +60,7 @@ export const goToSchool = () => {
     localStorage.setItem('actionScreen', 'false');
     localStorage.setItem('welcomeScreen', 'false');
     localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
 
     location.reload()
 
@@ -64,6 +69,7 @@ export const goToSchool = () => {
 export const skipSchoolAndRest = () => {
     localStorage.setItem('skipAndRestScreen', 'true');
     localStorage.setItem('goToSchoolScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
     localStorage.setItem('continueGameScreen', 'false');
     localStorage.setItem('createNewPlayerScreen', 'false');
     localStorage.setItem('actionScreen', 'false');
@@ -73,6 +79,20 @@ export const skipSchoolAndRest = () => {
 
 }
 
+export const doHomework = () => {
+    localStorage.setItem('doHomeworkScreen', 'true');
+    localStorage.setItem('goToSleepScreen', 'false');
+    localStorage.setItem('welcomeScreen', 'false');
+    localStorage.setItem('continueGameScreen', 'false');
+    localStorage.setItem('createNewPlayerScreen', 'false');
+    localStorage.setItem('actionScreen', 'false');
+    localStorage.setItem('goToSchoolScreen', 'false');
+    localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('skipAndRestScreen', 'false');
+
+    location.reload()
+}
+
 export const wentToSchool = (id) => {
     localStorage.setItem('welcomeScreen', 'false');
     localStorage.setItem('continueGameScreen', 'false');
@@ -80,12 +100,22 @@ export const wentToSchool = (id) => {
     localStorage.setItem('actionScreen', 'true');
     localStorage.setItem('goToSchoolScreen', 'false');
     localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
     console.log(id, "id z handleContinue")
-
-g
-
     location.reload()
 }
+
+// export const didHomework = (id) => {
+//     localStorage.setItem('goToSleepScreen', 'true');
+//     localStorage.setItem('welcomeScreen', 'false');
+//     localStorage.setItem('continueGameScreen', 'false');
+//     localStorage.setItem('createNewPlayerScreen', 'false');
+//     localStorage.setItem('actionScreen', 'false');
+//     localStorage.setItem('goToSchoolScreen', 'false');
+//     localStorage.setItem('skipAndRestScreen', 'false');
+//     console.log(id, "id z handleContinue")
+//     location.reload()
+// }
 
 const toActionScreenFromCreateNewPlayer = () => {
     localStorage.setItem('welcomeScreen', 'false');
@@ -94,4 +124,5 @@ const toActionScreenFromCreateNewPlayer = () => {
     localStorage.setItem('actionScreen', 'true');
     localStorage.setItem('goToSchoolScreen', 'false');
     localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
 }
