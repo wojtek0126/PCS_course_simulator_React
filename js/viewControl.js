@@ -50,7 +50,7 @@ export const activateActionScreen = () => {
     localStorage.setItem('skipAndRestScreen', 'false');
     localStorage.setItem('goToSleepScreen', 'false');
 
-    location.reload()
+    // location.reload()
 }
 
 export const goToSchool = () => {

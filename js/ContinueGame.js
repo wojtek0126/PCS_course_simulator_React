@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import {backToMainMenu, activateActionScreen} from "./viewControl";
-import {handleRemovePlayer, displayCurrentPlayer, ha} from "./functions";
+import {handleRemovePlayer, displayCurrentPlayer, saveId} from "./functions";
 import {getPlayers} from "./fetch";
 
 
@@ -15,12 +15,10 @@ const ContinueGame = () => {
         getPlayers(setPlayersArr);
 
     },[])
-    console.log(playerId, "playerId w continue game")
+    console.log(playerId, "playerId w continue game");
     const data = (playerId);
-    console.log(data, " id do localstorage")
-    const saveId = (dataToSave) => {
-        localStorage.setItem('continuePlayerId', dataToSave)
-    }
+    console.log(data, " id do localstorage");
+
     saveId(data)
 
     const handleContinue = (id) => {
@@ -36,6 +34,7 @@ const ContinueGame = () => {
 
         })
         activateActionScreen()
+        location.reload()
     }
 
     return (

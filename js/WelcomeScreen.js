@@ -51,15 +51,18 @@ const WelcomeScreen = () => {
     return (
         <>
         <div className={"menuScreen"} style={menuContainer}>
-            <h1 style={menuTitle}>pythonator</h1>
-            <p style={menuTitleSmall}>IT course simulator</p>
+            <h1 style={menuTitle}>Symulator kursu IT</h1>
+            <p style={menuTitleSmall}>Python dla początkujących</p>
             <div style={menuOptions}>
+                <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Zaloguj się</a>
                 <a href="" className={"menuLink1"} onClick={startNewFromMenuScreen} onMouseEnter={link1Hovered} onMouseOut={link1Out} style={links}>Nowa gra</a>
                 <a href="" className={"menuLink2"} onClick={continueFromMenuScreen} onMouseEnter={link2Hovered} onMouseOut={link2Out} style={links}>Kontynuuj</a>
-                <a href="" className={"menuLink3"} onMouseEnter={link3Hovered} onMouseOut={link3Out} style={links}>Instrukcje</a>
+{/* plan to add some tips, code fragments, useful links, youtube channel names, trophies, collectibles etc*/}
+                <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Twoje materiały(po zalogowaniu)</a>
                 <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Tabela wyników</a>
+                <a href="" className={"menuLink3"} onMouseEnter={link3Hovered} onMouseOut={link3Out} style={links}>Instrukcje</a>
                 <a href="" className={"menuLink5" } onMouseEnter={link5Hovered} onMouseOut={link5Out} style={links}>
-                    aid author and charities</a>
+                    Pomagaj ludziom i przyrodzie</a>
             </div>
         </div>
             </>

@@ -72,6 +72,8 @@ const GoToSchool = () => {
         updatePlayerStats(playerId, modified);
         console.log(skills, sleep, score, " player stats w go to school");
         activateActionScreen();
+        location.reload();
+
     };
 
     return (

@@ -3,8 +3,25 @@ import {newPlayerCreate, removePlayer, getLastPlayerFromList} from "./fetch";
 import {activateActionScreen} from "./viewControl";
 import {API} from "./variables";
 
+
 export const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+//replace all localstorage lines with these two below
+export const saveData = (dataToSave, dataValueToSave) => {
+    localStorage.setItem(dataToSave, dataValueToSave);
+}
+
+export const getData = (dataName) => {
+    localStorage.getItem(dataName);
+}
+
+export const saveId = (dataToSave) => {
+    localStorage.setItem('continuePlayerId', dataToSave)
+}
+
+export const loadId = () => {
+    return localStorage.getItem('continuePlayerId');
 }
 
 export const buttonOnOff = (btn, value) => {
@@ -24,20 +41,17 @@ export const buttonOnOff = (btn, value) => {
 
 export const createNewPlayer = (nameData) => {
 
-    const random = (min, max) => {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
     const newPlr = {
         name: nameData,
         score: 0,
         week: 1,
         day: 1,
         dayPart: "poranek",
-        moduleName: "Wprowadzenie do pythona",
+        moduleName: "Wstęp do pythona",
         buffs: "none",
         inventory: "empty",
         thirdChanceExam: false,
-        health: random(2, 8),
+        health: 10,
         sleep: random(2, 8),
         skills: random(2, 8),
         attitude: random(2, 8),
@@ -53,10 +67,15 @@ export const createNewPlayer = (nameData) => {
         ending: false,
         endingNumber: 0
     };
-    console.log(newPlr, "dane do wysłania po wpisaniu i submicie");
     newPlayerCreate(newPlr);
+    getLastPlayerFromList()
+    // location.reload();
+    //it also saves player id to localstorage in getLastPlayerFromList below
+    // getLastPlayerFromList()
     activateActionScreen();
-    getLastPlayerFromList();
+
+    // getLastPlayerFromList();
+
 
 }
 

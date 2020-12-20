@@ -96,6 +96,7 @@ const DoHomework = () => {
 
         updatePlayerStats(playerId, modified);
         activateActionScreen();
+        location.reload();
     };
 
     return (

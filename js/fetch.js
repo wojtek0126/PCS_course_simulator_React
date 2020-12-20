@@ -1,6 +1,7 @@
 import React from "react";
 // json-server --watch db.json
 import {API} from "./variables";
+import {saveData} from "./functions";
 
 export const getPlayers = (setArray) => {
     fetch(`${API}/players`)
@@ -33,37 +34,39 @@ export const getPlayerById = (id, setPlayer,successCallback) => {
         .catch(err => console.log(err));
 };
 
-export const getLastPlayerFromList = (
-    setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
-    setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent
-) => {
+export const getLastPlayerFromList = () => {
+location.reload()
     fetch(`${API}/db`)
         .then(response => response.json())
         .then(data => {
             console.log(data.players);
             console.log(data.players[data.players.length - 1].name, "imie ostatniego gracza");
-            setPlayerName(data.players[data.players.length - 1].name);
-            setCurrentModule(data.players[0].moduleName);
-            setWeek(data.players[0].week);
-            setDay(data.players[0].day);
-            setDayPart(data.players[0].dayPart);
+            const setId = parseInt(data.players[data.players.length - 1].id);
 
-            setBuffs(data.players[0].buffs);
-            setInventory(data.players[0].inventory);
-
-            setHealth(data.players[0].health);
-            setAttitude(data.players[0].attitude);
-            setLuck(data.players[0].luck);
-            setSleep(data.players[0].sleep);
-            setScore(data.players[0].score);
-            setSkills(data.players[0].skills);
-
-            setEvent(data.players[0].event);
-
+            // setPlayerName(data.players[data.players.length - 1].name);
+            // setCurrentModule(data.players[0].moduleName);
+            // setWeek(data.players[0].week);
+            // setDay(data.players[0].day);
+            // setDayPart(data.players[0].dayPart);
+            //
+            // setBuffs(data.players[0].buffs);
+            // setInventory(data.players[0].inventory);
+            //
+            // setHealth(data.players[0].health);
+            // setAttitude(data.players[0].attitude);
+            // setLuck(data.players[0].luck);
+            // setSleep(data.players[0].sleep);
+            // setScore(data.players[0].score);
+            // setSkills(data.players[0].skills);
+            //
+            // setEvent(data.players[0].event);
+            saveData('continuePlayerId', setId);
+            console.log(setId, " setId w getLastPlayerFromList")
         })
         .catch(error => {
             console.log(error);
         });
+
 }
 
 export const getSelectedPlayerFromList = (id,

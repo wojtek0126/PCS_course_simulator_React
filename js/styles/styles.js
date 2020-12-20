@@ -7,7 +7,7 @@ export const objectFontResize = (element, newSize) => {
 
 export const menuTitle = {
     textTransform: "uppercase",
-    fontSize: "5em"
+    fontSize: "3em"
 }
 
 export const menuTitleSmall = {

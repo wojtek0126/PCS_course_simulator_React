@@ -24,8 +24,6 @@ const CreateNewPlayer = () => {
     // const [event, setEvent] = useState("");
     // const [attendance, setAttendance] = useState(100);
 
-
-
     return (
             <div className={"startGameContainer"}>
                 <p>Witaj graczu. Podaj swoje imię ,aby rozpocząć</p>
