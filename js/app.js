@@ -7,6 +7,7 @@ import ContinueGame from "./ContinueGame";
 import GoToSchool from "./GoToSchool";
 import SkipSchoolAndRest from "./SkipSchoolAndRest";
 import DoHomework from "./DoHomework";
+import SuccessPlayerCreate from "./SuccessPlayerCreate";
 // localStorage.setItem('actionScreen', 'true');
 const App = () => {
 
@@ -24,6 +25,8 @@ const App = () => {
     console.log(skipAndRestScreen, ' sleep instead of school');
     const doHomeworkScreen = localStorage.getItem('doHomeworkScreen');
     console.log(skipAndRestScreen, ' do homework');
+    const successNewPlayerCreateScreen = localStorage.getItem('successNewPlayerCreateScreen');
+    console.log(successNewPlayerCreateScreen, ' success create new player');
 
     if (createNewPlayerScreen === "true") {
         return (
@@ -32,7 +35,7 @@ const App = () => {
     }
     if (actionScreen === "true") {
         return (
-            <ActionScreen ID={3}/>
+            <ActionScreen />
         )
     }
     if (continueGameScreen === "true") {
@@ -45,6 +48,11 @@ const App = () => {
             <WelcomeScreen />
         )
     }
+    if (doHomeworkScreen === "true") {
+        return (
+            <DoHomework />
+        )
+    }
     if (goToSchoolScreen === "true") {
         return (
             <GoToSchool />
@@ -55,9 +63,9 @@ const App = () => {
             <SkipSchoolAndRest />
         )
     }
-    if (doHomeworkScreen === "true") {
+    if (successNewPlayerCreateScreen === "true") {
         return (
-            <DoHomework />
+            <SuccessPlayerCreate />
         )
     }
     else {

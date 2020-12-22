@@ -17,24 +17,20 @@ const ContinueGame = () => {
     },[])
     console.log(playerId, "playerId w continue game");
     const data = (playerId);
-    console.log(data, " id do localstorage");
-
-    saveId(data)
+    saveId(data);
+    console.log(data, " id zapisane do localstorage");
 
     const handleContinue = (id) => {
         playersArr.map((el) => {
-            console.log(el.id, "elem id from map");
-            console.log(el, "elem from map");
+            // console.log(el.id, "elem id from map");
+            // console.log(el, "elem from map");
             setPlayerId(id)
 
-            console.log(playerId, " player id po wcisnieciu continue w map");
-            console.log(playersArr, "playerId w continue game");
-            console.log(playerId, "playerId w continue game poza map");
-
-
+            // console.log(playerId, " player id po wcisnieciu continue w map");
+            // console.log(playersArr, "playerId w continue game");
+            // console.log(playerId, "playerId w continue game poza map");
         })
         activateActionScreen()
-        location.reload()
     }
 
     return (

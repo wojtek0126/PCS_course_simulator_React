@@ -35,14 +35,14 @@ export const getPlayerById = (id, setPlayer,successCallback) => {
 };
 
 export const getLastPlayerFromList = () => {
-location.reload()
-    fetch(`${API}/db`)
+
+    fetch(`${API}/players/`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.players);
-            console.log(data.players[data.players.length - 1].name, "imie ostatniego gracza");
-            const setId = parseInt(data.players[data.players.length - 1].id);
-
+            console.log(data);
+            console.log(data[data.length - 1].name, "imie ostatniego gracza");
+            let idSet = data[data.length - 1].id;
+            localStorage.setItem("continuePlayerId", idSet);
             // setPlayerName(data.players[data.players.length - 1].name);
             // setCurrentModule(data.players[0].moduleName);
             // setWeek(data.players[0].week);
@@ -60,13 +60,12 @@ location.reload()
             // setSkills(data.players[0].skills);
             //
             // setEvent(data.players[0].event);
-            saveData('continuePlayerId', setId);
-            console.log(setId, " setId w getLastPlayerFromList")
+            // saveData('continuePlayerId', setId);
         })
         .catch(error => {
             console.log(error);
         });
-
+    location.reload();
 }
 
 export const getSelectedPlayerFromList = (id,
@@ -118,6 +117,7 @@ export const newPlayerCreate = (playerData, successCallback) => {
             }
         })
         .catch(err => console.log(err));
+    location.reload();
 };
 
 export const removePlayer = (id, successCallback) => {

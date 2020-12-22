@@ -80,7 +80,16 @@ const ActionScreen = () => {
                 <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}</li>
                 <li style={actionScreenListElements}>PUNKTY: {score}</li>
             </ul>
-            <div className={"actionInventory"} style={actionElement}>inwentarz:
+            <div className={"actionInventory"} style={actionElement} style={{
+                display: "flex",
+                backgroundColor: "silver",
+                padding: 10,
+                border: "2px dotted blue"
+            }}>inwentarz: <a href="" style={{
+                display: "flex",
+                textDecoration: "none",
+                paddingLeft: 10,
+            }}>{inventory}</a>
 
             </div>
             <div className={"actionBuffs"} style={actionElement}>buffy i debuffy: </div>

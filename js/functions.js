@@ -1,7 +1,8 @@
 import React from "react";
 import {newPlayerCreate, removePlayer, getLastPlayerFromList} from "./fetch";
-import {activateActionScreen} from "./viewControl";
+import {activateActionScreen, successPlayerCreateScreen} from "./viewControl";
 import {API} from "./variables";
+import SuccessPlayerCreate from "./SuccessPlayerCreate";
 
 
 export const random = (min, max) => {
@@ -42,6 +43,7 @@ export const buttonOnOff = (btn, value) => {
 export const createNewPlayer = (nameData) => {
 
     const newPlr = {
+        id: "",
         name: nameData,
         score: 0,
         week: 1,
@@ -49,7 +51,7 @@ export const createNewPlayer = (nameData) => {
         dayPart: "poranek",
         moduleName: "Wstęp do pythona",
         buffs: "none",
-        inventory: "empty",
+        inventory: "identyfikator",
         thirdChanceExam: false,
         health: 10,
         sleep: random(2, 8),
@@ -68,11 +70,10 @@ export const createNewPlayer = (nameData) => {
         endingNumber: 0
     };
     newPlayerCreate(newPlr);
-    getLastPlayerFromList()
     // location.reload();
     //it also saves player id to localstorage in getLastPlayerFromList below
     // getLastPlayerFromList()
-    activateActionScreen();
+    successPlayerCreateScreen()
 
     // getLastPlayerFromList();
 
