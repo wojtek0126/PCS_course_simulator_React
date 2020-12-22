@@ -102,10 +102,10 @@ const DoHomework = () => {
     return (
         <>
             <h1>Po szkole odrabiasz pracę domową</h1>
-            <p>wiedza+1, sen -1, samopoczucie + 1, punkty + 10</p>
-            <button onClick={doHomeworkContinue}>Wracaj ze szkoły do domu, losowanie eventu</button>
-            <button>Odwiedź sklep</button>
-            <button onClick={backToMainMenu}>Powrót do menu</button>
+            <p>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
+            <button onClick={doHomeworkContinue}>Kończysz pracować, losowanie eventu</button>
+            <button>odwiedź sklep</button>
+            <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )
 }

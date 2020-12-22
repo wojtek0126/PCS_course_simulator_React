@@ -76,8 +76,8 @@ const SkipSchoolAndRest = () => {
             <h1>Odpoczywasz w domu</h1>
             <p>motywacja -1, wiedza -1, zdrowie +1, sen +1, punkty +2</p>
             <button onClick={skipSchoolContinue}>Kończysz odpoczynek, losowanie eventu</button>
-            <button>Odwiedź sklep</button>
-            <button onClick={backToMainMenu}>Powrót do menu</button>
+            <button>odwiedź sklep</button>
+            <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )
 }

@@ -10,6 +10,9 @@ import DoHomework from "./DoHomework";
 import SuccessPlayerCreate from "./SuccessPlayerCreate";
 import GoSleepEvening from "./GoSleepEvening";
 import GoParty from "./GoParty";
+import GameOver from "./GameOver";
+import ExamTime from "./ExamTime";
+import ExtraExamTime from "./ExtraExamScreen";
 // localStorage.setItem('actionScreen', 'true');
 const App = () => {
 
@@ -33,6 +36,12 @@ const App = () => {
     console.log(goSleepEveningScreen, ' going sleep evening screen');
     const goPartyScreen = localStorage.getItem('goPartyScreen');
     console.log(goPartyScreen, ' going party screen');
+    const gameOverScreen = localStorage.getItem('gameOverScreen');
+    console.log(gameOverScreen, ' game over screen');
+    const examScreen = localStorage.getItem('examScreen');
+    console.log(examScreen, ' exam screen');
+    const extraExamScreen = localStorage.getItem('extraExamScreen');
+    console.log(extraExamScreen, ' extra exam screen');
 
 
     if (createNewPlayerScreen === "true") {
@@ -83,6 +92,21 @@ const App = () => {
     if (goPartyScreen === "true") {
         return (
             <GoParty />
+        )
+    }
+    if (gameOverScreen === "true") {
+        return (
+            <GameOver />
+        )
+    }
+    if (examScreen === "true") {
+        return (
+            <ExamTime />
+        )
+    }
+    if (extraExamScreen === "true") {
+        return (
+            <ExtraExamTime />
         )
     }
     else {

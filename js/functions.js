@@ -28,6 +28,16 @@ export const loadId = () => {
 export const buttonOnOff = (btn, value) => {
     btn.style.display = value
 }
+
+export const DomElementOnOff = (element, value) => {
+    if (value == "on") {
+        element.style.display = "block";
+    }
+    else {
+        element.style.display = "none";
+    }
+}
+
 // export const getPlayers = (setArray) => {
 //     fetch(`${API}/players`)
 //         .then(response => response.json())

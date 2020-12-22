@@ -108,10 +108,10 @@ const GoParty = () => {
     return (
         <>
             <h1>Idziesz wieczorem na imprezę</h1>
-            <p>sen -2, możliwość utraty zdrowia 0 -5, możliwość utraty wiedzy do -1, samopoczucie od -1 do + 1, punkty + 12</p>
-            <button onClick={goPartyContinue}>Wracaj ze szkoły do domu, losowanie eventu</button>
-            <button>Odwiedź sklep</button>
-            <button onClick={backToMainMenu}>Powrót do menu</button>
+            <p>sen - 2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, samopoczucie od - 1 do + 1, punkty + 12</p>
+            <button onClick={goPartyContinue}>Wracasz z imprezy, losowanie eventu</button>
+            <button>odwiedź sklep</button>
+            <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )
 }

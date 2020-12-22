@@ -20,7 +20,7 @@ const GoToSchool = () => {
     const [week, setWeek] = useState("");
     const [event, setEvent] = useState("");
     const [attendance, setAttendance] = useState(100);
-    console.log(playerId, " playerid w go to school");
+    // console.log(playerId, " playerid w go to school");
 
     useEffect(() => {
         getSelectedPlayerFromList(playerId,
@@ -70,7 +70,7 @@ const GoToSchool = () => {
          * @function updateTask - API function
          */
         updatePlayerStats(playerId, modified);
-        console.log(skills, sleep, score, " player stats w go to school");
+        // console.log(skills, sleep, score, " player stats w go to school");
         activateActionScreen();
         location.reload();
 
@@ -79,10 +79,10 @@ const GoToSchool = () => {
     return (
         <>
         <h1>Poszedłeś do szkoły</h1>
-        <p>wiedza+1, sen -1, punkty + 5</p>
-            <button onClick={wentToSchoolContinue}>Wracaj ze szkoły do domu, losowanie eventu</button>
-            <button>Odwiedź sklep</button>
-            <button onClick={backToMainMenu}>Powrót do menu</button>
+        <p>wiedza+1, sen - 1, punkty + 5</p>
+            <button onClick={wentToSchoolContinue}>Wracasz ze szkoły do domu, losowanie eventu</button>
+            <button>odwiedź sklep</button>
+            <button onClick={backToMainMenu}>powrót do menu</button>
             </>
     )
 }

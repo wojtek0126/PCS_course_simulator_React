@@ -104,8 +104,8 @@ const GoSleepEvening = () => {
             <h1>Po szkole idziesz spać</h1>
             <p>sen + 1, zdrowie + 1, punkty + 4</p>
             <button onClick={goSleepEveningContinue}>Wracaj ze szkoły do domu, losowanie eventu</button>
-            <button>Odwiedź sklep</button>
-            <button onClick={backToMainMenu}>Powrót do menu</button>
+            <button>odwiedź sklep</button>
+            <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )
 }
