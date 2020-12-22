@@ -8,6 +8,8 @@ import GoToSchool from "./GoToSchool";
 import SkipSchoolAndRest from "./SkipSchoolAndRest";
 import DoHomework from "./DoHomework";
 import SuccessPlayerCreate from "./SuccessPlayerCreate";
+import GoSleepEvening from "./GoSleepEvening";
+import GoParty from "./GoParty";
 // localStorage.setItem('actionScreen', 'true');
 const App = () => {
 
@@ -27,6 +29,11 @@ const App = () => {
     console.log(skipAndRestScreen, ' do homework');
     const successNewPlayerCreateScreen = localStorage.getItem('successNewPlayerCreateScreen');
     console.log(successNewPlayerCreateScreen, ' success create new player');
+    const goSleepEveningScreen = localStorage.getItem('goSleepEveningScreen');
+    console.log(goSleepEveningScreen, ' going sleep evening screen');
+    const goPartyScreen = localStorage.getItem('goPartyScreen');
+    console.log(goPartyScreen, ' going party screen');
+
 
     if (createNewPlayerScreen === "true") {
         return (
@@ -66,6 +73,16 @@ const App = () => {
     if (successNewPlayerCreateScreen === "true") {
         return (
             <SuccessPlayerCreate />
+        )
+    }
+    if (goSleepEveningScreen === "true") {
+        return (
+            <GoSleepEvening />
+        )
+    }
+    if (goPartyScreen === "true") {
+        return (
+            <GoParty />
         )
     }
     else {

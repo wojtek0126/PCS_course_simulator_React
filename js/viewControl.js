@@ -13,7 +13,8 @@ export const startNewFromMenuScreen = () => {
     localStorage.setItem('skipAndRestScreen', 'false');
     localStorage.setItem('goToSleepScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
+localStorage.setItem('goPartyScreen', 'false');
     location.reload()
 
 }
@@ -29,7 +30,8 @@ export const continueFromMenuScreen = () => {
     localStorage.setItem('skipAndRestScreen', 'false');
     localStorage.setItem('goToSleepScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
+localStorage.setItem('goPartyScreen', 'false');
     location.reload()
 }
 
@@ -43,7 +45,8 @@ export const backToMainMenu = () => {
     localStorage.setItem('skipAndRestScreen', 'false');
     localStorage.setItem('goToSleepScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
+localStorage.setItem('goPartyScreen', 'false');
     location.reload()
 }
 
@@ -56,9 +59,9 @@ export const activateActionScreen = () => {
     localStorage.setItem('continueGameScreen', 'false');
     localStorage.setItem('createNewPlayerScreen', 'false');
     localStorage.setItem('actionScreen', 'true');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goPartyScreen', 'false');
     location.reload()
 }
 
@@ -72,7 +75,8 @@ export const goToSchool = () => {
     localStorage.setItem('actionScreen', 'false');
     localStorage.setItem('welcomeScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
+localStorage.setItem('goPartyScreen', 'false');
     location.reload()
 
 }
@@ -87,7 +91,8 @@ export const skipSchoolAndRest = () => {
     localStorage.setItem('actionScreen', 'false');
     localStorage.setItem('welcomeScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
+localStorage.setItem('goPartyScreen', 'false');
     location.reload()
 
 }
@@ -101,9 +106,9 @@ export const doHomework = () => {
     localStorage.setItem('continueGameScreen', 'false');
     localStorage.setItem('createNewPlayerScreen', 'false');
     localStorage.setItem('actionScreen', 'false');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goPartyScreen', 'false');
     location.reload()
 }
 
@@ -117,7 +122,8 @@ export const wentToSchool = (id) => {
     localStorage.setItem('goToSleepScreen', 'false');
     localStorage.setItem('doHomeworkScreen', 'false');
     localStorage.setItem('successNewPlayerCreateScreen', 'false');
-
+localStorage.setItem('goSleepEveningScreen', 'false');
+localStorage.setItem('goPartyScreen', 'false');
     console.log(id, "id z handleContinue")
     location.reload()
 }
@@ -132,6 +138,8 @@ export const wentToSchool = (id) => {
 //     localStorage.setItem('skipAndRestScreen', 'false');
 // localStorage.setItem('doHomeworkScreen', 'false');
 // localStorage.setItem('successNewPlayerCreateScreen', 'false');
+// localStorage.setItem('goPartyScreen', 'false');
+// localStorage.setItem('goSleepEveningScreen', 'false');
 //     console.log(id, "id z handleContinue")
 //     location.reload()
 // }
@@ -145,7 +153,9 @@ export const wentToSchool = (id) => {
 //     localStorage.setItem('skipAndRestScreen', 'false');
 //     localStorage.setItem('goToSleepScreen', 'false');
 // localStorage.setItem('doHomeworkScreen', 'false');
+// localStorage.setItem('goSleepEveningScreen', 'false');
 // localStorage.setItem('successNewPlayerCreateScreen', 'false');
+// localStorage.setItem('goPartyScreen', 'false');
 //     getLastPlayerFromList()
 // }
 
@@ -159,5 +169,39 @@ export const successPlayerCreateScreen = () => {
     localStorage.setItem('doHomeworkScreen', 'false');
     localStorage.setItem('skipAndRestScreen', 'false');
     localStorage.setItem('goToSleepScreen', 'false');
+    localStorage.setItem('goSleepEveningScreen', 'false');
+   localStorage.setItem('goPartyScreen', 'false');
+}
+
+export const goSleepEvening = () => {
+    localStorage.setItem('successNewPlayerCreateScreen', 'false');
+    localStorage.setItem('welcomeScreen', 'false');
+    localStorage.setItem('continueGameScreen', 'false');
+    localStorage.setItem('createNewPlayerScreen', 'false');
+    localStorage.setItem('actionScreen', 'false');
+    localStorage.setItem('goToSchoolScreen', 'false');
+    localStorage.setItem('doHomeworkScreen', 'false');
+    localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
+    localStorage.setItem('goSleepEveningScreen', 'true');
+    localStorage.setItem('goPartyScreen', 'false');
+    location.reload()
+
+}
+
+export const goPartyScreen = () => {
+    localStorage.setItem('goPartyScreen', 'true');
+    localStorage.setItem('successNewPlayerCreateScreen', 'false');
+    localStorage.setItem('welcomeScreen', 'false');
+    localStorage.setItem('continueGameScreen', 'false');
+    localStorage.setItem('createNewPlayerScreen', 'false');
+    localStorage.setItem('actionScreen', 'false');
+    localStorage.setItem('goToSchoolScreen', 'false');
+    localStorage.setItem('doHomeworkScreen', 'false');
+    localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
+    localStorage.setItem('goSleepEveningScreen', 'false');
+
+    location.reload()
 
 }

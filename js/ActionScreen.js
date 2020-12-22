@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework} from "./viewControl";
+import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening, goPartyScreen} from "./viewControl";
 import {getSelectedPlayerFromList, getLastPlayerFromList} from "./fetch";
 import {buttonOnOff, getData, loadId} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements, actionElement} from "./styles/styles";
@@ -97,8 +97,8 @@ const ActionScreen = () => {
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
             <button className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>
             <button className={"doHomeworkButton"} onClick={doHomework}>zrób pracę domową</button>
-            <button className={"goSleepButton"}>idź spać</button>
-            <button className={"goPartyButton"}>idź na imprezę</button>
+            <button className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
+            <button className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
             <button className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
         </div>
     )
