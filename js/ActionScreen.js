@@ -54,6 +54,11 @@ const ActionScreen = () => {
     const takeExamBtn = document.querySelector(".takeExamButton");
     const takeExtraExamButton = document.querySelector(".takeExtraExamButton");
     const useItemButton = document.querySelector(".useItemButton");
+    const endGameProjectButton = document.querySelector(".startEndGameProjectButton");
+
+    if (week > 6) {
+       buttonOnOff(endGameProjectButton, "inline");
+    }
 
     if (dayPart === "poranek") {
         // console.log("jest poranek")
@@ -66,6 +71,7 @@ const ActionScreen = () => {
             console.log("Jest czas egzaminu");
             buttonOnOff(takeExamBtn, "inline");
             buttonOnOff(takeExtraExamButton, "none");
+            buttonOnOff(goSchoolBtn, "none");
         }
         else {
             console.log("Jest czas nauki");
@@ -83,6 +89,8 @@ const ActionScreen = () => {
         buttonOnOff(takeExamBtn, "none");
         buttonOnOff(takeExtraExamButton, "none");
     }
+
+
 // exam day and buttons
 
 
@@ -120,6 +128,9 @@ const ActionScreen = () => {
             <button className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
             <button className={"takeExamButton"}>podejdź do egzaminu</button>
             <button className={"takeExtraExamButton"}>podejdź do poprawki</button>
+            <button className={"startEndGameProjectButton"} style={{
+                display: "none"
+            }}>zacznij projekt końcowy</button>
             <button className={"useItemButton"}>użyj przedmiotu</button>
             <button className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
         </div>

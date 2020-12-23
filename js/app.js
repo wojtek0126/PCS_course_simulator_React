@@ -13,6 +13,12 @@ import GoParty from "./GoParty";
 import GameOver from "./GameOver";
 import ExamTime from "./ExamTime";
 import ExtraExamTime from "./ExtraExamScreen";
+import ExamResult from "./ExamResult";
+import SkipExam from "./SkipExam";
+import EventDraw from "./EventDraw";
+import Shop from "./Shop";
+import FinalProject from "./FinalProject";
+import FinalProjectResult from "./FinalProjectResult";
 // localStorage.setItem('actionScreen', 'true');
 const App = () => {
 
@@ -42,6 +48,18 @@ const App = () => {
     console.log(examScreen, ' exam screen');
     const extraExamScreen = localStorage.getItem('extraExamScreen');
     console.log(extraExamScreen, ' extra exam screen');
+    const examResultScreen = localStorage.getItem('examResultScreen');
+    console.log(examResultScreen, ' exam result screen');
+    const skipExamScreen = localStorage.getItem('skipExamScreen');
+    console.log(skipExamScreen, ' skip exam screen');
+    const eventDrawScreen = localStorage.getItem('eventDrawScreen');
+    console.log(eventDrawScreen, ' event draw screen');
+    const shopScreen = localStorage.getItem('shopScreen');
+    console.log(shopScreen, ' shop screen');
+    const finalProjectScreen = localStorage.getItem('finalProjectScreen');
+    console.log(finalProjectScreen, ' final project screen');
+    const finalProjectResultScreen = localStorage.getItem('finalProjectResultScreen');
+    console.log(finalProjectResultScreen, ' final project result screen');
 
 
     if (createNewPlayerScreen === "true") {
@@ -107,6 +125,36 @@ const App = () => {
     if (extraExamScreen === "true") {
         return (
             <ExtraExamTime />
+        )
+    }
+    if (examResultScreen === "true") {
+        return (
+            <ExamResult />
+        )
+    }
+    if (skipExamScreen === "true") {
+        return (
+            <SkipExam />
+        )
+    }
+    if (eventDrawScreen === "true") {
+        return (
+            <EventDraw />
+        )
+    }
+    if (shopScreen === "true") {
+        return (
+            <Shop />
+        )
+    }
+    if (finalProjectScreen === "true") {
+        return (
+            <FinalProject />
+        )
+    }
+    if (finalProjectResultScreen === "true") {
+        return (
+            <FinalProjectResult />
         )
     }
     else {
