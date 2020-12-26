@@ -1,5 +1,5 @@
 import React from "react";
-import {newPlayerCreate, removePlayer, getLastPlayerFromList} from "./fetch";
+import {newPlayerCreate, removePlayer, getLastPlayerFromList, getEvents} from "./fetch";
 import {activateActionScreen, successPlayerCreateScreen, gameOverScreen} from "./viewControl";
 import {API} from "./variables";
 import SuccessPlayerCreate from "./SuccessPlayerCreate";
@@ -147,12 +147,6 @@ export const switchModuleForward = (currentDay, lastDay, weekNumber, setNewWeek)
     }
 }
 
-export const casualGameOverCheck = (stat) => {
-    if (stat === 0) {
-        gameOverScreen();
-    }
-}
-
 export const eventDrawHandler = (luck, eventArray) => {
     let negativeArr = [];
     let positiveArr = [];
@@ -224,7 +218,7 @@ export const statValidation = (stat, min, max) => {
     if (stat < min) {
         stat = min;
     }
-    if (stat > max) {
+    else if (stat > max) {
         stat = max;
     }
 }
@@ -235,26 +229,11 @@ export const gameOverCheck = (stat, value) => {
     }
 }
 
-// export const playerCreateChecker = (setLastPlayerOnList, createdId, lastPlayerFromList) => {
-//     getLastPlayerFromList(setLastPlayerOnList);
-//     if
-// }
-
-// export const eventHandle = (eventId, stat1, stat2, stat3, buffs) => {
-//     //zarwana nocka id 1 stat1 health, stat2 sleep
-//     if (eventId === 1) {
-//         stat1--;
-//         stat2--
-//     }
-// }
-
-export const createPlayerErrorHandler = (name1, name2) => {
-    if (name1 != name2) {
-        console.log("niezgodność")
-        newPlayerCreate(name2);
-        // location.reload()
-    }
-    else {
-        return null
+export const statChainDegenerate = (causingStat, affectedStat) => {
+    if (causingStat === 0) {
+        affectedStat--;
     }
 }
+
+
+

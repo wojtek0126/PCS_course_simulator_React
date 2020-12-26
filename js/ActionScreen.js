@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
     goPartyScreen, examScreen, inventoryScreen} from "./viewControl";
 import {getSelectedPlayerFromList, getLastPlayerFromList} from "./fetch";
-import {buttonOnOff, getData, loadId} from "./functions";
+import {buttonOnOff, getData, loadId, gameOverCheck, statChainDegenerate} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements, actionElement} from "./styles/styles";
 import {moduleNames} from "./variables";
 
@@ -91,8 +91,8 @@ const ActionScreen = () => {
         buttonOnOff(takeExtraExamButton, "none");
     }
 
-
-// exam day and buttons
+gameOverCheck(health, 0);
+//render below
 
 
 

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {backToMainMenu} from "./viewControl";
 
 const GameOver = () => {
     return (
@@ -13,7 +14,7 @@ const GameOver = () => {
            <p>Przyczyna porażki: --niezdana poprawka, frekwencja, zdrowie, szaleństwo, zgon...--</p>
            <p>Zdobyte punkty: --</p>
             <p>Nie poddawaj się!</p>
-           <button>Powrót do menu głównego</button>
+           <button onClick={backToMainMenu}>Powrót do menu głównego</button>
         </div>
     )
 }

@@ -31,42 +31,45 @@ useEffect(() => {
         location.reload()
     }
     else {
-        console.log(draw, "result w event raw variable")
+        console.log(draw, "result drawn in variable in event draw")
     }
 
     // useEffect(() => {
     //     setDrawnEvent(draw);
     // },[])
 
-    let sleepNew = player.sleep
-    let healthNew = player.health
-    console.log(player.luck, "luck w eventdraw")
-    // console.log(player.health, "health w eventdraw")
-    console.log(allEvents, "eventy w eventdraw")
-    console.log(player, "player w eventdraw")
-    // console.log(drawnEvent, "wylosowany event w state w eventdraw")
-    // if (draw.id === 1) {
-    //     //zarwana nocka
-    //     let sleepNew = player.sleep - 1;
-    //     let healthNew = player.health - 1;
-    //     console.log(sleepNew, healthNew,  "zarwana nocka!!!!")
-    // }
+    let luckMod = parseInt(player.luck + draw.luck);
+    let sleep = parseInt(player.sleep + draw.sleep);
+    let health = parseInt(player.health + draw.health);
+    let skills = parseInt(player.skills + draw.skills);
+    let attitude = parseInt(player.attitude + draw.attitude);
+    let buffs = player.buffs;
+    let inventory = player.inventory;
+    let score = parseInt(player.score + draw.score);
+
+    console.log(player.luck, "luck w eventdraw");
+    // console.log(player.health, "health w eventdraw");
+    console.log(allEvents, "eventy w eventdraw");
+    console.log(player, "player w eventdraw");
+    // console.log(drawnEvent, "wylosowany event w state w eventdraw");
+    //handling events
+    let plId = player.id;
 
     const modified = {
         id: player.id,
         name: player.name,
-        score: player.score,
+        score: score,
         week: player.week,
         day: player.day,
         dayPart: player.dayPart,
         moduleName: player.moduleName,
-        buffs: player.buffs,
-        inventory: player.inventory,
-        health: healthNew,
-        sleep: sleepNew,
-        skills: player.skills,
-        attitude: player.attitude,
-        luck: player.luck,
+        buffs: buffs,
+        inventory: inventory,
+        health: health,
+        sleep: sleep,
+        skills: skills,
+        attitude: attitude,
+        luck: luckMod,
         attendance: player.attendance,
         examThirdChance: player.examThirdChance,
         examPassed: player.examPassed,
@@ -77,7 +80,7 @@ useEffect(() => {
         endingNumber: player.endingNumber,
         gameOver: false
     };
-
+    updatePlayerStats(plId, modified);
 
     const eventDrawContinue = () => {
         // console.log(player, " playerData extracted to eventdraw 222");
