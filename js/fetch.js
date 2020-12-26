@@ -3,11 +3,11 @@ import React from "react";
 import {API} from "./variables";
 import {saveData} from "./functions";
 
+
 export const getPlayers = (setArray) => {
     fetch(`${API}/players`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             console.log(data);
             setArray(data);
         })
@@ -34,7 +34,7 @@ export const getPlayerById = (id, setPlayer,successCallback) => {
         .catch(err => console.log(err));
 };
 
-export const getLastPlayerFromList = () => {
+export const getLastPlayerFromList = (setLastPlayer) => {
 
     fetch(`${API}/players/`)
         .then(response => response.json())
@@ -42,7 +42,8 @@ export const getLastPlayerFromList = () => {
             console.log(data);
             console.log(data[data.length - 1].name, "imie ostatniego gracza");
             let idSet = data[data.length - 1].id;
-            localStorage.setItem("continuePlayerId", idSet);
+            setLastPlayer(idSet);
+            // localStorage.setItem("continuePlayerId", idSet);
             // setPlayerName(data.players[data.players.length - 1].name);
             // setCurrentModule(data.players[0].moduleName);
             // setWeek(data.players[0].week);
@@ -101,10 +102,48 @@ export const getSelectedPlayerFromList = (id,
         });
 }
 
+export const getPlayerForEventDraw = (id, successCallback) => {
+    fetch(`${API}/players/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            successCallback(data);
+            console.log(data, "fetch get player for draw przed succescallbackiem")
+            // if (data.error === false && typeof successCallback === "function") {
+            //     successCallback(data);
+            //     console.log(data, "getplayer for draw w fetch successcallback")
+            // }
+
+        })
+        .catch(error => {
+            console.log(error);
+            location.reload()
+        });
+}
+
+// export const newPlayerCreate = (playerData, successCallback) => {
+//     fetch(`${API}/players`, {
+//         headers: {
+//             // "Authorization": API,
+//             "Content-Type": "application/json",
+//         },
+//         method: "POST",
+//         body: JSON.stringify(playerData)
+//     })
+//         .then(r => r.json())
+//         .then(data => {
+//             console.log(data, "plcreate")
+//             if (data.error === false && typeof successCallback === "function") {
+//                 successCallback(data);
+//             }
+//         })
+//         .catch(err =>
+//             console.log(err));
+// };
+
 export const newPlayerCreate = (playerData, successCallback) => {
     fetch(`${API}/players`, {
         headers: {
-            // "Authorization": API,
+            // "Authorization": API_KEY,
             "Content-Type": "application/json",
         },
         method: "POST",
@@ -113,11 +152,10 @@ export const newPlayerCreate = (playerData, successCallback) => {
         .then(r => r.json())
         .then(data => {
             if (data.error === false && typeof successCallback === "function") {
-                successCallback(data.data);
+                successCallback(data);
             }
         })
         .catch(err => console.log(err));
-    location.reload();
 };
 
 export const removePlayer = (id, successCallback) => {
@@ -131,6 +169,7 @@ export const removePlayer = (id, successCallback) => {
         .then(data => {
             if (data.error === false && typeof successCallback === "function") {
                 successCallback();
+                console.log("successcallback")
             }
         })
         .catch(err => console.log(err));
@@ -153,4 +192,57 @@ export const updatePlayerStats = (id, modifier, successCallback) => {
         })
         .catch(err => console.log(err));
 };
+
+export const getEvents = (successCallback) => {
+    fetch(`${API}/events`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data, "oto co oddał fetch getEvents");
+            // console.log(data[0].id, " id obecnego eventu w getevents fetch");
+            successCallback(data);
+            if (data.error === false && typeof successCallback === "function") {
+                successCallback(data);
+            }
+            // const dataArr = [];
+            // data.map((el) => {
+            //     dataArr.push(el.eventName)
+            // });
+            // setNameArray(dataArr);
+        })
+        .catch(error => {
+            console.log(error);
+            location.reload();
+        });
+}
+
+export const getPlayerAndEvents = (insertPlayerId, setPlayerArray, setEventArray) => {
+    fetch(`${API}/events`)
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data, "eventy w fetch getEvents");
+            // console.log(data[0].id, " id obecnego eventu w getevents fetch");
+
+
+            // setEventArray(setArray);
+            setEventArray(oldArray => [...oldArray, data]);
+            // const dataArr = [];
+            // data.map((el) => {
+            //     dataArr.push(el.eventName)
+            // });
+            // setNameArray(dataArr);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    fetch(`${API}/players/${insertPlayerId}`)
+        .then(response => response.json())
+        .then(data2 => {
+            console.log(data2);
+            setPlayerArray(data2);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
 

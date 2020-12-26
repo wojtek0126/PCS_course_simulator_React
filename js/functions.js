@@ -1,6 +1,6 @@
 import React from "react";
 import {newPlayerCreate, removePlayer, getLastPlayerFromList} from "./fetch";
-import {activateActionScreen, successPlayerCreateScreen} from "./viewControl";
+import {activateActionScreen, successPlayerCreateScreen, gameOverScreen} from "./viewControl";
 import {API} from "./variables";
 import SuccessPlayerCreate from "./SuccessPlayerCreate";
 
@@ -38,6 +38,10 @@ export const DomElementOnOff = (element, value) => {
     }
 }
 
+export const valuesToArray = (obj) => {
+    return Object.keys(obj).map(function (key) { return obj[key]; });
+}
+
 // export const getPlayers = (setArray) => {
 //     fetch(`${API}/players`)
 //         .then(response => response.json())
@@ -51,6 +55,7 @@ export const DomElementOnOff = (element, value) => {
 // }
 
 export const createNewPlayer = (nameData) => {
+    let plNam = localStorage.getItem('playerName');
 
     const newPlr = {
         id: "",
@@ -60,8 +65,8 @@ export const createNewPlayer = (nameData) => {
         day: 1,
         dayPart: "poranek",
         moduleName: "Wstęp do pythona",
-        buffs: "none",
-        inventory: "identyfikator",
+        buffs: [],
+        inventory: ["identyfikator"],
         thirdChanceExam: false,
         health: 10,
         sleep: random(2, 8),
@@ -72,20 +77,22 @@ export const createNewPlayer = (nameData) => {
         examThirdChance: false,
         examPassed: false,
         examPoints: 0,
-        event: "nothing out of ordinary happened",
-        warnings: "none",
         finalProjectDone: false,
         finalProjectScore: 0,
         ending: false,
-        endingNumber: 0
+        endingNumber: 0,
+        gameOver: false
     };
-    newPlayerCreate(newPlr);
+
+
+        newPlayerCreate(newPlr);
+
     // location.reload();
     //it also saves player id to localstorage in getLastPlayerFromList below
     // getLastPlayerFromList()
+    //
+    //
     successPlayerCreateScreen()
-
-    // getLastPlayerFromList();
 
 
 }
@@ -135,28 +142,119 @@ export const switchModuleForward = (currentDay, lastDay, weekNumber, setNewWeek)
     if (currentDay === lastDay) {
         setNewWeek = newWeek;
     }
-    // if (dayCounter === 10) {
-    //     weekFw = (weekNumber+ 1);
-    //     newModuleName = "Wstęp do baz danych";
-    // }
-    // if (dayCounter === 15) {
-    //     weekFw = (weekNumber+ 1);
-    //     newModuleName = "Wstęp do baz danych";
-    // }
-    // if (dayCounter === 20) {
-    //     weekFw = (weekNumber+ 1);
-    //     newModuleName = "Wstęp do baz danych";
-    // }
-    // if (dayCounter === 25) {
-    //     weekFw = (weekNumber+ 1);
-    //     newModuleName = "Wstęp do baz danych";
-    // }
-    // if (dayCounter === 30) {
-    //     newModuleName = "Wstęp do baz danych";
-    //     weekFw = (weekNumber+ 1);
-    // }
     else {
         setNewWeek = weekNumber;
     }
 }
 
+export const casualGameOverCheck = (stat) => {
+    if (stat === 0) {
+        gameOverScreen();
+    }
+}
+
+export const eventDrawHandler = (luck, eventArray) => {
+    let negativeArr = [];
+    let positiveArr = [];
+    let modifier = random(1, 10);
+
+
+
+    let pick = "";
+    eventArray.map((event) => {
+       if (event.eventType === "positive") {
+           positiveArr.push(event);
+       }
+       else {
+           negativeArr.push(event);
+       }
+    });
+    if (luck <= 0) {
+        pick = negativeArr[random(0, negativeArr.length)];
+    }
+    else if (luck <= 3) {
+        if (modifier > 3) {
+            pick = negativeArr[random(0, negativeArr.length)];
+        }
+        else {
+            pick = positiveArr[random(0, negativeArr.length)];
+        }
+    }
+    else if (luck <= 5) {
+        if (modifier <= 5) {
+            pick = negativeArr[random(0, negativeArr.length)];
+        }
+        else {
+            pick = positiveArr[random(0, negativeArr.length)];
+        }
+    }
+    else if (luck >= 7) {
+        if (modifier >= 7) {
+            pick = negativeArr[random(0, negativeArr.length)];
+        }
+        else {
+            pick = positiveArr[random(0, negativeArr.length)];
+        }
+    }
+    console.log(pick, " event draw pick w funkcji eventdrawhandler")
+    // let pickArr = Object.keys(pick).map(function (key) {
+    //
+    //     // Using Number() to convert key to number type
+    //     // Using obj[key] to retrieve key value
+    //     return [Number(key), pick[key]];
+    // });
+    // setDrawnEv(pick);
+    return pick
+
+}
+
+// export const eventStatModifier = (eventName, matchEvent, statName, modifier = 1) => {
+//     let modified = statName + modifier;
+//     if (eventName === matchEvent) {
+//         return parseInt(modified)
+//     }
+// }
+
+export const statModifier = (stat, modifier) => {
+    let modified = stat + modifier;
+    return parseInt(modified)
+}
+
+export const statValidation = (stat, min, max) => {
+    if (stat < min) {
+        stat = min;
+    }
+    if (stat > max) {
+        stat = max;
+    }
+}
+
+export const gameOverCheck = (stat, value) => {
+    if (stat === value) {
+        gameOverScreen()
+    }
+}
+
+// export const playerCreateChecker = (setLastPlayerOnList, createdId, lastPlayerFromList) => {
+//     getLastPlayerFromList(setLastPlayerOnList);
+//     if
+// }
+
+// export const eventHandle = (eventId, stat1, stat2, stat3, buffs) => {
+//     //zarwana nocka id 1 stat1 health, stat2 sleep
+//     if (eventId === 1) {
+//         stat1--;
+//         stat2--
+//     }
+// }
+
+export const createPlayerErrorHandler = (name1, name2) => {
+    if (name1 != name2) {
+        console.log("niezgodność")
+        newPlayerCreate(name2);
+        // location.reload()
+    }
+    else {
+        return null
+    }
+}

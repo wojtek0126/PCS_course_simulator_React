@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {activateActionScreen} from "./viewControl";
 
 const SkipExam = () => {
     return (
@@ -13,7 +14,7 @@ const SkipExam = () => {
             Masz na to czas do czwartku wieczór.
             </p>
 
-            <button>kontynuuj</button>
+            <button onClick={activateActionScreen}>kontynuuj</button>
         </div>
     )
 }

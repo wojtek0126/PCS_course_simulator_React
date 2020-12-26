@@ -1,7 +1,6 @@
 import React from "react";
-import {getLastPlayerFromList, getPlayerById} from "./fetch";
 
-//main menu below
+
 export const startNewFromMenuScreen = () => {
 
     localStorage.setItem('goToSchoolScreen', 'false');
@@ -24,6 +23,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -51,6 +51,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 }
@@ -76,6 +77,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 }
@@ -101,6 +103,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 }
@@ -126,6 +129,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -152,6 +156,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -178,6 +183,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 }
@@ -203,6 +209,7 @@ localStorage.setItem('goPartyScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     console.log(id, "id z handleContinue");
     location.reload()
@@ -231,6 +238,7 @@ localStorage.setItem('goPartyScreen', 'false');
 // localStorage.setItem('shopScreen', 'false');
 // localStorage.setItem('finalProjectScreen', 'false');
 // localStorage.setItem('finalProjectResultScreen', 'false');
+// localStorage.setItem('inventoryScreen', 'false');
 //     getLastPlayerFromList()
 // }
 
@@ -255,6 +263,7 @@ export const successPlayerCreateScreen = () => {
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
 }
 
@@ -279,6 +288,7 @@ localStorage.setItem('extraExamScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -305,6 +315,7 @@ localStorage.setItem('extraExamScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -331,6 +342,7 @@ localStorage.setItem('extraExamScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -357,6 +369,7 @@ export const examScreen = () => {
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -383,6 +396,7 @@ export const extraExamScreen = () => {
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -409,6 +423,7 @@ export const examResultScreen = () => {
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -435,6 +450,7 @@ export const skipExamScreen = () => {
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -461,6 +477,7 @@ export const eventDrawScreen = () => {
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -483,10 +500,40 @@ export const shopScreen = () => {
     localStorage.setItem('extraExamScreen', 'false');
     localStorage.setItem('examResultScreen', 'false');
     localStorage.setItem('skipExamScreen', 'false');
-    localStorage.setItem('eventDrawScreen', 'true');
+    localStorage.setItem('eventDrawScreen', 'false');
     localStorage.setItem('shopScreen', 'true');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'false');
+
+    location.reload()
+
+}
+
+export const inventoryScreen = () => {
+    localStorage.setItem('goPartyScreen', 'false');
+    localStorage.setItem('successNewPlayerCreateScreen', 'false');
+    localStorage.setItem('welcomeScreen', 'false');
+    localStorage.setItem('continueGameScreen', 'false');
+    localStorage.setItem('createNewPlayerScreen', 'false');
+    localStorage.setItem('actionScreen', 'false');
+    localStorage.setItem('goToSchoolScreen', 'false');
+    localStorage.setItem('doHomeworkScreen', 'false');
+    localStorage.setItem('skipAndRestScreen', 'false');
+    localStorage.setItem('goToSleepScreen', 'false');
+    localStorage.setItem('goSleepEveningScreen', 'false');
+    localStorage.setItem('gameOverScreen', 'false');
+    localStorage.setItem('examScreen', 'false');
+    localStorage.setItem('extraExamScreen', 'false');
+    localStorage.setItem('examResultScreen', 'false');
+    localStorage.setItem('skipExamScreen', 'false');
+    localStorage.setItem('eventDrawScreen', 'false');
+    localStorage.setItem('shopScreen', 'false');
+    localStorage.setItem('finalProjectScreen', 'false');
+    localStorage.setItem('finalProjectResultScreen', 'false');
+    localStorage.setItem('inventoryScreen', 'true');
+
+
 
     location.reload()
 
@@ -509,11 +556,11 @@ export const finalProjectScreen = () => {
     localStorage.setItem('extraExamScreen', 'false');
     localStorage.setItem('examResultScreen', 'false');
     localStorage.setItem('skipExamScreen', 'false');
-    localStorage.setItem('eventDrawScreen', 'true');
+    localStorage.setItem('eventDrawScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'true');
     localStorage.setItem('finalProjectResultScreen', 'false');
-
+    localStorage.setItem('inventoryScreen', 'false');
 
     location.reload()
 
@@ -540,7 +587,7 @@ export const finalProjectResultScreen = () => {
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'true');
-
+    localStorage.setItem('inventoryScreen', 'false');
 
 
     location.reload()

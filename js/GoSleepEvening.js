@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {activateActionScreen, backToMainMenu, wentToSchool} from "./viewControl";
+import {activateActionScreen, backToMainMenu, eventDrawScreen, wentToSchool} from "./viewControl";
 import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {switchModuleForward} from "./functions";
 import {moduleNames} from "./variables";
@@ -86,8 +86,6 @@ const GoSleepEvening = () => {
             examThirdChance: false,
             examPassed: false,
             examPoints: 0,
-            event: "nothing out of ordinary happened",
-            warnings: "none",
             finalProjectDone: false,
             finalProjectScore: 0,
             ending: false,
@@ -95,7 +93,7 @@ const GoSleepEvening = () => {
         };
 
         updatePlayerStats(playerId, modified);
-        activateActionScreen();
+        eventDrawScreen()
         location.reload();
     };
 
@@ -103,8 +101,9 @@ const GoSleepEvening = () => {
         <>
             <h1>Po szkole idziesz spać</h1>
             <p>sen + 1, zdrowie + 1, punkty + 4</p>
-            <button onClick={goSleepEveningContinue}>Wracaj ze szkoły do domu, losowanie eventu</button>
-            <button>odwiedź sklep</button>
+            <button onClick={goSleepEveningContinue}>zakończ odpoczynek</button>
+            {/*<button>odwiedź sklep</button>*/}
+            <p>nastąpi losowanie zdarzenia</p>
             <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )

@@ -58,11 +58,11 @@ const WelcomeScreen = () => {
                 <a href="" className={"menuLink1"} onClick={startNewFromMenuScreen} onMouseEnter={link1Hovered} onMouseOut={link1Out} style={links}>Nowa gra</a>
                 <a href="" className={"menuLink2"} onClick={continueFromMenuScreen} onMouseEnter={link2Hovered} onMouseOut={link2Out} style={links}>Kontynuuj</a>
 {/* plan to add some tips, code fragments, useful links, youtube channel names, trophies, collectibles etc*/}
-                <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Twoje materiały(po zalogowaniu)</a>
-                <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Tabela wyników</a>
-                <a href="" className={"menuLink3"} onMouseEnter={link3Hovered} onMouseOut={link3Out} style={links}>Instrukcje</a>
-                <a href="" className={"menuLink5" } onMouseEnter={link5Hovered} onMouseOut={link5Out} style={links}>
-                    Pomagaj ludziom i przyrodzie</a>
+{/*                <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Twoje materiały(po zalogowaniu)</a>*/}
+{/*                <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Tabela wyników</a>*/}
+{/*                <a href="" className={"menuLink3"} onMouseEnter={link3Hovered} onMouseOut={link3Out} style={links}>Instrukcje</a>*/}
+{/*                <a href="" className={"menuLink5" } onMouseEnter={link5Hovered} onMouseOut={link5Out} style={links}>*/}
+{/*                    Pomagaj ludziom i przyrodzie</a>*/}
             </div>
         </div>
             </>

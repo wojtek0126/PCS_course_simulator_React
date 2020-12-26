@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening, goPartyScreen} from "./viewControl";
+import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
+    goPartyScreen, examScreen, inventoryScreen} from "./viewControl";
 import {getSelectedPlayerFromList, getLastPlayerFromList} from "./fetch";
 import {buttonOnOff, getData, loadId} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements, actionElement} from "./styles/styles";
@@ -110,28 +111,27 @@ const ActionScreen = () => {
             <div className={"actionInventory"} style={actionElement} style={{
                 display: "flex",
                 backgroundColor: "silver",
-                padding: 10,
+                padding: "10px 20px",
                 border: "2px dotted blue"
             }}>inwentarz: <a href="" style={{
                 display: "flex",
                 textDecoration: "none",
                 paddingLeft: 10,
             }}>{inventory}</a>
-
             </div>
-            <div className={"actionBuffs"} style={actionElement}>buffy i debuffy: </div>
+            <div className={"actionBuffs"} style={actionElement}>Zdarzenia: </div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
             <button className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>
             <button className={"doHomeworkButton"} onClick={doHomework}>zrób pracę domową</button>
             <button className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
             <button className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
-            <button className={"takeExamButton"}>podejdź do egzaminu</button>
+            <button className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
             <button className={"takeExtraExamButton"}>podejdź do poprawki</button>
             <button className={"startEndGameProjectButton"} style={{
                 display: "none"
             }}>zacznij projekt końcowy</button>
-            <button className={"useItemButton"}>użyj przedmiotu</button>
+            <button className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
             <button className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
         </div>
     )

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {activateActionScreen, backToMainMenu, wentToSchool} from "./viewControl";
+import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getLastPlayerFromList, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 
 const GoToSchool = () => {
@@ -58,8 +58,6 @@ const GoToSchool = () => {
             examThirdChance: false,
             examPassed: false,
             examPoints: 0,
-            event: "nothing out of ordinary happened",
-            warnings: "none",
             finalProjectDone: false,
             finalProjectScore: 0,
             ending: false,
@@ -71,7 +69,7 @@ const GoToSchool = () => {
          */
         updatePlayerStats(playerId, modified);
         // console.log(skills, sleep, score, " player stats w go to school");
-        activateActionScreen();
+        eventDrawScreen();
         location.reload();
 
     };
@@ -80,8 +78,9 @@ const GoToSchool = () => {
         <>
         <h1>Poszedłeś do szkoły</h1>
         <p>wiedza+1, sen - 1, punkty + 5</p>
-            <button onClick={wentToSchoolContinue}>Wracasz ze szkoły do domu, losowanie eventu</button>
-            <button>odwiedź sklep</button>
+            <button onClick={wentToSchoolContinue}>Wracasz ze szkoły do domu</button>
+            <button onClick={shopScreen}>odwiedź sklep</button>
+            <p>nastąpi losowanie zdarzenia</p>
             <button onClick={backToMainMenu}>powrót do menu</button>
             </>
     )

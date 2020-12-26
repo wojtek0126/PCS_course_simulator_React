@@ -19,6 +19,7 @@ import EventDraw from "./EventDraw";
 import Shop from "./Shop";
 import FinalProject from "./FinalProject";
 import FinalProjectResult from "./FinalProjectResult";
+import Inventory from "./Inventory";
 // localStorage.setItem('actionScreen', 'true');
 const App = () => {
 
@@ -60,6 +61,8 @@ const App = () => {
     console.log(finalProjectScreen, ' final project screen');
     const finalProjectResultScreen = localStorage.getItem('finalProjectResultScreen');
     console.log(finalProjectResultScreen, ' final project result screen');
+    const inventoryScreen = localStorage.getItem('inventoryScreen');
+    console.log(inventoryScreen, ' inventory screen');
 
 
     if (createNewPlayerScreen === "true") {
@@ -155,6 +158,11 @@ const App = () => {
     if (finalProjectResultScreen === "true") {
         return (
             <FinalProjectResult />
+        )
+    }
+    if (inventoryScreen === "true") {
+        return (
+            <Inventory />
         )
     }
     else {

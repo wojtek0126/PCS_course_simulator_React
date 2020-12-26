@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {activateActionScreen, backToMainMenu, wentToSchool} from "./viewControl";
+import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {switchModuleForward} from "./functions";
 import {moduleNames} from "./variables";
@@ -55,10 +55,10 @@ const GoParty = () => {
         const drawSkills = (skillE2 + skillE);
         const scoreUp = parseInt(score + 12);
         const drawHealth = parseInt(health + healthE);
-        const drawAttitude = parseInt(attitude + random(-1, 1));
+        // const drawAttitude = parseInt(attitude + random(-1, 1));
         const setEvening = "poranek";
         const dayForward = parseInt(day + 1);
-        const attitudeUp = parseInt(attitude + 1);
+        const attitudeUp = parseInt(attitude + 2);
         let dayCount = day;
         let weekNumber = parseInt(week);
         let moduleName = moduleNames[weekNumber-1];
@@ -86,14 +86,12 @@ const GoParty = () => {
             health: drawHealth,
             sleep: sleepDown,
             skills: drawSkills,
-            attitude: drawAttitude,
+            attitude: attitudeUp,
             luck: luck,
             attendance: attendance,
             examThirdChance: false,
             examPassed: false,
             examPoints: 0,
-            event: "nothing out of ordinary happened",
-            warnings: "none",
             finalProjectDone: false,
             finalProjectScore: 0,
             ending: false,
@@ -101,16 +99,17 @@ const GoParty = () => {
         };
 
         updatePlayerStats(playerId, modified);
-        activateActionScreen();
+        eventDrawScreen();
         location.reload();
     };
 
     return (
         <>
             <h1>Idziesz wieczorem na imprezę</h1>
-            <p>sen - 2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, samopoczucie od - 1 do + 1, punkty + 12</p>
-            <button onClick={goPartyContinue}>Wracasz z imprezy, losowanie eventu</button>
-            <button>odwiedź sklep</button>
+            <p>sen - 2, motywacja +2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, punkty + 12</p>
+            <button onClick={goPartyContinue}>wróć z imprezy</button>
+            <button onClick={shopScreen}>odwiedź sklep</button>
+            <p>nastąpi losowanie zdarzenia</p>
             <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )

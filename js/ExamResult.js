@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {activateActionScreen} from "./viewControl";
 
 const ExamResult = () => {
     return (
@@ -12,7 +13,7 @@ const ExamResult = () => {
             <p>Egzamin z: --moduł--</p>
             <p>Zdobyte punkty --points--</p>
             <p>Gratulacje, udało Ci się zaliczyć ten egzamin/Tym razem się nie udało</p>
-            <button>kontynuuj</button>
+            <button onClick={activateActionScreen}>kontynuuj</button>
         </div>
     )
 }

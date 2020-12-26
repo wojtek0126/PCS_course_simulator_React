@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import {createNewPlayer} from "./functions";
-import {backToMainMenu} from "./viewControl";
+import {backToMainMenu, successPlayerCreateScreen} from "./viewControl";
 
 
 //add login after engine works
 
 const CreateNewPlayer = () => {
 
-    console.log("nowa gra: dane poszły")
+
     const [playerName, setPlayerName] = useState("");
     // const [health, setHealth] = useState("");
     // const [sleep, setSleep] = useState("");
@@ -23,15 +23,17 @@ const CreateNewPlayer = () => {
     // const [week, setWeek] = useState("");
     // const [event, setEvent] = useState("");
     // const [attendance, setAttendance] = useState(100);
+    console.log(playerName, "playerName w create player")
+    localStorage.setItem('playerName', playerName);
 
     return (
             <div className={"startGameContainer"}>
                 <p>Witaj graczu. Podaj swoje imię ,aby rozpocząć</p>
-                <form  action="">
+                <form  onSubmit={() => createNewPlayer(playerName)} action="">
                     <label htmlFor="">podaj imię
                         <input  onChange={e => setPlayerName(e.target.value)} type="text"/>
                     </label>
-                    <button type="submit"  onClick={() => createNewPlayer(playerName)} >Rozpocznij grę</button>
+                    <button type="submit" >Rozpocznij grę</button>
                     <button  onClick={backToMainMenu}>Powrót do menu</button>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {activateActionScreen, backToMainMenu, wentToSchool} from "./viewControl";
+import {activateActionScreen, backToMainMenu, wentToSchool, shopScreen, eventDrawScreen} from "./viewControl";
 import {getPlayerById, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 
 const SkipSchoolAndRest = () => {
@@ -58,8 +58,6 @@ const SkipSchoolAndRest = () => {
             examThirdChance: false,
             examPassed: false,
             examPoints: 0,
-            event: "nothing out of ordinary happened",
-            warnings: "none",
             finalProjectDone: false,
             finalProjectScore: 0,
             ending: false,
@@ -67,7 +65,7 @@ const SkipSchoolAndRest = () => {
         };
         updatePlayerStats(playerId, modifiy);
         console.log(skills, sleep, score, " player stats w go to school");
-        activateActionScreen();
+        eventDrawScreen();
         location.reload();
     }
 
@@ -75,8 +73,9 @@ const SkipSchoolAndRest = () => {
         <>
             <h1>Odpoczywasz w domu</h1>
             <p>motywacja -1, wiedza -1, zdrowie +1, sen +1, punkty +2</p>
-            <button onClick={skipSchoolContinue}>Kończysz odpoczynek, losowanie eventu</button>
-            <button>odwiedź sklep</button>
+            <button onClick={skipSchoolContinue}>zakończ odpoczynek</button>
+            <button onClick={shopScreen}>odwiedź sklep</button>
+            <p>nastąpi losowanie zdarzenia</p>
             <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )

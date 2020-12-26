@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {activateActionScreen, backToMainMenu, wentToSchool} from "./viewControl";
+import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {switchModuleForward} from "./functions";
 import {moduleNames} from "./variables";
@@ -86,8 +86,6 @@ const DoHomework = () => {
             examThirdChance: false,
             examPassed: false,
             examPoints: 0,
-            event: "nothing out of ordinary happened",
-            warnings: "none",
             finalProjectDone: false,
             finalProjectScore: 0,
             ending: false,
@@ -95,7 +93,7 @@ const DoHomework = () => {
         };
 
         updatePlayerStats(playerId, modified);
-        activateActionScreen();
+        eventDrawScreen();
         location.reload();
     };
 
@@ -103,8 +101,9 @@ const DoHomework = () => {
         <>
             <h1>Po szkole odrabiasz pracę domową</h1>
             <p>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
-            <button onClick={doHomeworkContinue}>Kończysz pracować, losowanie eventu</button>
-            <button>odwiedź sklep</button>
+            <button onClick={doHomeworkContinue}>Zakończ pracę</button>
+            <button onClick={shopScreen}>odwiedź sklep</button>
+            <p>nastąpi losowanie zdarzenia</p>
             <button onClick={backToMainMenu}>powrót do menu</button>
         </>
     )
