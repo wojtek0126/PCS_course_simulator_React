@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getLastPlayerFromList, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {statValidation, validateScore} from "./functions";
 
 const GoToSchool = () => {
     const resultId = localStorage.getItem('continuePlayerId')
@@ -33,6 +34,9 @@ const GoToSchool = () => {
         const skillsUp = parseInt(skills + 1);
         const scoreUp = parseInt(score + 5);
         const setEvening = "wieczór";
+        let verifiedSkill = statValidation(skillsUp, 0, 10);
+        let verifiedSleep = statValidation(sleepDown, 0, 10);
+        let verifiedScore = validateScore(scoreUp);
         // const dayForward = (day + 1);
         // const dayPartForward = (dayPart + 1);
 
@@ -41,7 +45,7 @@ const GoToSchool = () => {
         const modified = {
             id: playerId,
             name: playerName,
-            score: scoreUp,
+            score: verifiedScore,
             week: week,
             day: day,
             dayPart: setEvening,
@@ -50,8 +54,8 @@ const GoToSchool = () => {
             inventory: inventory,
             thirdChanceExam: false,
             health: health,
-            sleep: sleepDown,
-            skills: skillsUp,
+            sleep: verifiedSleep,
+            skills: verifiedSkill,
             attitude: attitude,
             luck: luck,
             attendance: attendance,

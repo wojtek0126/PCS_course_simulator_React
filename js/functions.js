@@ -221,6 +221,14 @@ export const statValidation = (stat, min, max) => {
     else if (stat > max) {
         stat = max;
     }
+    return stat
+}
+
+export const validateScore = (score, min = 0) => {
+    if (score < min) {
+        score = min;
+    }
+    return score
 }
 
 export const gameOverCheck = (stat, value) => {

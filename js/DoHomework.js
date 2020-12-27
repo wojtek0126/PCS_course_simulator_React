@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
-import {switchModuleForward} from "./functions";
+import {switchModuleForward, statValidation, validateScore} from "./functions";
 import {moduleNames} from "./variables";
 
 
@@ -56,6 +56,9 @@ const DoHomework = () => {
         let dayCount = day;
         let weekNumber = parseInt(week);
         let moduleName = moduleNames[weekNumber-1];
+        let verifiedSkill = statValidation(skillsUp, 0, 10);
+        let verifiedSleep = statValidation(sleepDown, 0, 10);
+        let verifiedScore = validateScore(scoreUp);
 
         if (dayCount == 5 || dayCount == 10 || dayCount == 15 || dayCount == 20 || dayCount == 25 || dayCount == 30) {
             weekNumber++;
@@ -69,7 +72,7 @@ const DoHomework = () => {
         const modified = {
             id: playerId,
             name: playerName,
-            score: scoreUp,
+            score: verifiedScore,
             week: weekNumber,
             day: dayForward,
             dayPart: setEvening,
@@ -78,8 +81,8 @@ const DoHomework = () => {
             inventory: inventory,
             thirdChanceExam: false,
             health: health,
-            sleep: sleepDown,
-            skills: skillsUp,
+            sleep: verifiedSleep,
+            skills: verifiedSkill,
             attitude: attitudeUp,
             luck: luck,
             attendance: attendance,

@@ -1,6 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
-import {random, casualGameOverCheck, eventDrawHandler, statModifier, valuesToArray} from "./functions";
+import {
+    random,
+    casualGameOverCheck,
+    eventDrawHandler,
+    statModifier,
+    valuesToArray,
+    statValidation,
+    validateScore
+} from "./functions";
 import {
     getSelectedPlayerFromList,
     updatePlayerStats,
@@ -46,30 +54,29 @@ useEffect(() => {
     let buffs = player.buffs;
     let inventory = player.inventory;
     let score = parseInt(player.score + draw.score);
-
-    console.log(player.luck, "luck w eventdraw");
-    // console.log(player.health, "health w eventdraw");
-    console.log(allEvents, "eventy w eventdraw");
-    console.log(player, "player w eventdraw");
-    // console.log(drawnEvent, "wylosowany event w state w eventdraw");
-    //handling events
+    let verifiedSkill = statValidation(skills, 0, 10);
+    let verifiedSleep = statValidation(sleep, 0, 10);
+    let verifiedHealth = statValidation(health, 0, 10);
+    let verifiedLuck = statValidation(luckMod, 0, 10);
+    let verifiedAttitude = statValidation(attitude, 0, 10);
+    let verifiedScore = validateScore(score);
     let plId = player.id;
 
     const modified = {
         id: player.id,
         name: player.name,
-        score: score,
+        score: verifiedScore,
         week: player.week,
         day: player.day,
         dayPart: player.dayPart,
         moduleName: player.moduleName,
         buffs: buffs,
         inventory: inventory,
-        health: health,
-        sleep: sleep,
-        skills: skills,
-        attitude: attitude,
-        luck: luckMod,
+        health: verifiedHealth,
+        sleep: verifiedSleep,
+        skills: verifiedSkill,
+        attitude: verifiedAttitude,
+        luck: verifiedLuck,
         attendance: player.attendance,
         examThirdChance: player.examThirdChance,
         examPassed: player.examPassed,

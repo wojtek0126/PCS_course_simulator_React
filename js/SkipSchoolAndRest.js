@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {activateActionScreen, backToMainMenu, wentToSchool, shopScreen, eventDrawScreen} from "./viewControl";
 import {getPlayerById, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {statValidation, validateScore} from "./functions";
 
 const SkipSchoolAndRest = () => {
     const resultId = localStorage.getItem('continuePlayerId')
@@ -26,6 +27,11 @@ const SkipSchoolAndRest = () => {
         getSelectedPlayerFromList(playerId,
             setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
             setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent);
+        // statValidation(health, setHealth, 0, 10);
+        // statValidation(luck, setLuck, 0, 10);
+        // statValidation(sleep, setSleep, 0, 10);
+        // statValidation(attitude, setAttitude,0, 10);
+        // statValidation(skills, setSkills, 0, 10);
     },[]);
 
     const skipSchoolContinue = () => {
@@ -33,15 +39,21 @@ const SkipSchoolAndRest = () => {
         const skillsDown = parseInt(skills - 1);
         const healthUp = parseInt(health + 1);
         const attitudeDown = parseInt(attitude - 1);
-        const scoreUp2 = parseInt(score + 2);
+        const scoreUp = parseInt(score + 2);
         const setEvening = "wieczór";
         const attendanceDown = parseInt(attendance - 3);
+        let verifiedSleep = statValidation(sleepUp, 0, 10);
+        let verifiedSkills = statValidation(skillsDown, 0, 10);
+        let verifiedHealth = statValidation(healthUp, 0, 10);
+        let verifiedAttitude = statValidation(attitudeDown, 0, 10);
+        let verifiedScore = validateScore(scoreUp);
+        let verifiedAttendance = validateScore(attendanceDown)
         // const dayForward = (day + 1);
 
         const modifiy = {
             id: playerId,
             name: playerName,
-            score: scoreUp2,
+            score: verifiedScore,
             week: week,
             day: day,
             dayPart: setEvening,
@@ -49,12 +61,12 @@ const SkipSchoolAndRest = () => {
             buffs: buffs,
             inventory: inventory,
             thirdChanceExam: false,
-            health: healthUp,
-            sleep: sleepUp,
-            skills: skillsDown,
-            attitude: attitudeDown,
+            health: verifiedHealth,
+            sleep: verifiedSleep,
+            skills: verifiedSkills,
+            attitude: verifiedAttitude,
             luck: luck,
-            attendance: attendanceDown,
+            attendance: verifiedAttendance,
             examThirdChance: false,
             examPassed: false,
             examPoints: 0,
