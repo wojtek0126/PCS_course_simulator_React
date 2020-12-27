@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from "react";
-import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
+import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
-import {statValidation, switchModuleForward, validateScore} from "./functions";
+import {statValidation, validateScore} from "./functions";
 import {moduleNames} from "./variables";
 import {random} from "./functions";
 
 
 const GoParty = () => {
     const resultId = localStorage.getItem('continuePlayerId');
-
     let [playerId, setPlayerId] = useState(resultId);
     const [playerName, setPlayerName] = useState("");
     const [health, setHealth] = useState("");
@@ -25,30 +24,17 @@ const GoParty = () => {
     const [week, setWeek] = useState("");
     const [event, setEvent] = useState("");
     const [attendance, setAttendance] = useState(100);
-    // console.log(playerId, " playerid w go to school");
-
-
 
     useEffect(() => {
         getSelectedPlayerFromList(playerId,
             setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
             setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent);
-        // statValidation(health, setHealth, 0, 10);
-        // statValidation(luck, setLuck, 0, 10);
-        // statValidation(sleep, setSleep, 0, 10);
-        // statValidation(attitude, setAttitude,0, 10);
-        // statValidation(skills, setSkills, 0, 10);
-        // const moduleNamesArr1 = moduleNames;
-        // setCurrentModule(moduleNames[week-1]);
-        // console.log(week, " numer tygodnia w dohomework");
-        // console.log(moduleNames[week-1], " moduly namesy[od week]");
     },[]);
 
     console.log(moduleNames[week-1], "mod");
     console.log(week, "week111");
     console.log(day, "day")
     localStorage.setItem('weekNumber', week);
-
 
     const goPartyContinue = () => {
         let sleepE = parseInt(sleep);
@@ -59,7 +45,6 @@ const GoParty = () => {
         const drawSkills = (skillE2 + skillE);
         const scoreUp = parseInt(score + 12);
         const drawHealth = parseInt(health + healthE);
-        // const drawAttitude = parseInt(attitude + random(-1, 1));
         const setEvening = "poranek";
         const dayForward = parseInt(day + 1);
         const attitudeUp = parseInt(attitude + 2);
@@ -105,7 +90,6 @@ const GoParty = () => {
             ending: false,
             endingNumber: 0
         };
-
         updatePlayerStats(playerId, modified);
         eventDrawScreen();
         location.reload();

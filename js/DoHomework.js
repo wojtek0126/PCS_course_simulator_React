@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from "react";
-import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
+import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
-import {switchModuleForward, statValidation, validateScore} from "./functions";
+import {statValidation, validateScore} from "./functions";
 import {moduleNames} from "./variables";
 
 
 const DoHomework = () => {
     const resultId = localStorage.getItem('continuePlayerId');
-
     let [playerId, setPlayerId] = useState(resultId);
     const [playerName, setPlayerName] = useState("");
     const [health, setHealth] = useState("");
@@ -24,19 +23,11 @@ const DoHomework = () => {
     const [week, setWeek] = useState("");
     const [event, setEvent] = useState("");
     const [attendance, setAttendance] = useState(100);
-    // console.log(playerId, " playerid w go to school");
-
-
 
     useEffect(() => {
         getSelectedPlayerFromList(playerId,
             setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
             setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent);
-
-        // const moduleNamesArr1 = moduleNames;
-        // setCurrentModule(moduleNames[week-1]);
-        // console.log(week, " numer tygodnia w dohomework");
-        // console.log(moduleNames[week-1], " moduly namesy[od week]");
     },[]);
 
     console.log(moduleNames[week-1], "mod");
@@ -44,9 +35,7 @@ const DoHomework = () => {
     console.log(day, "day")
     localStorage.setItem('weekNumber', week);
 
-
     const doHomeworkContinue = () => {
-
         const sleepDown = parseInt(sleep - 1);
         const skillsUp = parseInt(skills + 1);
         const scoreUp = parseInt(score + 10);

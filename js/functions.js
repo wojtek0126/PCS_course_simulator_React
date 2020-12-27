@@ -1,9 +1,7 @@
 import React from "react";
-import {newPlayerCreate, removePlayer, getLastPlayerFromList, getEvents} from "./fetch";
-import {activateActionScreen, successPlayerCreateScreen, gameOverScreen} from "./viewControl";
+import {newPlayerCreate, removePlayer} from "./fetch";
+import {successPlayerCreateScreen, gameOverScreen} from "./viewControl";
 import {API} from "./variables";
-import SuccessPlayerCreate from "./SuccessPlayerCreate";
-
 
 export const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -29,8 +27,12 @@ export const buttonOnOff = (btn, value) => {
     btn.style.display = value
 }
 
+export const valuesToArray = (obj) => {
+    return Object.keys(obj).map(function (key) { return obj[key]; });
+}
+
 export const DomElementOnOff = (element, value) => {
-    if (value == "on") {
+    if (value === "on") {
         element.style.display = "block";
     }
     else {
@@ -38,25 +40,8 @@ export const DomElementOnOff = (element, value) => {
     }
 }
 
-export const valuesToArray = (obj) => {
-    return Object.keys(obj).map(function (key) { return obj[key]; });
-}
-
-// export const getPlayers = (setArray) => {
-//     fetch(`${API}/players`)
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             setArray(data);
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         });
-// }
-
 export const createNewPlayer = (nameData) => {
     let plNam = localStorage.getItem('playerName');
-
     const newPlr = {
         id: "",
         name: nameData,
@@ -83,26 +68,14 @@ export const createNewPlayer = (nameData) => {
         endingNumber: 0,
         gameOver: false
     };
-
-
         newPlayerCreate(newPlr);
-
-    // location.reload();
-    //it also saves player id to localstorage in getLastPlayerFromList below
-    // getLastPlayerFromList()
-    //
-    //
-    successPlayerCreateScreen()
-
-
+    successPlayerCreateScreen();
 }
 
 export const handleRemovePlayer = (id) => {
     removePlayer(id);
-    location.reload()
+    location.reload();
 }
-// setPlayerName(data.players[data.players.length - 1].name); - ostatni z listy
-
 
 export const displayCurrentPlayer = (id,
                                      setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
@@ -118,17 +91,14 @@ export const displayCurrentPlayer = (id,
             setWeek(data.week);
             setDay(data.day);
             setDayPart(data.dayPart);
-
             setBuffs(data.buffs);
             setInventory(data.inventory);
-
             setHealth(data.health);
             setAttitude(data.attitude);
             setLuck(data.luck);
             setSleep(data.sleep);
             setScore(data.score);
             setSkills(data.skills);
-
             setEvent(data.event);
 
         })
@@ -151,8 +121,6 @@ export const eventDrawHandler = (luck, eventArray) => {
     let negativeArr = [];
     let positiveArr = [];
     let modifier = random(1, 10);
-
-
 
     let pick = "";
     eventArray.map((event) => {
@@ -190,24 +158,17 @@ export const eventDrawHandler = (luck, eventArray) => {
             pick = positiveArr[random(0, negativeArr.length)];
         }
     }
-    console.log(pick, " event draw pick w funkcji eventdrawhandler")
-    // let pickArr = Object.keys(pick).map(function (key) {
-    //
-    //     // Using Number() to convert key to number type
-    //     // Using obj[key] to retrieve key value
-    //     return [Number(key), pick[key]];
-    // });
-    // setDrawnEv(pick);
+    else if (luck === 10) {
+        if (modifier >= 8) {
+            pick = negativeArr[random(0, negativeArr.length)];
+        }
+        else {
+            pick = positiveArr[random(0, negativeArr.length)];
+        }
+    }
+    console.log(pick, " event draw pick w funkcji eventDrawHandler")
     return pick
-
 }
-
-// export const eventStatModifier = (eventName, matchEvent, statName, modifier = 1) => {
-//     let modified = statName + modifier;
-//     if (eventName === matchEvent) {
-//         return parseInt(modified)
-//     }
-// }
 
 export const statModifier = (stat, modifier) => {
     let modified = stat + modifier;
@@ -241,6 +202,20 @@ export const statChainDegenerate = (causingStat, affectedStat) => {
     if (causingStat === 0) {
         affectedStat--;
     }
+}
+
+export const isExamPassedByPoints = (points) => {
+    if (points > 10) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+export const objectFontResize = (element, newSize) => {
+    const find = document.querySelector(element)
+    find.style.fontSize = newSize;
 }
 
 

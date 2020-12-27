@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import {activateActionScreen, backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
-import {getLastPlayerFromList, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
+import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore} from "./functions";
 
 const GoToSchool = () => {
@@ -21,7 +21,6 @@ const GoToSchool = () => {
     const [week, setWeek] = useState("");
     const [event, setEvent] = useState("");
     const [attendance, setAttendance] = useState(100);
-    // console.log(playerId, " playerid w go to school");
 
     useEffect(() => {
         getSelectedPlayerFromList(playerId,
@@ -37,10 +36,6 @@ const GoToSchool = () => {
         let verifiedSkill = statValidation(skillsUp, 0, 10);
         let verifiedSleep = statValidation(sleepDown, 0, 10);
         let verifiedScore = validateScore(scoreUp);
-        // const dayForward = (day + 1);
-        // const dayPartForward = (dayPart + 1);
-
-
 
         const modified = {
             id: playerId,
@@ -68,14 +63,9 @@ const GoToSchool = () => {
             endingNumber: 0
         };
 
-        /**
-         * @function updateTask - API function
-         */
         updatePlayerStats(playerId, modified);
-        // console.log(skills, sleep, score, " player stats w go to school");
         eventDrawScreen();
         location.reload();
-
     };
 
     return (

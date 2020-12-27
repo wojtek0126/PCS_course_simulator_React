@@ -1,10 +1,5 @@
 import React from "react";
 
-export const objectFontResize = (element, newSize) => {
-    const find = document.querySelector(element)
-    find.style.fontSize = newSize;
-}
-
 export const menuTitle = {
     textTransform: "uppercase",
     fontSize: "3em"
@@ -68,9 +63,21 @@ export const actionElement = {
     border: "2px dotted blue",
     display: "flex",
     flexDirection: "column",
-    background: "silver",
-    padding: 20,
+    backgroundColor: "silver",
+    padding: "10px 20px",
 }
 
-
+export const eventContainer = {
+    width: 800,
+    height: 800,
+    background: "brown",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    border: "2px dotted black"
+}
+export const examDisplay = {
+    padding: "10px 20px"
+}
 

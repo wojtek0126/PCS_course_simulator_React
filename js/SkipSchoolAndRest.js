@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {activateActionScreen, backToMainMenu, wentToSchool, shopScreen, eventDrawScreen} from "./viewControl";
-import {getPlayerById, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {backToMainMenu, shopScreen, eventDrawScreen} from "./viewControl";
+import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore} from "./functions";
 
 const SkipSchoolAndRest = () => {
@@ -27,11 +27,6 @@ const SkipSchoolAndRest = () => {
         getSelectedPlayerFromList(playerId,
             setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
             setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent);
-        // statValidation(health, setHealth, 0, 10);
-        // statValidation(luck, setLuck, 0, 10);
-        // statValidation(sleep, setSleep, 0, 10);
-        // statValidation(attitude, setAttitude,0, 10);
-        // statValidation(skills, setSkills, 0, 10);
     },[]);
 
     const skipSchoolContinue = () => {
@@ -47,8 +42,7 @@ const SkipSchoolAndRest = () => {
         let verifiedHealth = statValidation(healthUp, 0, 10);
         let verifiedAttitude = statValidation(attitudeDown, 0, 10);
         let verifiedScore = validateScore(scoreUp);
-        let verifiedAttendance = validateScore(attendanceDown)
-        // const dayForward = (day + 1);
+        let verifiedAttendance = validateScore(attendanceDown);
 
         const modifiy = {
             id: playerId,

@@ -1,20 +1,13 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
     goPartyScreen, examScreen, inventoryScreen} from "./viewControl";
-import {getSelectedPlayerFromList, getLastPlayerFromList} from "./fetch";
-import {buttonOnOff, getData, loadId, gameOverCheck, statChainDegenerate} from "./functions";
+import {getSelectedPlayerFromList} from "./fetch";
+import {buttonOnOff, loadId, gameOverCheck} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements, actionElement} from "./styles/styles";
 import {moduleNames} from "./variables";
 
-// const moduleNamesArr1 = moduleNames;
-// console.log(moduleNamesArr1[2], " nazwa modulu w dohomework")
-
 const ActionScreen = () => {
-
     const resultId = loadId();
-    // console.log(resultId, " id po pobranu actionscreen");
-
-   //load playerid from localstorage here
     let [playerId, setPlayerId] = useState(resultId);
     const [playerName, setPlayerName] = useState("");
     const [health, setHealth] = useState("");
@@ -31,22 +24,16 @@ const ActionScreen = () => {
     const [currentModule, setCurrentModule] = useState(moduleNames[week-1]);
     const [event, setEvent] = useState("");
     const [attendance, setAttendance] = useState(100);
-    // console.log(week, " week w actionscreenie");
-    // console.log(currentModule, " modul w actionscreenie");
-    // console.log(day, "dzien w actionscreen");
-//dopisz id do displaycurrentplayera
+
     useEffect(() => {
-        // location.reload()
         setPlayerId(resultId)
        getSelectedPlayerFromList(playerId,
            setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
            setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent
        )
+    }, []);
 
-    }, [])
-
-
-    //buttons for evening morning
+    //action buttons from DOM
     const goSchoolBtn = document.querySelector(".goSchoolButton");
     const skipSchoolBtn = document.querySelector(".skipAndRestButton");
     const doHomeworkBtn = document.querySelector(".doHomeworkButton");
@@ -66,25 +53,17 @@ const ActionScreen = () => {
         buttonOnOff(goSleepBtn, "none");
         buttonOnOff(doHomeworkBtn, "none")
         buttonOnOff(goPartyBtn, "none");
-        // buttonOnOff(takeExamBtn, "none");
-        // buttonOnOff(takeExtraExamButton, "none");
         if (day == 5 || day == 10 || day == 15 || day == 20 || day == 25 || day == 30) {
-            console.log("Jest czas egzaminu");
             buttonOnOff(takeExamBtn, "inline");
             buttonOnOff(takeExtraExamButton, "none");
             buttonOnOff(goSchoolBtn, "none");
         }
         else {
-            console.log("Jest czas nauki");
             buttonOnOff(takeExamBtn, "none");
             buttonOnOff(takeExtraExamButton, "none");
         }
     }
     if (dayPart === "wieczór"){
-        // console.log("jest wieczór")
-        // buttonOnOff(goSleepBtn, "inline");
-        // buttonOnOff(doHomeworkBtn, "inline")
-        // buttonOnOff(goPartyBtn, "inline");
         buttonOnOff(goSchoolBtn, "none");
         buttonOnOff(skipSchoolBtn, "none");
         buttonOnOff(takeExamBtn, "none");
@@ -92,10 +71,6 @@ const ActionScreen = () => {
     }
 
 gameOverCheck(health, 0);
-//render below
-
-
-
 
     return (
         <div className={"actionScreenContainer"}>
@@ -108,16 +83,7 @@ gameOverCheck(health, 0);
                 <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}</li>
                 <li style={actionScreenListElements}>PUNKTY: {score}</li>
             </ul>
-            <div className={"actionInventory"} style={actionElement} style={{
-                display: "flex",
-                backgroundColor: "silver",
-                padding: "10px 20px",
-                border: "2px dotted blue"
-            }}>inwentarz: <a href="" style={{
-                display: "flex",
-                textDecoration: "none",
-                paddingLeft: 10,
-            }}>{inventory}</a>
+            <div className={"actionInventory"} style={actionElement}>inwentarz: <a href="" style={actionElement}>{inventory}</a>
             </div>
             <div className={"actionBuffs"} style={actionElement}>Zdarzenia: </div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
