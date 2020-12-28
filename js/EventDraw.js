@@ -55,7 +55,7 @@ useEffect(() => {
         attitude: verifiedAttitude,
         luck: verifiedLuck,
         attendance: player.attendance,
-        examThirdChance: player.examThirdChance,
+        repeatingExam: player.repeatingExam,
         examPassed: player.examPassed,
         examPoints: player.examPoints,
         finalProjectDone: player.finalProjectDone,

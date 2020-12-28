@@ -11,7 +11,7 @@ const SkipExam = () => {
         }}>
             <h2>Zrezygnowałeś z udziału w egzaminie</h2>
             <p>Istnieje jeszcze możliwość zdania egzaminu poprawkowego.
-            Masz na to czas do czwartku wieczór.
+            Masz na to czas do czwartku wieczór.Powodzenia.
             </p>
 
             <button onClick={activateActionScreen}>kontynuuj</button>

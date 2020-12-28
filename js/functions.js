@@ -6,6 +6,10 @@ import {API} from "./variables";
 export const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+function float2int (value) {
+    return value | 0;
+}
 //replace all localstorage lines with these two below
 export const saveData = (dataToSave, dataValueToSave) => {
     localStorage.setItem(dataToSave, dataValueToSave);
@@ -52,14 +56,13 @@ export const createNewPlayer = (nameData) => {
         moduleName: "Wstęp do pythona",
         buffs: [],
         inventory: ["identyfikator"],
-        thirdChanceExam: false,
+        repeatingExam: false,
         health: 10,
         sleep: random(2, 8),
         skills: random(2, 8),
         attitude: random(2, 8),
         luck: random(2, 8),
         attendance: 100,
-        examThirdChance: false,
         examPassed: false,
         examPoints: 0,
         finalProjectDone: false,
@@ -211,6 +214,39 @@ export const isExamPassedByPoints = (points) => {
     else {
         return false
     }
+}
+
+export const examScoringSystem = (skills, luck, attitude, sleep) => {
+
+    let modifier = skills / 3 + luck / 3 + attitude / 3;
+    let result = random(modifier, 20);
+    if (sleep === 0 ) {
+        return  result - random(0, 3);
+    }
+    else if (luck === 0) {
+        return  result - random(0, 3);
+    }
+    else if (skills === 0) {
+        return  random(0, 11);
+    }
+    else if (attitude === 0) {
+        return  result - random(0, 5);
+    }
+    else if (sleep === 10 ) {
+        return  result + random(0, 5);
+    }
+    else if (luck === 10) {
+        return  result - random(0, 3);
+    }
+    else if (skills === 10) {
+        return  result + random(0, 3);
+    }
+    else if (attitude === 10) {
+        return  result + random(0, 5);
+    }
+    return result
+    console.log(result, 'result points in function');
+
 }
 
 export const objectFontResize = (element, newSize) => {

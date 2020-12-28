@@ -1,35 +1,40 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
-import {getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore} from "./functions";
 import {moduleNames} from "./variables";
 import {random} from "./functions";
 
 
 const GoParty = () => {
-    const resultId = localStorage.getItem('continuePlayerId');
+    const resultId = localStorage.getItem('continuePlayerId')
     let [playerId, setPlayerId] = useState(resultId);
-    const [playerName, setPlayerName] = useState("");
-    const [health, setHealth] = useState("");
-    const [sleep, setSleep] = useState("");
-    const [skills, setSkills] = useState("");
-    const [attitude, setAttitude] = useState("");
-    const [luck, setLuck] = useState("");
-    const [score, setScore] = useState("");
-    const [inventory, setInventory] = useState([]);
-    const [buffs, setBuffs] = useState([]);
-    const [day, setDay] = useState("");
-    const [dayPart, setDayPart] = useState("");
-    const [currentModule, setCurrentModule] = useState("");
-    const [week, setWeek] = useState("");
-    const [event, setEvent] = useState("");
-    const [attendance, setAttendance] = useState(100);
+    const [player, setPlayer] = useState([]);
+    const [inventoryArr, setInventoryArr] = useState([]);
+    const [playerBuffs, setPlayerBuffs] = useState([]);
+
+
 
     useEffect(() => {
-        getSelectedPlayerFromList(playerId,
-            setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
-            setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent);
+        getPlayerForEventDraw(resultId, setPlayer);
     },[]);
+
+    let playerName = player.playerName;
+    let health = player.health;
+    let sleep = player.sleep;
+    let skills = player.skills;
+    let attitude = player.attitude;
+    let luck = player.luck;
+    let score = player.score;
+    let inventory = player.inventory;
+    let buffs = player.buffs;
+    let day = player.day;
+    let dayPart = player.dayPart;
+    let currentModule = player.currentModule;
+    let week = player.week;
+    let event = player.event;
+    let attendance = player.attendance;
+    let repeatingExam = player.repeatingExam;
 
     console.log(moduleNames[week-1], "mod");
     console.log(week, "week111");

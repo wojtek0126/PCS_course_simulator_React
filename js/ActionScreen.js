@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
     goPartyScreen, examScreen, inventoryScreen} from "./viewControl";
-import {getSelectedPlayerFromList} from "./fetch";
+import {getPlayerForEventDraw, getSelectedPlayerFromList} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements, actionElement} from "./styles/styles";
 import {moduleNames} from "./variables";
@@ -9,29 +9,32 @@ import {moduleNames} from "./variables";
 const ActionScreen = () => {
     const resultId = loadId();
     let [playerId, setPlayerId] = useState(resultId);
-    const [playerName, setPlayerName] = useState("");
-    const [health, setHealth] = useState("");
-    const [sleep, setSleep] = useState("");
-    const [skills, setSkills] = useState("");
-    const [attitude, setAttitude] = useState("");
-    const [luck, setLuck] = useState("");
-    const [score, setScore] = useState("");
-    const [inventory, setInventory] = useState([]);
-    const [buffs, setBuffs] = useState([]);
-    const [day, setDay] = useState("");
-    const [dayPart, setDayPart] = useState("");
-    const [week, setWeek] = useState("");
-    const [currentModule, setCurrentModule] = useState(moduleNames[week-1]);
-    const [event, setEvent] = useState("");
-    const [attendance, setAttendance] = useState(100);
+    const [player, setPlayer] = useState([]);
+    const [inventoryArr, setInventoryArr] = useState([]);
+    const [playerBuffs, setPlayerBuffs] = useState([]);
+
+
 
     useEffect(() => {
-        setPlayerId(resultId)
-       getSelectedPlayerFromList(playerId,
-           setPlayerName, setCurrentModule, setWeek, setDay, setDayPart, setBuffs, setInventory,
-           setHealth, setAttitude, setLuck, setSleep, setScore, setSkills, setEvent
-       )
-    }, []);
+        getPlayerForEventDraw(resultId, setPlayer);
+    },[]);
+
+    let playerName = player.playerName;
+    let health = player.health;
+    let sleep = player.sleep;
+    let skills = player.skills;
+    let attitude = player.attitude;
+    let luck = player.luck;
+    let score = player.score;
+    let inventory = player.inventory;
+    let buffs = player.buffs;
+    let day = player.day;
+    let dayPart = player.dayPart;
+    let currentModule = player.currentModule;
+    let week = player.week;
+    let event = player.event;
+    let attendance = player.attendance;
+    let repeatingExam = player.repeatingExam;
 
     //action buttons from DOM
     const goSchoolBtn = document.querySelector(".goSchoolButton");
