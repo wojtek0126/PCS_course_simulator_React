@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
-import {statValidation, validateScore} from "./functions";
+import {statValidation, validateScore, loadId} from "./functions";
 
 const GoToSchool = () => {
-    const resultId = localStorage.getItem('continuePlayerId')
-    let [playerId, setPlayerId] = useState(resultId);
+    const resultId = loadId();
+    console.log(resultId)
     const [player, setPlayer] = useState([]);
     const [inventoryArr, setInventoryArr] = useState([]);
     const [playerBuffs, setPlayerBuffs] = useState([]);
@@ -15,7 +15,7 @@ const GoToSchool = () => {
         getPlayerForEventDraw(resultId, setPlayer);
     },[]);
 
-    let playerName = player.playerName;
+    let playerName = player.name;
     let health = player.health;
     let sleep = player.sleep;
     let skills = player.skills;
@@ -25,40 +25,36 @@ const GoToSchool = () => {
     let inventory = player.inventory;
     let buffs = player.buffs;
     let day = player.day;
-    let dayPart = player.dayPart;
-    let currentModule = player.currentModule;
+    let currentModule = player.moduleName;
     let week = player.week;
-    let event = player.event;
     let attendance = player.attendance;
     let repeatingExam = player.repeatingExam;
-
+    console.log(playerName);
     const wentToSchoolContinue = () => {
         const sleepDown = parseInt(sleep - 1);
         const skillsUp = parseInt(skills + 1);
         const scoreUp = parseInt(score + 5);
-        const setEvening = "wieczór";
         let verifiedSkill = statValidation(skillsUp, 0, 10);
         let verifiedSleep = statValidation(sleepDown, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
         const modified = {
-            id: playerId,
+            id: resultId,
             name: playerName,
             score: verifiedScore,
             week: week,
             day: day,
-            dayPart: setEvening,
+            dayPart: "wieczór",
             moduleName: currentModule,
             buffs: buffs,
             inventory: inventory,
-            thirdChanceExam: false,
             health: health,
             sleep: verifiedSleep,
             skills: verifiedSkill,
             attitude: attitude,
             luck: luck,
             attendance: attendance,
-            examThirdChance: false,
+            repeatingExam: false,
             examPassed: false,
             examPoints: 0,
             finalProjectDone: false,
@@ -67,7 +63,7 @@ const GoToSchool = () => {
             endingNumber: 0
         };
 
-        updatePlayerStats(playerId, modified);
+        updatePlayerStats(resultId, modified);
         eventDrawScreen();
         location.reload();
     };

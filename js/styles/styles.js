@@ -67,6 +67,30 @@ export const actionElement = {
     padding: "10px 20px",
 }
 
+export const actionInvTitle = {
+    border: "2px dotted blue",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "silver",
+    padding: "10px 20px",
+    height: 40,
+}
+
+export const actionInvTitleText = {
+     transform: "translateY(10px)",
+}
+
+export const actionInventory = {
+    border: "2px solid black",
+    display: "flex",
+    height: 40,
+    flexDirection: "column",
+    backgroundColor: "silver",
+    padding: "10px 20px",
+    overflow:  "auto"
+}
+
 export const eventContainer = {
     width: 800,
     height: 800,
@@ -78,6 +102,8 @@ export const eventContainer = {
     border: "2px dotted black"
 }
 export const examDisplay = {
-    padding: "10px 20px"
+    padding: "10px 20px",
+    textAlign: "center",
+
 }
 

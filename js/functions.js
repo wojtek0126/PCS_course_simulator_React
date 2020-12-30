@@ -195,7 +195,7 @@ export const validateScore = (score, min = 0) => {
     return score
 }
 
-export const gameOverCheck = (stat, value) => {
+export const gameOverCheck = (stat, value = 0) => {
     if (stat === value) {
         gameOverScreen()
     }
@@ -209,6 +209,15 @@ export const statChainDegenerate = (causingStat, affectedStat) => {
 
 export const isExamPassedByPoints = (points) => {
     if (points > 10) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+export const assignExamRepeatIfFailed = (points) => {
+    if (points < 10) {
         return true
     }
     else {
@@ -244,9 +253,44 @@ export const examScoringSystem = (skills, luck, attitude, sleep) => {
     else if (attitude === 10) {
         return  result + random(0, 5);
     }
+    if (result > 20) {
+        result = 20;
+    }
     return result
     console.log(result, 'result points in function');
 
+}
+
+export const examPrizeAssign = (examPoints, repeatStat) => {
+    if (examPoints <= 10) {
+        const spock = "mała figurka z face palmem komandora"
+        return spock ;
+    }
+    else if (examPoints <= 14) {
+        const bronze = "brązowa kaczka";
+        return bronze
+    }
+    else if (examPoints <= 18) {
+        const silver = "srebrna kaczka";
+       return silver
+    }
+    else if (examPoints >= 18 && examPoints !== 20) {
+       const gold ="złota kaczka";
+        return gold
+    }
+    else if (examPoints === 20) {
+        const platinium = "platynowa kaczka";
+        return platinium
+    }
+}
+
+export const examResultToLocalStorage = (result) => {
+    if (result === true) {
+        localStorage.setItem("displayExamResult", "Gratulacje! Egzamin zaliczony");
+    }
+    else {
+        localStorage.setItem("displayExamResult", "Przykro mi. Egzamin niezaliczony");
+    }
 }
 
 export const objectFontResize = (element, newSize) => {

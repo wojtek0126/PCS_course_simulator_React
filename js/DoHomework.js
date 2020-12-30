@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {updatePlayerStats, getPlayerForEventDraw} from "./fetch";
-import {statValidation, validateScore} from "./functions";
+import {statValidation, validateScore, loadId} from "./functions";
 import {moduleNames} from "./variables";
 
 
 const DoHomework = () => {
-    const resultId = localStorage.getItem('continuePlayerId')
-    let [playerId, setPlayerId] = useState(resultId);
+    const resultId = loadId()
     const [player, setPlayer] = useState([]);
     const [inventoryArr, setInventoryArr] = useState([]);
     const [playerBuffs, setPlayerBuffs] = useState([]);
@@ -18,7 +17,7 @@ const DoHomework = () => {
        getPlayerForEventDraw(resultId, setPlayer);
     },[]);
 
-    let playerName = player.playerName;
+    let playerName = player.name;
     let health = player.health;
     let sleep = player.sleep;
     let skills = player.skills;
@@ -28,10 +27,8 @@ const DoHomework = () => {
     let inventory = player.inventory;
     let buffs = player.buffs;
     let day = player.day;
-    let dayPart = player.dayPart;
-    let currentModule = player.currentModule;
+    let currentModule = player.moduleName;
     let week = player.week;
-    let event = player.event;
     let attendance = player.attendance;
     let repeatingExam = player.repeatingExam;
 
@@ -44,7 +41,6 @@ const DoHomework = () => {
         const sleepDown = parseInt(sleep - 1);
         const skillsUp = parseInt(skills + 1);
         const scoreUp = parseInt(score + 10);
-        const setEvening = "poranek";
         const dayForward = parseInt(day + 1);
         const attitudeUp = parseInt(attitude + 1);
         let dayCount = day;
@@ -64,12 +60,12 @@ const DoHomework = () => {
         }
 
         const modified = {
-            id: playerId,
+            id: resultId,
             name: playerName,
             score: verifiedScore,
             week: weekNumber,
             day: dayForward,
-            dayPart: setEvening,
+            dayPart: "poranek",
             moduleName: moduleName,
             buffs: buffs,
             inventory: inventory,
@@ -88,7 +84,7 @@ const DoHomework = () => {
             endingNumber: 0
         };
 
-        updatePlayerStats(playerId, modified);
+        updatePlayerStats(resultId, modified);
         eventDrawScreen();
         location.reload();
     };

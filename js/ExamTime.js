@@ -2,19 +2,19 @@ import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen} from "./viewControl";
 import {eventContainer, examDisplay} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
-import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore} from "./functions";
-
+import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
+    loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed} from "./functions";
 
 const ExamTime = () => {
-    const resultId = localStorage.getItem('continuePlayerId')
-    let [playerId, setPlayerId] = useState(resultId);
+    const resultId = loadId();
     const [player, setPlayer] = useState([]);
-    const [inventoryArr, setInventoryArr] = useState([]);
+    const inventoryArr = player.inventory;
 
     useEffect(() => {
-        getPlayerForEventDraw(playerId, setPlayer);
+        getPlayerForEventDraw(resultId, setPlayer);
     },[])
 console.log(player.luck, "plajer luck w exam");
+    console.log(inventoryArr, "inwentarz w exam time button");
 
     const drawTheResult = () => {
         const luck = parseInt(player.luck);
@@ -22,24 +22,16 @@ console.log(player.luck, "plajer luck w exam");
         const sleep = parseInt(player.sleep);
         let attitude = parseInt(player.attitude);
         const health = parseInt(player.health);
-
-// let examPoints = random(modifier, 20) let modifier = skills + 1 if at least 1 of sleep, att 0 to 0, att 1-5 to 1 att 5-10 to 2...
-// passed gives duck to inv, failed sctivates button and counts if day === day+4(day before exam) and still passed false: gameover, if
-        //second passed true, redoexam button disappears, gives you proper redo duck to inv..
         let examPoints = examScoringSystem(skills, luck, attitude, sleep);
+
         console.log(examPoints, ' punkty za egzamin');
         localStorage.setItem("examPoints", examPoints);
         let result = isExamPassedByPoints(examPoints);
         console.log(result, ' czy zdał?');
-        console.log(player.inventory, "inwentarz w exam time button");
+        examResultToLocalStorage(result);
+        inventoryArr.push(examPrizeAssign(examPoints));
 
-        if (result === true) {
-            localStorage.setItem("displayExamResult", "Gratulacje! Egzamin zaliczony");
-        }
-        else {
-            localStorage.setItem("displayExamResult", "Przykro mi. Egzamin niezaliczony");
-        }
-
+        let setExamRepeatChance = assignExamRepeatIfFailed(examPoints);
         let score = parseInt(player.score + examPoints);
         let verifiedSkill = statValidation(skills, 0, 10);
         let verifiedSleep = statValidation(sleep, 0, 10);
@@ -65,9 +57,9 @@ console.log(player.luck, "plajer luck w exam");
             attitude: verifiedAttitude,
             luck: verifiedLuck,
             attendance: player.attendance,
-            examThirdChance: player.examThirdChance,
+            repeatingExam: setExamRepeatChance,
             examPassed: result,
-            examPoints: verifiedScore,
+            examPoints: examPoints,
             finalProjectDone: player.finalProjectDone,
             finalProjectScore: player.finalProjectScore,
             ending: player.ending,
@@ -92,7 +84,6 @@ console.log(player.luck, "plajer luck w exam");
                 <button onClick={drawTheResult}>podchodzę do egzaminu</button>
                 <button onClick={skipExamScreen}>nie podchodzę do egzaminu</button>
             </div>
-
         </div>
     )
 }

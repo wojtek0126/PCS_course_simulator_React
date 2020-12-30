@@ -57,6 +57,19 @@ export const getPlayerForEventDraw = (id, successCallback) => {
         });
 }
 
+export const getPlayerForActionScreen= (id) => {
+    fetch(`${API}/players/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data, "fetch get player for action screen");
+            return (data);
+        })
+        .catch(error => {
+            console.log(error);
+            location.reload()
+        });
+}
+
 export const newPlayerCreate = (playerData, successCallback) => {
     fetch(`${API}/players`, {
         headers: {

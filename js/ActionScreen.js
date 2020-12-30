@@ -1,25 +1,64 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
     goPartyScreen, examScreen, inventoryScreen} from "./viewControl";
-import {getPlayerForEventDraw, getSelectedPlayerFromList} from "./fetch";
+import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck} from "./functions";
-import {actionNameField, actionScreenList, actionScreenListElements, actionElement} from "./styles/styles";
+import {actionNameField, actionScreenList, actionScreenListElements,
+    actionElement, actionInventory, actionInvTitle, actionInvTitleText} from "./styles/styles";
 import {moduleNames} from "./variables";
 
 const ActionScreen = () => {
     const resultId = loadId();
-    let [playerId, setPlayerId] = useState(resultId);
     const [player, setPlayer] = useState([]);
-    const [inventoryArr, setInventoryArr] = useState([]);
-    const [playerBuffs, setPlayerBuffs] = useState([]);
-
+    const [inventoryArr, setInventoryArr] = useState([])
+    let arr = []
 
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
-    },[]);
+    }, []);
 
-    let playerName = player.playerName;
+    useEffect(() => {
+        const inventoryArr = player.inventory;
+        setInventoryArr(inventoryArr);
+    }, [player]);
+
+    useEffect(() => {
+        if (inventoryArr) {
+            inventoryArr.forEach((item) => arr.push(item));
+        }
+    }, [inventoryArr]);
+
+    const setMapForJSX = (array) => {
+        setTimeout(function () {
+            array.map((element, index) => {
+                console.log(element, "elem in map function");
+                localStorage.setItem(`item${index}`, element);
+                localStorage.setItem("invLength", array.length)
+                arr.push(element)
+            })
+        },300);
+    }
+
+    setMapForJSX(inventoryArr)
+    const getItemsForMapJSX = (n) => {
+        let f = localStorage.getItem(`item${n}`);
+        console.log(f, "do arraya")
+        return f
+    }
+
+    let invLength = localStorage.getItem("invLength")
+    console.log(invLength)
+    // arr.push(getItemsForMapJSX(1))
+    for (let i = 0;i <= invLength;i++) {
+        let x = getItemsForMapJSX(i)
+        arr.push(x)
+    }
+
+    console.log(arr, "array no state");
+
+
+    let playerName = player.name;
     let health = player.health;
     let sleep = player.sleep;
     let skills = player.skills;
@@ -30,7 +69,7 @@ const ActionScreen = () => {
     let buffs = player.buffs;
     let day = player.day;
     let dayPart = player.dayPart;
-    let currentModule = player.currentModule;
+    let currentModule = player.moduleName;
     let week = player.week;
     let event = player.event;
     let attendance = player.attendance;
@@ -70,10 +109,10 @@ const ActionScreen = () => {
         buttonOnOff(goSchoolBtn, "none");
         buttonOnOff(skipSchoolBtn, "none");
         buttonOnOff(takeExamBtn, "none");
-        buttonOnOff(takeExtraExamButton, "none");
-    }
+        buttonOnOff(takeExtraExamButton, "none");    }
 
-gameOverCheck(health, 0);
+    gameOverCheck(health, 0);
+    gameOverCheck(attendance, 80);
 
     return (
         <div className={"actionScreenContainer"}>
@@ -86,8 +125,17 @@ gameOverCheck(health, 0);
                 <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}</li>
                 <li style={actionScreenListElements}>PUNKTY: {score}</li>
             </ul>
-            <div className={"actionInventory"} style={actionElement}>inwentarz: <a href="" style={actionElement}>{inventory}</a>
+            <div style={actionInvTitle}>
+                <p style={actionInvTitleText}>Inwentarz:</p>
             </div>
+            <div className={"actionInventory"} style={actionInventory}>
+                {arr.map(function (item, index) {
+                    return (
+                        <div key={index}>{item}</div>
+                    )
+                })}
+            </div>
+            <div>{}</div>
             <div className={"actionBuffs"} style={actionElement}>Zdarzenia: </div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>

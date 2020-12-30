@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
-import {statValidation, validateScore} from "./functions";
+import {statValidation, validateScore, loadId} from "./functions";
 import {moduleNames} from "./variables";
 
 const GoSleepEvening = () => {
-    const resultId = localStorage.getItem('continuePlayerId')
-    let [playerId, setPlayerId] = useState(resultId);
+    const resultId = loadId();
     const [player, setPlayer] = useState([]);
     const [inventoryArr, setInventoryArr] = useState([]);
     const [playerBuffs, setPlayerBuffs] = useState([]);
@@ -16,7 +15,7 @@ const GoSleepEvening = () => {
         getPlayerForEventDraw(resultId, setPlayer);
     },[]);
 
-    let playerName = player.playerName;
+    let playerName = player.name;
     let health = player.health;
     let sleep = player.sleep;
     let skills = player.skills;
@@ -26,10 +25,9 @@ const GoSleepEvening = () => {
     let inventory = player.inventory;
     let buffs = player.buffs;
     let day = player.day;
-    let dayPart = player.dayPart;
-    let currentModule = player.currentModule;
+    let currentModule = player.moduleName;
     let week = player.week;
-    let event = player.event;
+
     let attendance = player.attendance;
     let repeatingExam = player.repeatingExam;
 
@@ -44,7 +42,6 @@ const GoSleepEvening = () => {
         const sleepDown = parseInt(sleep + 1);
         // const skillsUp = parseInt(skills + 1);
         const scoreUp = parseInt(score + 10);
-        const setEvening = "poranek";
         const dayForward = parseInt(day + 1);
         let dayCount = day;
         let weekNumber = parseInt(week);
@@ -63,23 +60,22 @@ const GoSleepEvening = () => {
         }
 
         const modified = {
-            id: playerId,
+            id: resultId,
             name: playerName,
             score: verifiedScore,
             week: weekNumber,
             day: dayForward,
-            dayPart: setEvening,
+            dayPart: "poranek",
             moduleName: moduleName,
             buffs: buffs,
             inventory: inventory,
-            thirdChanceExam: false,
             health: verifiedHealth,
             sleep: verifiedSleep,
             skills: skills,
             attitude: attitude,
             luck: luck,
             attendance: attendance,
-            examThirdChance: false,
+            repeatingExam: false,
             examPassed: false,
             examPoints: 0,
             finalProjectDone: false,
@@ -88,7 +84,7 @@ const GoSleepEvening = () => {
             endingNumber: 0
         };
 
-        updatePlayerStats(playerId, modified);
+        updatePlayerStats(resultId, modified);
         eventDrawScreen()
         location.reload();
     };

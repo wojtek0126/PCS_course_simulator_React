@@ -2,17 +2,17 @@ import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
 import {eventContainer, examDisplay} from "./styles/styles";
 import {getPlayerForEventDraw} from "./fetch";
+import {loadId} from "./functions";
 
 
 const ExamResult = () => {
-    const resultId = localStorage.getItem('continuePlayerId');
+    const resultId = loadId();
     const resultDisplay = localStorage.getItem("displayExamResult");
     const resultPoints = localStorage.getItem("examPoints");
-    let [playerId, setPlayerId] = useState(resultId);
     const [player, setPlayer] = useState([]);
 
     useEffect(() => {
-        getPlayerForEventDraw(playerId, setPlayer);
+        getPlayerForEventDraw(resultId, setPlayer);
     },[]);
 
     console.log(player, "plajer w exam result");
