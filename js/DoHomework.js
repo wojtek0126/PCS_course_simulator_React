@@ -75,7 +75,7 @@ const DoHomework = () => {
             attitude: attitudeUp,
             luck: luck,
             attendance: attendance,
-            repeatingExam: player.repeatingExam,
+            repeatingExam: repeatingExam,
             examPassed: false,
             examPoints: 0,
             finalProjectDone: false,

@@ -32,6 +32,7 @@ console.log(player.luck, "plajer luck w exam");
         inventoryArr.push(examPrizeAssign(examPoints));
 
         let setExamRepeatChance = assignExamRepeatIfFailed(examPoints);
+        console.log(setExamRepeatChance, 'kjooo')
         let score = parseInt(player.score + examPoints);
         let verifiedSkill = statValidation(skills, 0, 10);
         let verifiedSleep = statValidation(sleep, 0, 10);

@@ -19,7 +19,7 @@ const SkipExam = () => {
     const skipExamButton = () => {
         const chicken = "figurynka kurczaka";
         inventoryArr.push(chicken)
-        // const extraExamMode = true
+        const extraExamMode = true
 
         const modified = {
             id: player.id,
@@ -37,7 +37,7 @@ const SkipExam = () => {
             attitude: player.attitude,
             luck: player.luck,
             attendance: player.attendance,
-            repeatingExam: true,
+            repeatingExam: extraExamMode,
             examPassed: false,
             examPoints: player.examPoints,
             finalProjectDone: player.finalProjectDone,

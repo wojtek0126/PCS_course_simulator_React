@@ -60,7 +60,7 @@ console.log()
             attitude: verifiedAttitude,
             luck: luck,
             attendance: verifiedAttendance,
-            repeatingExam: false,
+            repeatingExam: repeatingExam,
             examPassed: false,
             examPoints: 0,
             finalProjectDone: false,

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
-    goPartyScreen, examScreen, inventoryScreen} from "./viewControl";
+    goPartyScreen, examScreen, inventoryScreen, extraExamScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck, clearStorageItems, saveObject, getObject} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements,
@@ -59,6 +59,7 @@ const ActionScreen = () => {
     let event = player.event;
     let attendance = player.attendance;
     let repeatingExam = player.repeatingExam;
+    let gameOver = player.gameOver;
 
     //action buttons from DOM
     const goSchoolBtn = document.querySelector(".goSchoolButton");
@@ -80,24 +81,39 @@ const ActionScreen = () => {
         buttonOnOff(goSleepBtn, "none");
         buttonOnOff(doHomeworkBtn, "none")
         buttonOnOff(goPartyBtn, "none");
-        if (day == 5 || day == 10 || day == 15 || day == 20 || day == 25 || day == 30) {
+        if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30) {
             buttonOnOff(takeExamBtn, "inline");
             buttonOnOff(takeExtraExamButton, "none");
             buttonOnOff(goSchoolBtn, "none");
         }
         else {
             buttonOnOff(takeExamBtn, "none");
-            buttonOnOff(takeExtraExamButton, "none");
+            // buttonOnOff(takeExtraExamButton, "none");
         }
     }
     if (dayPart === "wieczór"){
         buttonOnOff(goSchoolBtn, "none");
         buttonOnOff(skipSchoolBtn, "none");
         buttonOnOff(takeExamBtn, "none");
-        buttonOnOff(takeExtraExamButton, "none");    }
+        buttonOnOff(takeExtraExamButton, "none");
+    }
+    if (repeatingExam === true) {
+        buttonOnOff(takeExtraExamButton, "inline");
+    }
+    else if (repeatingExam === false){
+        buttonOnOff(takeExtraExamButton, "none");
+    }
 // clearStorageItems(invLength)
-    gameOverCheck(health, 0);
-    gameOverCheck(attendance, 80);
+    if (day <= 30) {
+        gameOverCheck(health, 0);
+        gameOverCheck(attendance, 80);
+        gameOverCheck(gameOver, true);
+    }
+    else {
+        gameOverCheck(health, 0);
+        gameOverCheck(gameOver, true);
+    }
+
 
     return (
         <div className={"actionScreenContainer"}>
@@ -129,7 +145,7 @@ const ActionScreen = () => {
             <button className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
             <button className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
             <button className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
-            <button className={"takeExtraExamButton"}>podejdź do poprawki</button>
+            <button className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
             <button className={"startEndGameProjectButton"} style={{
                 display: "none"
             }}>zacznij projekt końcowy</button>
