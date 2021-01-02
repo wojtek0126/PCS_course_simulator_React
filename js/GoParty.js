@@ -81,7 +81,7 @@ const GoParty = () => {
             attitude: attitudeUp,
             luck: luck,
             attendance: attendance,
-            repeatingExam: false,
+            repeatingExam: repeatingExam,
             examPassed: false,
             examPoints: 0,
             finalProjectDone: false,

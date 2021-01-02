@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
     goPartyScreen, examScreen, inventoryScreen, extraExamScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
-import {buttonOnOff, loadId, gameOverCheck, clearStorageItems, saveObject, getObject} from "./functions";
+import {buttonOnOff, loadId, gameOverCheck, clearStorageItems, saveObject, getObject, attendanceGameOverCheck} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements,
     actionElement, actionInventory, actionInvTitle, actionInvTitleText} from "./styles/styles";
 import {moduleNames} from "./variables";
@@ -85,6 +85,7 @@ const ActionScreen = () => {
             buttonOnOff(takeExamBtn, "inline");
             buttonOnOff(takeExtraExamButton, "none");
             buttonOnOff(goSchoolBtn, "none");
+            buttonOnOff(skipSchoolBtn, "none");
         }
         else {
             buttonOnOff(takeExamBtn, "none");
@@ -104,15 +105,15 @@ const ActionScreen = () => {
         buttonOnOff(takeExtraExamButton, "none");
     }
 // clearStorageItems(invLength)
-    if (day <= 30) {
+//     if (day <= 30) {
         gameOverCheck(health, 0);
-        gameOverCheck(attendance, 80);
+        attendanceGameOverCheck(attendance, 80);
         gameOverCheck(gameOver, true);
-    }
-    else {
-        gameOverCheck(health, 0);
-        gameOverCheck(gameOver, true);
-    }
+    // }
+    // else {
+    //     gameOverCheck(health, 0);
+    //     gameOverCheck(gameOver, true);
+    // }
 
 
     return (

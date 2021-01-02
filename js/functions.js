@@ -204,6 +204,12 @@ export const validateScore = (score, min = 0) => {
 }
 
 export const gameOverCheck = (stat, value = 0) => {
+    if (stat === value) {
+        gameOverScreen()
+    }
+}
+
+export const attendanceGameOverCheck = (stat, value = 0) => {
     if (stat <= value) {
         gameOverScreen()
     }
