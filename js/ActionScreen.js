@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
     goPartyScreen, examScreen, inventoryScreen, extraExamScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
-import {buttonOnOff, loadId, gameOverCheck, clearStorageItems, saveObject, getObject, attendanceGameOverCheck} from "./functions";
+import {buttonOnOff, loadId, gameOverCheck, clearStorageItems,
+    dateGameOverCheck, getObject, attendanceGameOverCheck} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements,
     actionElement, actionInventory, actionInvTitle, actionInvTitleText} from "./styles/styles";
 import {moduleNames} from "./variables";
@@ -72,9 +73,6 @@ const ActionScreen = () => {
     const useItemButton = document.querySelector(".useItemButton");
     const endGameProjectButton = document.querySelector(".startEndGameProjectButton");
 
-    if (week > 6) {
-       buttonOnOff(endGameProjectButton, "inline");
-    }
 
     if (dayPart === "poranek") {
         // console.log("jest poranek")
@@ -82,13 +80,22 @@ const ActionScreen = () => {
         buttonOnOff(doHomeworkBtn, "none")
         buttonOnOff(goPartyBtn, "none");
         if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30) {
+
             buttonOnOff(takeExamBtn, "inline");
             buttonOnOff(takeExtraExamButton, "none");
             buttonOnOff(goSchoolBtn, "none");
             buttonOnOff(skipSchoolBtn, "none");
+
+        }
+        else if (day > 30 || week > 6) {
+            buttonOnOff(goSchoolBtn, "none");
+            buttonOnOff(endGameProjectButton, "inline");
+            buttonOnOff(takeExamBtn, "none");
+            // doHomeworkBtn.style.backgroundColor = "red";
         }
         else {
-            buttonOnOff(takeExamBtn, "none");
+            // buttonOnOff(takeExamBtn, "none");
+            // doHomeworkBtn.style.backgroundColor = "green";
             // buttonOnOff(takeExtraExamButton, "none");
         }
     }
@@ -97,6 +104,12 @@ const ActionScreen = () => {
         buttonOnOff(skipSchoolBtn, "none");
         buttonOnOff(takeExamBtn, "none");
         buttonOnOff(takeExtraExamButton, "none");
+        if (day > 30 || week > 6) {
+            buttonOnOff(goSchoolBtn, "none");
+            buttonOnOff(endGameProjectButton, "inline");
+            buttonOnOff(takeExamBtn, "none");
+            doHomeworkBtn.innerHTML = "powtórz materiał";
+        }
     }
     if (repeatingExam === true) {
         buttonOnOff(takeExtraExamButton, "inline");
@@ -104,11 +117,13 @@ const ActionScreen = () => {
     else if (repeatingExam === false){
         buttonOnOff(takeExtraExamButton, "none");
     }
+
 // clearStorageItems(invLength)
 //     if (day <= 30) {
-        gameOverCheck(health, 0);
-        attendanceGameOverCheck(attendance, 80);
-        gameOverCheck(gameOver, true);
+    dateGameOverCheck(day, 35)
+    gameOverCheck(health, 0);
+    attendanceGameOverCheck(attendance, 80);
+    gameOverCheck(gameOver, true);
     // }
     // else {
     //     gameOverCheck(health, 0);

@@ -1,19 +1,16 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu} from "./viewControl";
+import {eventContainer, examDisplay} from "./styles/styles";
 
 const GameOver = () => {
     return (
-        <div style={{
-            width: 800,
-            height: 800,
-            background: "brown",
-            border: "2px dotted black"
-        }}>
-           <h2>Przegrana</h2>
-           <p>Drogi ---imie---. Niestety nie udało Ci się ukończyć kursu za tym podejściem </p>
-           <p>Przyczyna porażki: --niezdana poprawka, frekwencja, zdrowie, szaleństwo, zgon...--</p>
-           <p>Zdobyte punkty: --</p>
-            <p>Nie poddawaj się!</p>
+        <div style={eventContainer}>
+           <h2 style={examDisplay}>Przegrana</h2>
+           <p style={examDisplay}>Drogi ---imie---. Niestety nie udało Ci się ukończyć kursu za tym podejściem </p>
+           <p style={examDisplay}>Przyczyna porażki: --niezdana poprawka, frekwencja, niepodjęcie projektu
+                końcowego, zdrowie, szaleństwo, zgon...--</p>
+           <p style={examDisplay}>Zdobyte punkty: --</p>
+            <p style={examDisplay}>Nie poddawaj się!</p>
            <button onClick={backToMainMenu}>Powrót do menu głównego</button>
         </div>
     )

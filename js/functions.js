@@ -215,6 +215,12 @@ export const attendanceGameOverCheck = (stat, value = 0) => {
     }
 }
 
+export const dateGameOverCheck = (stat, value = 0) => {
+    if (stat > value) {
+        gameOverScreen()
+    }
+}
+
 export const statChainDegenerate = (causingStat, affectedStat) => {
     if (causingStat === 0) {
         affectedStat--;

@@ -121,6 +121,34 @@
       "ending": false,
       "endingNumber": 0,
       "gameOver": true
+    },
+    {
+      "id": 8,
+      "name": "tety",
+      "score": 359,
+      "week": 2,
+      "day": 36,
+      "dayPart": "poranek",
+      "moduleName": "Wstęp do baz danych",
+      "buffs": [],
+      "inventory": [
+        "identyfikator",
+        "srebrna kaczka"
+      ],
+      "health": 6,
+      "sleep": 0,
+      "skills": 10,
+      "attitude": 8,
+      "luck": 7,
+      "attendance": 97,
+      "repeatingExam": false,
+      "examPassed": false,
+      "examPoints": 0,
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "ending": false,
+      "endingNumber": 0,
+      "gameOver": false
     }
   ],
   "events": [

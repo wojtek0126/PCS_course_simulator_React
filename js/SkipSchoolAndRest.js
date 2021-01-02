@@ -31,12 +31,29 @@ console.log()
 
 
     const skipSchoolContinue = () => {
-        const sleepUp = parseInt(sleep + 1);
-        const skillsDown = parseInt(skills - 1);
-        const healthUp = parseInt(health + 1);
-        const attitudeDown = parseInt(attitude - 1);
-        const scoreUp = parseInt(score + 2);
-        const attendanceDown = parseInt(attendance - 3);
+        let attitudeDown = "";
+        let skillsDown = "";
+        let attendanceDown = "";
+        let healthUp = "";
+        let sleepUp = "";
+        let scoreUp = "";
+        if (day > 30) {
+            attitudeDown = parseInt(attitude);
+            skillsDown = parseInt(skills);
+            attendanceDown = parseInt(attendance);
+            healthUp = parseInt(health + 1);
+            sleepUp = parseInt(sleep + 1);
+            scoreUp = parseInt(score + 5);
+        }
+        else {
+            sleepUp = parseInt(sleep + 1);
+            skillsDown = parseInt(skills - 1);
+            healthUp = parseInt(health + 1);
+            attitudeDown = parseInt(attitude - 1);
+            scoreUp = parseInt(score + 2);
+            attendanceDown = parseInt(attendance - 3);
+        }
+
         let verifiedSleep = statValidation(sleepUp, 0, 10);
         let verifiedSkills = statValidation(skillsDown, 0, 10);
         let verifiedHealth = statValidation(healthUp, 0, 10);
