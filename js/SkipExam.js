@@ -9,38 +9,48 @@ const SkipExam = () => {
     const [player, setPlayer] = useState([]);
     const inventoryArr = player.inventory;
 
-    // useEffect(() => {
-    //     getPlayerForEventDraw(resultId, setPlayer);
-    // },[]);
-    console.log(player, "inwentarz w exam time button");
-    // inventoryArr.push("figurynka kurczaka");
+    useEffect(() => {
+        getPlayerForEventDraw(resultId, setPlayer);
+    },[])
+    console.log(player.luck, "plajer luck w skipexam");
 
-    // const modified = {
-    //     id: player.id,
-    //     name: player.name,
-    //     score: player.score,
-    //     week: player.week,
-    //     day: player.day,
-    //     dayPart: "wieczór",
-    //     moduleName: player.moduleName,
-    //     buffs: player.buffs,
-    //     inventory: inventoryArr,
-    //     health: player.health,
-    //     sleep: player.sleep,
-    //     skills: player.skills,
-    //     attitude: player.attitude,
-    //     luck: player.luck,
-    //     attendance: player.attendance,
-    //     repeatingExam: true,
-    //     examPassed: false,
-    //     examPoints: player.score,
-    //     finalProjectDone: player.finalProjectDone,
-    //     finalProjectScore: player.finalProjectScore,
-    //     ending: player.ending,
-    //     endingNumber: player.endingNumber,
-    //     gameOver: false
-    // };
-    // updatePlayerStats(resultId, modified);
+
+    console.log(inventoryArr, "inwentarz w skipexam button");
+    const skipExamButton = () => {
+        const chicken = "figurynka kurczaka";
+        inventoryArr.push(chicken)
+        // const extraExamMode = true
+
+        const modified = {
+            id: player.id,
+            name: player.name,
+            score: player.score,
+            week: player.week,
+            day: player.day,
+            dayPart: "wieczór",
+            moduleName: player.moduleName,
+            buffs: player.buffs,
+            inventory: inventoryArr,
+            health: player.health,
+            sleep: player.sleep,
+            skills: player.skills,
+            attitude: player.attitude,
+            luck: player.luck,
+            attendance: player.attendance,
+            repeatingExam: true,
+            examPassed: false,
+            examPoints: player.examPoints,
+            finalProjectDone: player.finalProjectDone,
+            finalProjectScore: player.finalProjectScore,
+            ending: player.ending,
+            endingNumber: player.endingNumber,
+            gameOver: false
+        };
+        updatePlayerStats(resultId, modified);
+        activateActionScreen();
+    }
+
+
 
     return (
         <div style={eventContainer}>
@@ -49,7 +59,7 @@ const SkipExam = () => {
             Masz na to czas do czwartku wieczór.Powodzenia.
             </p>
 
-            <button onClick={activateActionScreen}>kontynuuj</button>
+            <button onClick={skipExamButton}>kontynuuj</button>
         </div>
     )
 }

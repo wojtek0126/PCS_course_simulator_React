@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import {backToMainMenu, activateActionScreen} from "./viewControl";
 import {handleRemovePlayer, displayCurrentPlayer, saveId} from "./functions";
-import {getPlayers} from "./fetch";
+import {getPlayers, getPlayerForActionScreen} from "./fetch";
 
 
 const ContinueGame = () => {
@@ -22,14 +22,12 @@ const ContinueGame = () => {
 
     const handleContinue = (id) => {
         playersArr.map((el) => {
-            // console.log(el.id, "elem id from map");
-            // console.log(el, "elem from map");
             setPlayerId(id)
+            console.log(el.inventory, "jazda");
 
-            // console.log(playerId, " player id po wcisnieciu continue w map");
-            // console.log(playersArr, "playerId w continue game");
-            // console.log(playerId, "playerId w continue game poza map");
+
         })
+
         activateActionScreen()
     }
 
@@ -39,7 +37,9 @@ const ContinueGame = () => {
             <p>Witamy ponownie</p>
             {
                 playersArr.map((player) => {
-                    console.log(player.id, `gracz o id: ${player.id}`)
+                    console.log(player.id, `gracz o id: ${player.id}`);
+                    console.log(player.inventory, "inventorz");
+                    console.log(player.inventory.length, "inventorz dlugosc");
                     return (
                         <li key={player.id}>{player.name} {player.moduleName} {player.id}
                             <button onClick={() => handleContinue(player.id)}>Kontynuuj grę</button>

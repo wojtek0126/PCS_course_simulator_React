@@ -2,61 +2,46 @@ import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
     goPartyScreen, examScreen, inventoryScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
-import {buttonOnOff, loadId, gameOverCheck} from "./functions";
+import {buttonOnOff, loadId, gameOverCheck, clearStorageItems, saveObject, getObject} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements,
     actionElement, actionInventory, actionInvTitle, actionInvTitleText} from "./styles/styles";
 import {moduleNames} from "./variables";
-
+// plan na jutro: wyczyść to z tych wszystkich local storages z inventory, w player create success wgraj inventory do local storage.
+// następnie, w każdym widoku zgrywaj inwentarz i updatuj nim playera(tak jak z id) i tu w actionscreen zgraj to tez i wtedy mapuj
+// start pracy od create player oraz continue. inwentarz będzie też potrzebny w event draw oraz w shop.
+// czyli tak: na poczatku zapisuje do loc dlugosc zbioru inv ('invLength', inv.lenght) i uzywam funkcji setItemsFromArray(inv.length),
+//która pętlą doda ('invItem', `item${i}`) razy inv.length. Powinno zapisać 1 item - identyfikator. To w create i continue player.
+//Wgrywa się action screen. w action screenie pobieram inv.length z loca i pobieram funkcją getItemsToArray(inv.length),
+// która zgra z localstorage przedmioty i wrzuci do zbioru. To będzie zbiór do display. weź inwentarz w innych widokach tam gdzie
+//będzie potrzebny. Zmiany: zmiany w inventory oprócz do API będą tworzyły nowy item w loc lub kasowały usuwany item z loc.
+//tym sposobem ma być upadatowany cały kod. Na żywo odświerzany content w apce tej to będzie tabela wyników - could have
 const ActionScreen = () => {
+
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
-    const [inventoryArr, setInventoryArr] = useState([])
-    let arr = []
-
+    // inv w state sie przyda gdy przedmioty beda sie pojawiac i znikac z inv
+    const [inventoryArr, setInventoryArr] = useState([]);
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
+
     }, []);
 
     useEffect(() => {
         const inventoryArr = player.inventory;
         setInventoryArr(inventoryArr);
+        console.log(inventoryArr, "invArr w");
     }, [player]);
 
-    useEffect(() => {
+    const addArr = (inventoryArr) => {
+        let arr = []
         if (inventoryArr) {
             inventoryArr.forEach((item) => arr.push(item));
         }
-    }, [inventoryArr]);
-
-    const setMapForJSX = (array) => {
-        setTimeout(function () {
-            array.map((element, index) => {
-                console.log(element, "elem in map function");
-                localStorage.setItem(`item${index}`, element);
-                localStorage.setItem("invLength", array.length)
-                arr.push(element)
-            })
-        },300);
+        return arr
     }
-
-    setMapForJSX(inventoryArr)
-    const getItemsForMapJSX = (n) => {
-        let f = localStorage.getItem(`item${n}`);
-        console.log(f, "do arraya")
-        return f
-    }
-
-    let invLength = localStorage.getItem("invLength")
-    console.log(invLength)
-    // arr.push(getItemsForMapJSX(1))
-    for (let i = 0;i <= invLength;i++) {
-        let x = getItemsForMapJSX(i)
-        arr.push(x)
-    }
-
-    console.log(arr, "array no state");
-
+    let arr = addArr(inventoryArr);
+    console.log(arr[0], "tet za");
 
     let playerName = player.name;
     let health = player.health;
@@ -110,7 +95,7 @@ const ActionScreen = () => {
         buttonOnOff(skipSchoolBtn, "none");
         buttonOnOff(takeExamBtn, "none");
         buttonOnOff(takeExtraExamButton, "none");    }
-
+// clearStorageItems(invLength)
     gameOverCheck(health, 0);
     gameOverCheck(attendance, 80);
 
@@ -118,7 +103,7 @@ const ActionScreen = () => {
         <div className={"actionScreenContainer"}>
             <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}</div>
             <ul style={actionScreenList} className={"actionPlayerStats"}>
-                <li style={actionScreenListElements}>ZDROWIE: {health}</li>
+                <li style={actionScreenListElements} icon="fas fa-plus-circle">ZDROWIE: {health}</li>
                 <li style={actionScreenListElements}>SEN: {sleep}</li>
                 <li style={actionScreenListElements}>WIEDZA: {skills}</li>
                 <li style={actionScreenListElements}>MOTYWACJA: {attitude}</li>
@@ -129,14 +114,14 @@ const ActionScreen = () => {
                 <p style={actionInvTitleText}>Inwentarz:</p>
             </div>
             <div className={"actionInventory"} style={actionInventory}>
-                {arr.map(function (item, index) {
-                    return (
-                        <div key={index}>{item}</div>
-                    )
-                })}
+                {
+                    arr.map((item, index) => {
+                        return <p key={index}>{item}</p>
+                    })
+                }
             </div>
             <div>{}</div>
-            <div className={"actionBuffs"} style={actionElement}>Zdarzenia: </div>
+            <div className={"actionBuffs"} style={actionElement}>Aktywne efekty: </div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
             <button className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>

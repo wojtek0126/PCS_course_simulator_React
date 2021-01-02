@@ -15,6 +15,14 @@ export const saveData = (dataToSave, dataValueToSave) => {
     localStorage.setItem(dataToSave, dataValueToSave);
 }
 
+export const saveObjectArray = (dataToSave, dataValueToSave) => {
+    localStorage.setItem(dataToSave, JSON.stringify(dataValueToSave));
+}
+
+export const getObject = (dataToGet) => {
+    return JSON.parse(this.getItem(dataToGet));
+}
+
 export const getData = (dataName) => {
     localStorage.getItem(dataName);
 }
@@ -71,7 +79,7 @@ export const createNewPlayer = (nameData) => {
         endingNumber: 0,
         gameOver: false
     };
-        newPlayerCreate(newPlr);
+    newPlayerCreate(newPlr);
     successPlayerCreateScreen();
 }
 
@@ -296,6 +304,13 @@ export const examResultToLocalStorage = (result) => {
 export const objectFontResize = (element, newSize) => {
     const find = document.querySelector(element)
     find.style.fontSize = newSize;
+}
+
+export const clearStorageItems = (n) => {
+  for (let i = 0;i <= n;i++) {
+        localStorage.removeItem(`item${i}`);
+    }
+    localStorage.removeItem("invLength")
 }
 
 
