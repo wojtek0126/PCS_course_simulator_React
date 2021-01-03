@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
-    goPartyScreen, examScreen, inventoryScreen, extraExamScreen, finalProjectScreen} from "./viewControl";
+    goPartyScreen, examScreen, inventoryScreen, extraExamScreen, finalProjectScreen, finalProjectResultScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck, clearStorageItems,
     dateGameOverCheck, getObject, attendanceGameOverCheck} from "./functions";
@@ -118,6 +118,9 @@ const ActionScreen = () => {
     }
     else if (repeatingExam === false){
         buttonOnOff(takeExtraExamButton, "none");
+    }
+    if (player.finalProjectDone === true) {
+        finalProjectResultScreen();
     }
 
 // clearStorageItems(invLength)

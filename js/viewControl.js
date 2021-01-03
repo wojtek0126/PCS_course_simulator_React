@@ -583,7 +583,7 @@ export const finalProjectResultScreen = () => {
     localStorage.setItem('extraExamScreen', 'false');
     localStorage.setItem('examResultScreen', 'false');
     localStorage.setItem('skipExamScreen', 'false');
-    localStorage.setItem('eventDrawScreen', 'true');
+    localStorage.setItem('eventDrawScreen', 'false');
     localStorage.setItem('shopScreen', 'false');
     localStorage.setItem('finalProjectScreen', 'false');
     localStorage.setItem('finalProjectResultScreen', 'true');

@@ -63,7 +63,6 @@ console.log(player.luck, "plajer luck w exam");
             examPoints: examPoints,
             finalProjectDone: player.finalProjectDone,
             finalProjectScore: player.finalProjectScore,
-            ending: player.ending,
             endingNumber: player.endingNumber,
             gameOver: false
         };

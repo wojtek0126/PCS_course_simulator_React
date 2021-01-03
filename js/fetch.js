@@ -137,5 +137,20 @@ export const getEvents = (successCallback) => {
         });
 }
 
+export const getEndings = (successCallback) => {
+    fetch(`${API}/endings`)
+        .then(response => response.json())
+        .then(data => {
+            successCallback(data);
+            if (data.error === false && typeof successCallback === "function") {
+                successCallback(data);
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            location.reload();
+        });
+}
+
 
 

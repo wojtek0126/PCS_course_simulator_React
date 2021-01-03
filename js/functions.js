@@ -75,7 +75,6 @@ export const createNewPlayer = (nameData) => {
         examPoints: 0,
         finalProjectDone: false,
         finalProjectScore: 0,
-        ending: false,
         endingNumber: 0,
         gameOver: false
     };
@@ -310,6 +309,53 @@ export const examResultToLocalStorage = (result) => {
     }
     else {
         localStorage.setItem("displayExamResult", "Przykro mi. Egzamin niezaliczony");
+    }
+}
+
+export const drawFinalProjectResultScore = (luck, attitude, skills, examPoints) => {
+    let result = "";
+    if (luck === 0 || attitude === 0 || skills === 0) {
+        result = random(0, 25) - random(0, 10);
+        if (examPoints < 100) {
+            result = random(0, 25) - random(0, 10) - random(0, 3);
+        }
+        if (examPoints > 100) {
+            result = random(0, 25) - random(0, 10) + random(0, 3);
+        }
+    }
+    else if (luck === 10 || attitude === 10 || skills === 10) {
+        result = random(0, 25) + random(0, 10);
+        if (examPoints < 100) {
+            result = random(0, 25) + random(0, 10) - random(0, 3);
+        }
+        if (examPoints > 100) {
+            result = random(0, 25) + random(0, 10) + random(0, 3);
+        }
+    }
+    if (result > 30) {
+        result = 30;
+    }
+    return result
+}
+
+export const finalProjectResult = (score) => {
+    if (score <= 5 ) {
+        return 1
+    }
+    if (score <= 10 ) {
+        return 2
+    }
+    if (score <= 15 ) {
+        return 3
+    }
+    if (score <= 20 ) {
+        return 4
+    }
+    if (score <= 25 ) {
+        return 5
+    }
+    if (score <= 30 ) {
+        return 6
     }
 }
 

@@ -42,7 +42,6 @@ const SkipExam = () => {
             examPoints: player.examPoints,
             finalProjectDone: player.finalProjectDone,
             finalProjectScore: player.finalProjectScore,
-            ending: player.ending,
             endingNumber: player.endingNumber,
             gameOver: false
         };

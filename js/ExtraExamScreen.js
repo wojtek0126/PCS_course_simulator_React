@@ -67,7 +67,6 @@ const ExtraExamTime = () => {
             examPoints: examPoints,
             finalProjectDone: player.finalProjectDone,
             finalProjectScore: player.finalProjectScore,
-            ending: player.ending,
             endingNumber: player.endingNumber,
             gameOver: gameOver
         };

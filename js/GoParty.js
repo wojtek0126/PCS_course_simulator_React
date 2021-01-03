@@ -86,7 +86,6 @@ const GoParty = () => {
             examPoints: 0,
             finalProjectDone: false,
             finalProjectScore: 0,
-            ending: false,
             endingNumber: 0
         };
         updatePlayerStats(resultId, modified);
