@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvening,
-    goPartyScreen, examScreen, inventoryScreen, extraExamScreen} from "./viewControl";
+    goPartyScreen, examScreen, inventoryScreen, extraExamScreen, finalProjectScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck, clearStorageItems,
     dateGameOverCheck, getObject, attendanceGameOverCheck} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements,
     actionElement, actionInventory, actionInvTitle, actionInvTitleText} from "./styles/styles";
 import {moduleNames} from "./variables";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faHeart } from '@fortawesome/free-solid-svg-icons'
 // plan na jutro: wyczyść to z tych wszystkich local storages z inventory, w player create success wgraj inventory do local storage.
 // następnie, w każdym widoku zgrywaj inwentarz i updatuj nim playera(tak jak z id) i tu w actionscreen zgraj to tez i wtedy mapuj
 // start pracy od create player oraz continue. inwentarz będzie też potrzebny w event draw oraz w shop.
@@ -94,7 +96,7 @@ const ActionScreen = () => {
             // doHomeworkBtn.style.backgroundColor = "red";
         }
         else {
-            // buttonOnOff(takeExamBtn, "none");
+            buttonOnOff(takeExamBtn, "none");
             // doHomeworkBtn.style.backgroundColor = "green";
             // buttonOnOff(takeExtraExamButton, "none");
         }
@@ -133,17 +135,18 @@ const ActionScreen = () => {
 
     return (
         <div className={"actionScreenContainer"}>
+
             <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}</div>
             <ul style={actionScreenList} className={"actionPlayerStats"}>
-                <li style={actionScreenListElements} icon="fas fa-plus-circle">ZDROWIE: {health}</li>
-                <li style={actionScreenListElements}>SEN: {sleep}</li>
-                <li style={actionScreenListElements}>WIEDZA: {skills}</li>
-                <li style={actionScreenListElements}>MOTYWACJA: {attitude}</li>
-                <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}</li>
-                <li style={actionScreenListElements}>PUNKTY: {score}</li>
+                <li style={actionScreenListElements}>ZDROWIE: {health}  <FontAwesomeIcon icon="heart" /></li>
+                <li style={actionScreenListElements}>SEN: {sleep}<FontAwesomeIcon icon="bed" /></li>
+                <li style={actionScreenListElements}>WIEDZA: {skills}<FontAwesomeIcon icon="book" /></li>
+                <li style={actionScreenListElements}>MOTYWACJA: {attitude}<FontAwesomeIcon icon="brain" /></li>
+                <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}<FontAwesomeIcon icon="question" /></li>
+                <li style={actionScreenListElements}>PUNKTY: {score}<FontAwesomeIcon icon="coins" /></li>
             </ul>
             <div style={actionInvTitle}>
-                <p style={actionInvTitleText}>Inwentarz:</p>
+                <p style={actionInvTitleText}>Inwentarz:<FontAwesomeIcon icon="treasure-chest" /></p>
             </div>
             <div className={"actionInventory"} style={actionInventory}>
                 {
@@ -152,7 +155,7 @@ const ActionScreen = () => {
                     })
                 }
             </div>
-            <div>{}</div>
+            {/*<div>{}</div>*/}
             <div className={"actionBuffs"} style={actionElement}>Aktywne efekty: </div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
@@ -164,7 +167,7 @@ const ActionScreen = () => {
             <button className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
             <button className={"startEndGameProjectButton"} style={{
                 display: "none"
-            }}>zacznij projekt końcowy</button>
+            }} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
             <button className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
             <button className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
         </div>

@@ -8,7 +8,7 @@ const SkipSchoolAndRest = () => {
     const [player, setPlayer] = useState([]);
     const [inventoryArr, setInventoryArr] = useState([]);
     const [playerBuffs, setPlayerBuffs] = useState([]);
-
+    const effectDesc = document.querySelector(".effectDesc");
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -28,7 +28,7 @@ console.log()
     let week = player.week;
     let attendance = player.attendance;
     let repeatingExam = player.repeatingExam;
-
+    if (day > 30) {effectDesc.innerHTML = "zdrowie + 1, sen + 1, punkty + 5"};
 
     const skipSchoolContinue = () => {
         let attitudeDown = "";
@@ -94,7 +94,7 @@ console.log()
     return (
         <>
             <h1>Odpoczywasz w domu</h1>
-            <p>motywacja -1, wiedza -1, zdrowie +1, sen +1, punkty +2</p>
+            <p className={"effectDesc"}>motywacja -1, wiedza -1, zdrowie +1, sen +1, punkty +2, frekwencja - 3</p>
             <button onClick={skipSchoolContinue}>zakończ odpoczynek</button>
             <button onClick={shopScreen}>odwiedź sklep</button>
             <p>nastąpi losowanie zdarzenia</p>

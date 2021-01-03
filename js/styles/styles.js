@@ -56,7 +56,9 @@ export const actionScreenList = {
 
 export const actionScreenListElements = {
     padding: 10,
-    border: "2px dotted black"
+    border: "2px dotted black",
+    display: "flex",
+    justifyContent: "space-between"
 }
 
 export const actionElement = {

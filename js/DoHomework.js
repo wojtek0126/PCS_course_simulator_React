@@ -10,8 +10,8 @@ const DoHomework = () => {
     const [player, setPlayer] = useState([]);
     const [inventoryArr, setInventoryArr] = useState([]);
     const [playerBuffs, setPlayerBuffs] = useState([]);
-
-
+    const effectDesc = document.querySelector(".effectDesc");
+    const activityDesc = document.querySelector(".activityDesc");
 
     useEffect(() => {
        getPlayerForEventDraw(resultId, setPlayer);
@@ -36,6 +36,9 @@ const DoHomework = () => {
     console.log(week, "week111");
     console.log(day, "day")
     localStorage.setItem('weekNumber', week);
+    if (day > 30) {
+        activityDesc.innerHTML = "Przeglądasz materiały dodatkowe i odrabiasz zaległości"
+    }
 
     const doHomeworkContinue = () => {
         const sleepDown = parseInt(sleep - 1);
@@ -43,14 +46,13 @@ const DoHomework = () => {
         const scoreUp = parseInt(score + 10);
         const dayForward = parseInt(day + 1);
         const attitudeUp = parseInt(attitude + 1);
-        let dayCount = day;
         let weekNumber = parseInt(week);
         let moduleName = moduleNames[weekNumber-1];
         let verifiedSkill = statValidation(skillsUp, 0, 10);
         let verifiedSleep = statValidation(sleepDown, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
-        if (dayCount == 5 || dayCount == 10 || dayCount == 15 || dayCount == 20 || dayCount == 25 || dayCount == 30) {
+        if (day == 5 || day == 10 || day == 15 || day == 20 || day == 25 || day == 30) {
             weekNumber++;
             moduleName = moduleNames[weekNumber-1];
         }
@@ -91,8 +93,8 @@ const DoHomework = () => {
 
     return (
         <>
-            <h1>Po szkole odrabiasz pracę domową</h1>
-            <p>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
+            <h1 className={"activityDesc"}>Po szkole odrabiasz pracę domową</h1>
+            <p className={"effectDesc"}>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
             <button onClick={doHomeworkContinue}>Zakończ pracę</button>
             <button onClick={shopScreen}>odwiedź sklep</button>
             <p>nastąpi losowanie zdarzenia</p>
