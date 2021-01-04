@@ -3,7 +3,7 @@ import {skipExamScreen, examResultScreen} from "./viewControl";
 import {eventContainer, examDisplay} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
-    loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed} from "./functions";
+    loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed, examPointsValidation} from "./functions";
 
 const ExamTime = () => {
     const resultId = loadId();
@@ -22,8 +22,8 @@ console.log(player.luck, "plajer luck w exam");
         const sleep = parseInt(player.sleep);
         let attitude = parseInt(player.attitude);
         const health = parseInt(player.health);
-        let examPoints = examScoringSystem(skills, luck, attitude, sleep);
-
+        let examPointsRaw = examScoringSystem(skills, luck, attitude, sleep);
+        let examPoints = examPointsValidation(examPointsRaw);
         console.log(examPoints, ' punkty za egzamin');
         localStorage.setItem("examPoints", examPoints);
         let result = isExamPassedByPoints(examPoints);

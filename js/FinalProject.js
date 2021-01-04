@@ -27,9 +27,15 @@ const FinalProject = () => {
     let finalProjectDone = true;
     let endProjectResultScore = drawFinalProjectResultScore(luck, attitude, skills, examPoints);
     console.log(endProjectResultScore, "score project drawn");
-    // let endingId = finalProjectResult(endProjectResultScore);
-    // let finalDone = true;
-    // let addScore = player.score + endProjectResultScore;
+    console.log(player.luck, "plajer luck w exam");
+    console.log(player.skills, "plajer skill w exam");
+    console.log(player.attitude, "plajer att w exam");
+
+    let endingId = finalProjectResult(endProjectResultScore);
+    const finalDone = true;
+    console.log(endings, "endings");
+    console.log(endingId, "endingID");
+    let addScore = player.score + endProjectResultScore;
     // console.log(player.luck, "plajer luck w exam");
     // console.log(inventoryArr, "inwentarz w exam time button");
     // console.log(endings, "endings")
@@ -37,35 +43,35 @@ const FinalProject = () => {
 
     // console.log(endingId, "id zakonczenia wylosowany");
     //
-    // const modify = {
-    //     id: resultId,
-    //     name: player.name,
-    //     score: addScore,
-    //     week: player.week,
-    //     day: player.day,
-    //     dayPart: player.dayPart,
-    //     moduleName: player.moduleName,
-    //     buffs: player.buffs,
-    //     inventory: player.inventory,
-    //     health: player.health,
-    //     sleep: player.sleep,
-    //     skills: player.skills,
-    //     attitude: player.attitude,
-    //     luck: player.luck,
-    //     attendance: player.attendance,
-    //     repeatingExam: player.repeatingExam,
-    //     examPassed: player.examPassed,
-    //     examPoints: player.examPoints,
-    //     finalProjectDone: finalDone,
-    //     finalProjectScore: endProjectResultScore,
-    //     endingNumber: endingId
-    // };
-    // updatePlayerStats(resultId, modify);
+    const modify = {
+        id: resultId,
+        name: player.name,
+        score: addScore,
+        week: player.week,
+        day: player.day,
+        dayPart: player.dayPart,
+        moduleName: player.moduleName,
+        buffs: player.buffs,
+        inventory: player.inventory,
+        health: player.health,
+        sleep: player.sleep,
+        skills: player.skills,
+        attitude: player.attitude,
+        luck: player.luck,
+        attendance: player.attendance,
+        repeatingExam: player.repeatingExam,
+        examPassed: player.examPassed,
+        examPoints: player.examPoints,
+        finalProjectDone: finalDone,
+        finalProjectScore: endProjectResultScore,
+        endingNumber: endingId
+    };
+    console.log(modify, "statsy przed końcowym zapisaniem")
+    updatePlayerStats(resultId, modify);
 
     const startFinal = () => {
         finalProjectResultScreen();
     }
-
 
     return (
         <div style={eventContainer}>

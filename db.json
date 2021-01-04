@@ -58,6 +58,34 @@
       "finalProjectScore": 0,
       "endingNumber": 0,
       "gameOver": false
+    },
+    {
+      "id": 9,
+      "name": "as",
+      "score": 414,
+      "week": 7,
+      "day": 31,
+      "dayPart": "wieczór",
+      "moduleName": "Zaawansowany python i flask",
+      "buffs": [],
+      "inventory": [
+        "identyfikator",
+        "mała figurka z face palmem komandora",
+        "złota kaczka",
+        "brązowa kaczka"
+      ],
+      "health": 10,
+      "sleep": 6,
+      "skills": 10,
+      "attitude": 10,
+      "luck": 4,
+      "attendance": 100,
+      "repeatingExam": false,
+      "examPassed": false,
+      "examPoints": 0,
+      "finalProjectDone": true,
+      "finalProjectScore": 13,
+      "endingNumber": 3
     }
   ],
   "events": [

@@ -272,7 +272,7 @@ export const examScoringSystem = (skills, luck, attitude, sleep) => {
     else if (attitude === 10) {
         return  result + random(0, 5);
     }
-    if (result > 20) {
+    else if (result > 20) {
         result = 20;
     }
     return result
@@ -293,7 +293,7 @@ export const examPrizeAssign = (examPoints, repeatStat) => {
         const silver = "srebrna kaczka";
        return silver
     }
-    else if (examPoints >= 18 && examPoints !== 20) {
+    else if (examPoints >= 18 && examPoints < 20) {
        const gold ="złota kaczka";
         return gold
     }
@@ -301,6 +301,13 @@ export const examPrizeAssign = (examPoints, repeatStat) => {
         const platinium = "platynowa kaczka";
         return platinium
     }
+}
+
+export const examPointsValidation = (examPoints) => {
+    if (examPoints > 20) {
+        examPoints = 20;
+    }
+    return examPoints
 }
 
 export const examResultToLocalStorage = (result) => {
