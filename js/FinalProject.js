@@ -53,6 +53,7 @@ const FinalProject = () => {
         moduleName: player.moduleName,
         buffs: player.buffs,
         inventory: player.inventory,
+        items: player.items,
         health: player.health,
         sleep: player.sleep,
         skills: player.skills,

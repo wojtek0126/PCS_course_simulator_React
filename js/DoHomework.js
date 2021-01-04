@@ -41,6 +41,7 @@ const DoHomework = () => {
     }
 
     const doHomeworkContinue = () => {
+        let items = player.items;
         const sleepDown = parseInt(sleep - 1);
         const skillsUp = parseInt(skills + 1);
         const scoreUp = parseInt(score + 10);
@@ -71,6 +72,7 @@ const DoHomework = () => {
             moduleName: moduleName,
             buffs: buffs,
             inventory: inventory,
+            items: items,
             health: health,
             sleep: verifiedSleep,
             skills: verifiedSkill,

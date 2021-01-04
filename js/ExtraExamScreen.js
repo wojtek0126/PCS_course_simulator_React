@@ -56,6 +56,7 @@ const ExtraExamTime = () => {
             moduleName: player.moduleName,
             buffs: player.buffs,
             inventory: inventoryArr,
+            items: player.items,
             health: verifiedHealth,
             sleep: verifiedSleep,
             skills: verifiedSkill,

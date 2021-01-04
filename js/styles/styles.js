@@ -106,6 +106,16 @@ export const eventContainer = {
 export const examDisplay = {
     padding: "10px 20px",
     textAlign: "center",
+}
 
+export const shopItem = {
+    width: 150
+}
+
+export const shopInventory = {
+    border: "1px solid black",
+    display: "flex",
+    fontSize: 16,
+    justifyContent: "space-between"
 }
 

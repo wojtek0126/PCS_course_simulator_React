@@ -14,6 +14,8 @@ const SkipSchoolAndRest = () => {
         getPlayerForEventDraw(resultId, setPlayer);
     },[]);
 console.log()
+
+    let items = player.items;
     let playerName = player.name;
     let health = player.health;
     let sleep = player.sleep;
@@ -71,6 +73,7 @@ console.log()
             moduleName: currentModule,
             buffs: buffs,
             inventory: inventory,
+            items: items,
             health: verifiedHealth,
             sleep: verifiedSleep,
             skills: verifiedSkills,

@@ -64,6 +64,7 @@ export const createNewPlayer = (nameData) => {
         moduleName: "Wstęp do pythona",
         buffs: [],
         inventory: ["identyfikator"],
+        items: [],
         repeatingExam: false,
         health: 10,
         sleep: random(2, 8),
@@ -220,6 +221,20 @@ export const dateGameOverCheck = (stat, value = 0) => {
     }
 }
 
+export const causeOfGameOver = (health, att, examPassed) => {
+    let gameOverText = "";
+    if (health === 0) {
+         gameOverText = "Niezdolność zdrowotna do dalszego udziału w kursie" ;
+    }
+    else if (att <= 80) {
+        gameOverText = "Niezdolność zdrowotna do dalszego udziału w kursie";
+    }
+    else if (att > 80 && health > 0 && examPassed === false) {
+        gameOverText = "Niezaliczenie egzaminu poprawkowego";
+    }
+    return gameOverText
+}
+
 export const statChainDegenerate = (causingStat, affectedStat) => {
     if (causingStat === 0) {
         affectedStat--;
@@ -236,7 +251,7 @@ export const isExamPassedByPoints = (points) => {
 }
 
 export const assignExamRepeatIfFailed = (points) => {
-    if (points < 10) {
+    if (points <= 10) {
         return true
     }
     else {

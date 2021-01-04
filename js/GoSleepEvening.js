@@ -38,6 +38,7 @@ const GoSleepEvening = () => {
 
     const goSleepEveningContinue = () => {
 
+        let items = player.items;
         const healthUp = parseInt(health + 1);
         const sleepDown = parseInt(sleep + 1);
         // const skillsUp = parseInt(skills + 1);
@@ -69,6 +70,7 @@ const GoSleepEvening = () => {
             moduleName: moduleName,
             buffs: buffs,
             inventory: inventory,
+            items: items,
             health: verifiedHealth,
             sleep: verifiedSleep,
             skills: skills,

@@ -18,6 +18,7 @@ const GoParty = () => {
         getPlayerForEventDraw(resultId, setPlayer);
     },[]);
 
+    let items = player.items;
     let playerName = player.name;
     let health = player.health;
     let sleep = player.sleep;
@@ -44,7 +45,7 @@ const GoParty = () => {
         let healthE = random(0, -5);
         const sleepDown = (sleepE - 2);
         const drawSkills = (skillE2 + skillE);
-        const scoreUp = parseInt(score + 12);
+        const scoreUp = parseInt(score + 30);
         const drawHealth = parseInt(health + healthE);
         const dayForward = parseInt(day + 1);
         const attitudeUp = parseInt(attitude + 2);
@@ -75,6 +76,7 @@ const GoParty = () => {
             moduleName: moduleName,
             buffs: buffs,
             inventory: inventory,
+            items: items,
             health: verifiedHealth,
             sleep: verifiedSleep,
             skills: verifiedSkill,
@@ -96,7 +98,7 @@ const GoParty = () => {
     return (
         <>
             <h1>Idziesz wieczorem na imprezę</h1>
-            <p>sen - 2, motywacja +2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, punkty + 12</p>
+            <p>sen - 2, motywacja +2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, punkty + 30</p>
             <button onClick={goPartyContinue}>wróć z imprezy</button>
             <button onClick={shopScreen}>odwiedź sklep</button>
             <p>nastąpi losowanie zdarzenia</p>

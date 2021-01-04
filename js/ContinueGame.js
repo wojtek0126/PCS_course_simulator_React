@@ -23,9 +23,6 @@ const ContinueGame = () => {
     const handleContinue = (id) => {
         playersArr.map((el) => {
             setPlayerId(id)
-            console.log(el.inventory, "jazda");
-
-
         })
 
         activateActionScreen()

@@ -21,6 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const ActionScreen = () => {
 
     const resultId = loadId();
+    const actualEvent = localStorage.getItem("eventDrawn");
     const [player, setPlayer] = useState([]);
     // inv w state sie przyda gdy przedmioty beda sie pojawiac i znikac z inv
     const [inventoryArr, setInventoryArr] = useState([]);
@@ -64,7 +65,7 @@ const ActionScreen = () => {
     let repeatingExam = player.repeatingExam;
     let gameOver = player.gameOver;
 
-    //action buttons from DOM
+    //action buttons and elements DOM
     const goSchoolBtn = document.querySelector(".goSchoolButton");
     const skipSchoolBtn = document.querySelector(".skipAndRestButton");
     const doHomeworkBtn = document.querySelector(".doHomeworkButton");
@@ -74,6 +75,7 @@ const ActionScreen = () => {
     const takeExtraExamButton = document.querySelector(".takeExtraExamButton");
     const useItemButton = document.querySelector(".useItemButton");
     const endGameProjectButton = document.querySelector(".startEndGameProjectButton");
+    const eventDisplay = document.querySelector(".actionBuffs");
 
 
     if (dayPart === "poranek") {
@@ -122,6 +124,9 @@ const ActionScreen = () => {
     if (player.finalProjectDone === true) {
         finalProjectResultScreen();
     }
+    if (day === 1 && dayPart === "poranek") {
+        eventDisplay.innerHTML = "Aktualne zdarzenia: rozpoczynasz kurs Pythona. Powodzenia!"
+    }
 
 // clearStorageItems(invLength)
 //     if (day <= 30) {
@@ -149,7 +154,7 @@ const ActionScreen = () => {
                 <li style={actionScreenListElements}>PUNKTY: {score}<FontAwesomeIcon icon="coins" /></li>
             </ul>
             <div style={actionInvTitle}>
-                <p style={actionInvTitleText}>Inwentarz:<FontAwesomeIcon icon="treasure-chest" /></p>
+                <p style={actionInvTitleText}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
             </div>
             <div className={"actionInventory"} style={actionInventory}>
                 {
@@ -159,7 +164,7 @@ const ActionScreen = () => {
                 }
             </div>
             {/*<div>{}</div>*/}
-            <div className={"actionBuffs"} style={actionElement}>Aktywne efekty: </div>
+            <div className={"actionBuffs"} style={actionElement}>Aktualne zdarzenia: {actualEvent}</div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
             <button className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>

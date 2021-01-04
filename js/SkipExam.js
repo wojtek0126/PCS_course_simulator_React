@@ -31,6 +31,7 @@ const SkipExam = () => {
             moduleName: player.moduleName,
             buffs: player.buffs,
             inventory: inventoryArr,
+            items: player.items,
             health: player.health,
             sleep: player.sleep,
             skills: player.skills,

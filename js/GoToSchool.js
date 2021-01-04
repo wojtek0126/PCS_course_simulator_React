@@ -15,6 +15,7 @@ const GoToSchool = () => {
         getPlayerForEventDraw(resultId, setPlayer);
     },[]);
 
+    let items = player.items;
     let playerName = player.name;
     let health = player.health;
     let sleep = player.sleep;
@@ -48,6 +49,7 @@ const GoToSchool = () => {
             moduleName: currentModule,
             buffs: buffs,
             inventory: inventory,
+            items: items,
             health: health,
             sleep: verifiedSleep,
             skills: verifiedSkill,

@@ -52,6 +52,7 @@ console.log(player.luck, "plajer luck w exam");
             moduleName: player.moduleName,
             buffs: player.buffs,
             inventory: inventoryArr,
+            items: player.items,
             health: verifiedHealth,
             sleep: verifiedSleep,
             skills: verifiedSkill,

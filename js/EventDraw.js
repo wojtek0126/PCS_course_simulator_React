@@ -23,6 +23,7 @@ useEffect(() => {
         console.log(draw, "result drawn in variable in event draw")
     }
 
+    let items = player.items;
     let luckMod = parseInt(player.luck + draw.luck);
     let sleep = parseInt(player.sleep + draw.sleep);
     let health = parseInt(player.health + draw.health);
@@ -38,6 +39,7 @@ useEffect(() => {
     let verifiedAttitude = statValidation(attitude, 0, 10);
     let verifiedScore = validateScore(score);
     let plId = player.id;
+    localStorage.setItem("eventDrawn", draw.eventDescription);
 
     const modified = {
         id: player.id,
@@ -49,6 +51,7 @@ useEffect(() => {
         moduleName: player.moduleName,
         buffs: buffs,
         inventory: inventory,
+        items: items,
         health: verifiedHealth,
         sleep: verifiedSleep,
         skills: verifiedSkill,
