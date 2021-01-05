@@ -3,7 +3,7 @@ import {backToMainMenu, goToSchool, skipSchoolAndRest, doHomework, goSleepEvenin
     goPartyScreen, examScreen, inventoryScreen, extraExamScreen, finalProjectScreen, finalProjectResultScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, getPlayerForActionScreen} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck, clearStorageItems,
-    dateGameOverCheck, getObject, attendanceGameOverCheck} from "./functions";
+    dateGameOverCheck, addArr, attendanceGameOverCheck} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements,
     actionElement, actionInventory, actionInvTitle, actionInvTitleText} from "./styles/styles";
 import {moduleNames} from "./variables";
@@ -37,13 +37,13 @@ const ActionScreen = () => {
         console.log(inventoryArr, "invArr w");
     }, [player]);
 
-    const addArr = (inventoryArr) => {
-        let arr = []
-        if (inventoryArr) {
-            inventoryArr.forEach((item) => arr.push(item));
-        }
-        return arr
-    }
+    // const addArr = (inventoryArr) => {
+    //     let arr = []
+    //     if (inventoryArr) {
+    //         inventoryArr.forEach((item) => arr.push(item));
+    //     }
+    //     return arr
+    // }
     let arr = addArr(inventoryArr);
     console.log(arr[0], "tet za");
 
@@ -54,7 +54,7 @@ const ActionScreen = () => {
     let attitude = player.attitude;
     let luck = player.luck;
     let score = player.score;
-    let inventory = player.inventory;
+    // let inventory = player.inventory;
     let buffs = player.buffs;
     let day = player.day;
     let dayPart = player.dayPart;

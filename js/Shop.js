@@ -1,41 +1,81 @@
 import {eventDrawScreen} from "./viewControl";
 import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen} from "./viewControl";
-import {shopItem} from "./styles/styles";
+import {shopItem, shopInventory} from "./styles/styles";
 import {getPlayerForEventDraw, getItemsForSale, updatePlayerStats} from "./fetch";
 import {loadId} from "./functions";
 
 const Shop = () => {
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
-    const itemsArr = player.items;
     const [itemsForSale, setItemsForSale] = useState([]);
+    const [itemsArr, setItemsArr] = useState([]);
+    const [playerMoney, setPlayerMoney] = useState([]);
+
+    // const [itemBought, setItemBought] = useState([]);
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
-        getItemsForSale(setItemsForSale)
-    },[])
+        getItemsForSale(setItemsForSale);
+    },[]);
+
+    useEffect(() => {
+      setItemsArr(player.items);
+      setPlayerMoney(player.score);
+    },[player]);
+    // let itemsId = []
+    // itemsForSale.map((item) => {
+    //     itemsForSaleId.push(item.id);
+    // })
+    let playerItems = player.items;
     console.log(player, "plajer w items");
-    console.log(itemsArr, "inwentarz w items");
+    // console.log(itemsArr, "inwentarz w items");
     console.log(itemsForSale, "rzeczy w sklepiku");
+    // console.log(itemsForSaleId, " id rzeczy w sklepiku");
+    console.log(itemsArr, "obecny inwentaż gracza");
+    console.log(playerMoney, "hajs");
+    let timeSwitch = player.dayPart;
+    let dayOn = player.day;
+    if (player.dayPart === "poranek") {
+        timeSwitch = "wieczór";
+    }
+    else {
+        dayOn = player.day + 1;
+        timeSwitch = "poranek";
+    }
 
     const buyItem = (item) => {
+        console.log(playerMoney, "player money")
+        let itemPrice = itemsForSale[item].itemPrice;
 
-        let playerItems = player.items;
-        let playerCredits = player.score;
-        playerItems.push(item);
+
+        if (playerMoney >= itemPrice) {
+            console.log("stać Cię");
+            player.items.push(itemsForSale[item].id);
+
+            console.log(playerMoney, "hajs gracza w ifie");
+        }
+        else {
+            console.log("nie stać Cię");
+        }
+        let afterBuy =  playerMoney - itemPrice;
+        if (afterBuy > 0) {
+            afterBuy = 0
+        }
+        console.log(itemPrice, "cena");
+        console.log(playerMoney, "hajs gracza");
 
         const modified = {
             id: player.id,
             name: player.name,
-            score: player.score,
+            score: afterBuy,
             week: player.week,
-            day: player.day,
-            dayPart: player.dayPart,
+            day: dayOn,
+            dayPart: timeSwitch,
             moduleName: player.moduleName,
             buffs: player.buffs,
-            inventory: playerItems,
-            items: playerItems,
+            inventory: player.inventory ,
+            items: player.items,
             health: player.health,
             sleep: player.sleep,
             skills: player.skills,
@@ -50,47 +90,36 @@ const Shop = () => {
             endingNumber: player.endingNumber,
             gameOver: false
         };
+        console.log(player.items,"itemsy po naciśnięciu");
+        // location.reload();
         updatePlayerStats(resultId, modified);
+        location.reload();
     }
 
+    // const goToEvent = () => {
+
+    //     eventDrawScreen();
+    // }
+
+// do player inventory wjeżdża tylko item id.
     return (
-        <div style={{
-            width: 800,
-            height: 800,
-            background: "pearl",
-            border: "2px dotted black"
-        }}>
+        <div style={shopInventory}>
             <h2>Witaj w sklepie, {player.name}</h2>
             <p>Dostępne przedmioty</p>
 
                 {
                     itemsForSale.map((item, index) => {
                         return (
-                            <div key={index} style={{
-                                border: "1px solid black",
-                                display: "flex",
-                                fontSize: 16,
-                                justifyContent: "space-between"
-                            }}>
+                            <div key={index} style={shopInventory}>
                                 <p style={shopItem}>{item.itemName}</p>
                                 <p style={shopItem}>{item.itemEffect}</p>
                                 <p style={shopItem}>cena: {item.itemPrice}</p>
-                                <button onClick={buyItem(item)}>zakup</button>
+                                <button onClick={() => buyItem(item.id - 1)}>zakup {item.id}</button>
                             </div>
-
                         )
                     })
                 }
-
-                {/*    */}
-                {/*    <p>--effects--</p>*/}
-                {/*    <p>--price-- points</p>*/}
-                {/*    <button>kup</button>*/}
-                {/*</li>*/}
-
             <p>Twoje punkty: {player.score}</p>
-
-
             <button onClick={eventDrawScreen}>kontynuuj</button>
         </div>
     )

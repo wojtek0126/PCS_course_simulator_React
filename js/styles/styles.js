@@ -116,6 +116,8 @@ export const shopInventory = {
     border: "1px solid black",
     display: "flex",
     fontSize: 16,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    flexDirection: "column",
+    overflow: "auto"
 }
 

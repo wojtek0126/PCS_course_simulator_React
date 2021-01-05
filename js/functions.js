@@ -43,6 +43,22 @@ export const valuesToArray = (obj) => {
     return Object.keys(obj).map(function (key) { return obj[key]; });
 }
 
+export const addArr = (inventoryArr) => {
+    let arr = []
+    if (inventoryArr) {
+        inventoryArr.forEach((item) => arr.push(item));
+    }
+    return arr
+}
+
+export const removeItemOnce = (arr, value) => {
+    let index = arr.indexOf(value);
+    if (index > -1) {
+        arr.splice(index, 1);
+    }
+    return arr;
+}
+
 export const DomElementOnOff = (element, value) => {
     if (value === "on") {
         element.style.display = "block";
