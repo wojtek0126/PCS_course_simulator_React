@@ -17,7 +17,7 @@ Game instructions:
 -choose start new game
 -type in name and proceed to game action screen
 -choose from available options-buttons to progress game
--you can also use your items from your inventory from option-buttons. Your inventory at the start should be empty
+-you can also use items from inventory. Your inventory at the start should be empty
 -player's stats have impact on game events and exam results, zero in any stat means serious trouble with exams and final project
 -game is divided into 7 stages, first six ending with exam, seventh is final project
 -player's health going down to zero, failing/skipping/missing(should be 3 days to do) second chance exam, failing to give back final project on time(should be 5 days) or skipping too many classes, results in game over
