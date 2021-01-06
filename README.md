@@ -7,6 +7,7 @@ Instructions to quick launch in localhost:
 -run in terminal: npm i 
 -run in terminal: npm install -g json-server
 -run in terminal: npm i react-router-dom --save
+-npm install react-sticky
 -launch app: npm start
 -launch json server: json-server --watch db.json --host 127.0.0.1
 -access app through localhost 3001
