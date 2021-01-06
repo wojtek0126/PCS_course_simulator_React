@@ -46,7 +46,7 @@ const FinalProject = () => {
         // console.log(endingId, "id zakonczenia wylosowany");
         //
         const modify = {
-            id: resultId,
+            id: player.id,
             name: player.name,
             score: addScore,
             week: player.week,

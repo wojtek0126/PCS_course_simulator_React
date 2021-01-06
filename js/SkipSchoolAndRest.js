@@ -62,7 +62,7 @@ console.log()
         let verifiedAttendance = validateScore(attendanceDown);
 
         const modifiy = {
-            id: resultId,
+            id: player.id,
             name: playerName,
             score: verifiedScore,
             week: week,

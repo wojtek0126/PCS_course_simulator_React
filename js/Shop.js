@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {eventDrawScreen} from "./viewControl";
-import {shopItem, shopInventory} from "./styles/styles";
+import {shopItem, shopInventory, shopItemTop} from "./styles/styles";
 import {getPlayerForEventDraw, getItemsForSale, updatePlayerStats} from "./fetch";
 import {loadId} from "./functions";
 import {moduleNames} from "./variables";
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const Shop = () => {
     const resultId = loadId();
@@ -140,24 +141,46 @@ const Shop = () => {
     }
 
     return (
+        <>
         <div style={shopInventory}>
-            <h2>Witaj w sklepie, {player.name}</h2>
-            <p>Dostępne przedmioty</p>
+            <h2 style={{
+                marginTop: 20
+            }}>Witaj w sklepie, {player.name}</h2>
+            <StickyContainer>
+                <Sticky>{({ style, isSticky = true }) =>   <p style={{
+                    border: "1px dotted black",
+                    padding: 10,
+                    // width: "100%"
+                    // position: "sticky",
+                    // top: 0
+                }}>Twoje punkty: {player.score}</p>}</Sticky>
+            </StickyContainer>
+            <p style={{
+                border: "1px solid black",
+                marginBottom: -1,
+                width: "100%"
+            }}>Dostępne przedmioty:</p>
                 {
                     itemsForSale.map((item, index) => {
                         return (
                             <div key={index} style={shopInventory}>
-                                <p style={shopItem}>{item.itemName}</p>
+                                <p style={shopItemTop}>{item.itemName}</p>
                                 <p style={shopItem}>{item.itemEffect}</p>
                                 <p style={shopItem}>cena: {item.itemPrice}</p>
-                                <button onClick={() => buyItem(item.id - 1)}>zakup {item.id}</button>
+                                <button style={
+                                    {
+                                        width: "100%"
+                                    }} onClick={() => buyItem(item.id - 1)}>kup 1 x {item.itemName}</button>
                             </div>
                         )
                     })
                 }
-            <p>Twoje punkty: {player.score}</p>
-            <button onClick={goToEventDraw}>kontynuuj</button>
+            <button style={
+                {
+                width: "100%"
+            }} onClick={goToEventDraw}>kontynuuj</button>
         </div>
+            </>
     )
 }
 

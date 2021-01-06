@@ -14,21 +14,29 @@ useEffect(() => {
     getPlayerForEventDraw(resultId, setPlayer);
 },[]);
 
-
-
     const eventDrawContinue = () => {
         const drawEventBtn = document.querySelector(".drawEventBtn");
         setTimeout(() => {
-            drawEventBtn.innerHTML = "losuje..w razie braku wyniku losuj jeszcze raz"
-        }, 10);
+            setInterval(() => {
+                drawEventBtn.style.backgroundColor = "green";
+            }, 1000);
+            // setInterval(() => {
+            //     drawEventBtn.style.backgroundColor = "white";
+            // }, 1000);
+            drawEventBtn.innerHTML = "w razie gdyby losowanie nie powiodło się, naciśnij ponownie"
+        }, 200);
 
         const luck = player.luck;
         const draw = eventDrawHandler(luck, allEvents)
         if (draw === undefined) {
+            alert(draw.eventName, "wpadło undefined i przeszło!")
             location.reload()
         }
+        else if (draw.eventName === undefined){
+            alert(draw.eventName, "wpadło undefined i przeszło!")
+        }
         else {
-            console.log(draw, "result drawn in variable in event draw")
+            alert(draw.eventName)
         }
 
         let items = player.items;
@@ -81,6 +89,7 @@ useEffect(() => {
             alert("babol");
             location.reload();
         }
+
         activateActionScreen()
     }
 
@@ -92,7 +101,9 @@ useEffect(() => {
             {/*<p>{draw.eventDescription}</p>*/}
             {/*<p>{draw.eventEffect1}</p>*/}
             {/*<p>{draw.eventEffect2}</p>*/}
-            <button className={"drawEventBtn"} onClick={() => eventDrawContinue()}>losuj zdarzenie i kontynuuj</button>
+            <button style={{
+                marginTop: 40
+            }} className={"drawEventBtn"} onClick={() => eventDrawContinue()}>losuj zdarzenie</button>
         </div>
     )
 }

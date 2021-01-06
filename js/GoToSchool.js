@@ -40,7 +40,7 @@ const GoToSchool = () => {
         let verifiedScore = validateScore(scoreUp);
 
         const modified = {
-            id: resultId,
+            id: player.id,
             name: playerName,
             score: verifiedScore,
             week: week,

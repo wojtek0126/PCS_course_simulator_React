@@ -1,6 +1,7 @@
 import React from "react";
 import {menuOptions, menuContainer, menuTitle, menuTitleSmall, links} from "./styles/styles";
 import {startNewFromMenuScreen, continueFromMenuScreen} from "./viewControl";
+// import { AppRegistry, StyleSheet, ScrollView, Image, Text } from 'react-native';
 
 //functions to be kept in different file later, to be shortened, no duplicates
 
@@ -45,14 +46,24 @@ const link5Out = () => {
     const link = document.querySelector(".menuLink5");
     link.style.fontSize = "15px";
 }
-
+// style={{
+//     backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
+//         backgroundPosition: 'center',
+//         backgroundSize: 'cover',
+//         backgroundRepeat: 'no-repeat'
+// }}
 const WelcomeScreen = () => {
 
     return (
         <>
         <div className={"menuScreen"} style={menuContainer}>
-            <h1 style={menuTitle}>Symulator kursu IT</h1>
-            <p style={menuTitleSmall}>Python dla początkujących</p>
+            <h1 style={menuTitle}><span style={{
+                color: "black",
+                borderColor: 'black',
+                borderWidth: 1
+            }}>Symulator kursu</span> <strong style={{color: "black"}}>IT</strong></h1>
+            <p style={menuTitleSmall}><strong style={{color: "blue"}}>Python</strong>
+                <strong style={{color: "red"}}>dla</strong><strong style={{color: "black", fontWeight: "1000"}}>początkujących</strong>  </p>
             <div style={menuOptions}>
                 <a href="" className={"menuLink4" } onMouseEnter={link4Hovered} onMouseOut={link4Out} style={links}>Zaloguj się</a>
                 <a href="" className={"menuLink1"} onClick={startNewFromMenuScreen} onMouseEnter={link1Hovered} onMouseOut={link1Out} style={links}>Nowa gra</a>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {updatePlayerStats, getPlayerForEventDraw} from "./fetch";
-import {statValidation, validateScore, loadId} from "./functions";
+import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
 import {moduleNames} from "./variables";
 
 
@@ -51,9 +51,10 @@ const DoHomework = () => {
         let moduleName = moduleNames[weekNumber-1];
         let verifiedSkill = statValidation(skillsUp, 0, 10);
         let verifiedSleep = statValidation(sleepDown, 0, 10);
+        let verifiedHealth = statValidation(health, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
-        if (day == 5 || day == 10 || day == 15 || day == 20 || day == 25 || day == 30) {
+        if (day === 6 || day === 11 || day === 16 || day === 21 || day === 26 || day === 31) {
             weekNumber++;
             moduleName = moduleNames[weekNumber-1];
         }
@@ -61,9 +62,11 @@ const DoHomework = () => {
             weekNumber = parseInt(week);
             moduleName = moduleNames[weekNumber-1];
         }
+        const healthDeg = statChainDegenerate(verifiedSleep, verifiedHealth);
+        console.log(healthDeg, " healthdeg")
 
         const modified = {
-            id: resultId,
+            id: player.id,
             name: playerName,
             score: verifiedScore,
             week: weekNumber,
@@ -73,7 +76,7 @@ const DoHomework = () => {
             buffs: buffs,
             inventory: inventory,
             items: items,
-            health: health,
+            health: healthDeg,
             sleep: verifiedSleep,
             skills: verifiedSkill,
             attitude: attitudeUp,

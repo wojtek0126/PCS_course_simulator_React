@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
-import {statValidation, validateScore} from "./functions";
+import {statChainDegenerate, statValidation, validateScore} from "./functions";
 import {moduleNames} from "./variables";
 import {random, loadId} from "./functions";
 
@@ -51,7 +51,7 @@ const GoParty = () => {
         let verifiedHealth = statValidation(drawHealth, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
-        if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30) {
+        if (day === 6 || day === 11 || day === 16 || day === 21 || day === 26 || day === 31) {
             weekNumber++;
             moduleName = moduleNames[weekNumber-1];
         }
@@ -59,9 +59,10 @@ const GoParty = () => {
             weekNumber = parseInt(week);
             moduleName = moduleNames[weekNumber-1];
         }
-
+      const healthDeg = statChainDegenerate(verifiedSleep, verifiedHealth);
+    console.log(healthDeg, " healthdeg")
         const modified = {
-            id: resultId,
+            id: player.id,
             name: playerName,
             score: verifiedScore,
             week: weekNumber,
@@ -71,7 +72,7 @@ const GoParty = () => {
             buffs: buffs,
             inventory: inventory,
             items: items,
-            health: verifiedHealth,
+            health: healthDeg,
             sleep: verifiedSleep,
             skills: verifiedSkill,
             attitude: attitudeUp,

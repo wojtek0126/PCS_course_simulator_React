@@ -40,7 +40,7 @@ const ContinueGame = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 marginBottom: 20
-            }}>Witamy ponownie! Oto Twoi studenci:</h3>
+            }}>Witaj ponownie! Oto Twoi studenci:</h3>
             <div style={{display: "flex",
                 justifyContent: "space-between",
             marginBottom: -5}}><h5 style={{width: 400,

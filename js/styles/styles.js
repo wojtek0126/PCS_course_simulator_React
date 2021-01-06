@@ -7,7 +7,8 @@ export const menuTitle = {
 
 export const menuTitleSmall = {
     textTransform: "uppercase",
-    fontSize: "2em"
+    fontSize: "2em",
+    color: "blue"
 }
 
 export const menuOptions = {
@@ -15,6 +16,7 @@ export const menuOptions = {
     flexDirection: "column",
     color: "gold",
     textAlign: "center",
+    marginBottom: 20
 };
 
 export const links = {
@@ -32,7 +34,12 @@ export const menuContainer = {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    marginTop: "125px"
+    marginTop: "125px",
+    // backgroundImage: "url(" + "./images/classsroom5.jpg" + ")",
+    // backgroundPosition: 'center',
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundOpacity: "1"
 };
 
 //action screen below
@@ -109,19 +116,36 @@ export const examDisplay = {
     padding: "10px 20px",
     textAlign: "center",
 }
-
+export const shopItemTop = {
+    width: 350,
+    height: 300,
+    margin: 65,
+    display: "flex",
+    flexDirection: "column",
+    listStyle: "none",
+    justifyContent: "space-between",
+    border: "1px dotted black"
+}
 export const shopItem = {
-    width: 150
+    width: 150,
+    display: "flex",
+    flexDirection: "column",
+    listStyle: "none",
+    justifyContent: "space-between",
+    border: "1px dotted black",
+
 }
 
 export const shopInventory = {
     border: "1px dotted black",
     display: "flex",
     fontSize: 16,
-    justifyContent: "space-between",
+    justifyContent: "center",
     flexDirection: "column",
     overflow: "auto",
-    textAlign: "center"
+    textAlign: "center",
+    alignItems: "center",
+    width: "100%"
 }
 
 export const successPlayerCreate = {

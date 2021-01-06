@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
-import {statValidation, validateScore, loadId} from "./functions";
+import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
 import {moduleNames} from "./variables";
 
 const GoSleepEvening = () => {
@@ -44,14 +44,13 @@ const GoSleepEvening = () => {
         // const skillsUp = parseInt(skills + 1);
         const scoreUp = parseInt(score + 10);
         const dayForward = parseInt(day + 1);
-        let dayCount = day;
         let weekNumber = parseInt(week);
         let moduleName = moduleNames[weekNumber-1];
         let verifiedSleep = statValidation(sleepDown, 0, 10);
         let verifiedHealth = statValidation(healthUp, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
-        if (dayCount == 5 || dayCount == 10 || dayCount == 15 || dayCount == 20 || dayCount == 25 || dayCount == 30) {
+        if (day === 6 || day === 11 || day === 16 || day === 21 || day === 26 || day === 31) {
             weekNumber++;
             moduleName = moduleNames[weekNumber-1];
         }
@@ -60,8 +59,11 @@ const GoSleepEvening = () => {
             moduleName = moduleNames[weekNumber-1];
         }
 
+        const healthDeg = statChainDegenerate(verifiedSleep, verifiedHealth);
+        console.log(healthDeg, " healthdeg")
+        console.log(verifiedHealth, verifiedSleep, "verifiedy do degenera")
         const modified = {
-            id: resultId,
+            id: player.id,
             name: playerName,
             score: verifiedScore,
             week: weekNumber,
@@ -71,7 +73,7 @@ const GoSleepEvening = () => {
             buffs: buffs,
             inventory: inventory,
             items: items,
-            health: verifiedHealth,
+            health: healthDeg,
             sleep: verifiedSleep,
             skills: skills,
             attitude: attitude,

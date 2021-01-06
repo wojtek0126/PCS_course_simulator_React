@@ -253,7 +253,10 @@ export const causeOfGameOver = (health, att, examPassed) => {
 
 export const statChainDegenerate = (causingStat, affectedStat) => {
     if (causingStat === 0) {
-        affectedStat--;
+        return affectedStat--;
+    }
+    else {
+        return affectedStat;
     }
 }
 
