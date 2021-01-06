@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {backToMainMenu, shopScreen, eventDrawScreen} from "./viewControl";
-import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
+import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore, loadId} from "./functions";
 
 const SkipSchoolAndRest = () => {
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
-    const [inventoryArr, setInventoryArr] = useState([]);
-    const [playerBuffs, setPlayerBuffs] = useState([]);
     const effectDesc = document.querySelector(".effectDesc");
 
     useEffect(() => {

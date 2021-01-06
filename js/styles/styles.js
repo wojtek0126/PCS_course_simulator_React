@@ -118,6 +118,21 @@ export const shopInventory = {
     fontSize: 16,
     justifyContent: "space-between",
     flexDirection: "column",
-    overflow: "auto"
+    overflow: "auto",
+    textAlign: "center"
 }
+
+export const successPlayerCreate = {
+    border: "1px solid black",
+    display: "flex",
+    fontSize: 16,
+    justifyContent: "center",
+    flexDirection: "column",
+    overflow: "auto",
+    alignItems: "center"
+}
+
+// export const successPlayerCreateText = {
+//     width: 800
+// }
 

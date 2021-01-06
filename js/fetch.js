@@ -1,5 +1,5 @@
 import React from "react";
-// json-server --watch db.json
+// json-server --watch db.json --host 127.0.0.1
 import {API} from "./variables";
 
 export const getPlayers = (setArray) => {
