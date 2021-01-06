@@ -82,7 +82,7 @@ const ActionScreen = () => {
         buttonOnOff(skipSchoolBtn, "none");
         buttonOnOff(takeExamBtn, "none");
         buttonOnOff(takeExtraExamButton, "none");
-        if (day > 30 || week > 6) {
+        if (day > 30) {
             buttonOnOff(goSchoolBtn, "none");
             buttonOnOff(endGameProjectButton, "inline");
             buttonOnOff(takeExamBtn, "none");
@@ -130,7 +130,7 @@ const ActionScreen = () => {
                 }
             </div>
             {/*<div>{}</div>*/}
-            <div className={"actionBuffs"} style={actionElement}>Aktualne zdarzenia: {actualEvent}</div>
+            <div className={"actionBuffs"} style={actionElement}>Aktualne zdarzenie: {actualEvent}</div>
             <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
             <button className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>

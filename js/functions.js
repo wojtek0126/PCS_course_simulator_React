@@ -351,29 +351,72 @@ export const examResultToLocalStorage = (result) => {
 }
 
 export const drawFinalProjectResultScore = (luck, attitude, skills, examPoints) => {
-    let result = "";
+    // let result = [];
+    let statBonus = (skills / 4) + (attitude / 4) + (luck / 4);
     if (luck === 0 || attitude === 0 || skills === 0) {
-        result = random(0, 25) - random(0, 10);
         if (examPoints < 100) {
-            result = random(0, 25) - random(0, 10) - random(0, 3);
+            let result = [];
+            let statBonus = (skills / 4) + (attitude / 4) + (luck / 4);
+            let resultDraw = random(0, 25) - random(0, 10) - random(0, 3) + statBonus;
+            if (resultDraw > 30) {
+                resultDraw = 30;
+            }
+            result.push(resultDraw);
+            return result
         }
         if (examPoints > 100) {
-            result = random(0, 25) - random(0, 10) + random(0, 3);
+            let result = [];
+            let statBonus = (skills / 4) + (attitude / 4) + (luck / 4);
+            let resultDraw = random(0, 25) - random(0, 10) + random(0, 3) + statBonus;
+            if (resultDraw > 30) {
+                resultDraw = 30;
+            }
+            result.push(resultDraw);
+            return result
         }
     }
-    else if (luck === 10 || attitude === 10 || skills === 10) {
-        result = random(0, 25) + random(0, 10);
+    else {
+        let result = [];
+        let statBonus = (skills / 4) + (attitude / 4) + (luck / 4);
+        let resultDraw = random(0, 25) + statBonus;
+        if (resultDraw > 30) {
+            resultDraw = 30;
+        }
+        result.push(resultDraw);
+        return result
+    }
+    if (luck === 10 || attitude === 10 || skills === 10) {
         if (examPoints < 100) {
-            result = random(0, 25) + random(0, 10) - random(0, 3);
+            let result = [];
+            let statBonus = (skills / 4) + (attitude / 4) + (luck / 4);
+            let resultDraw = random(0, 25) + random(0, 10) - random(0, 3) + statBonus;
+            if (resultDraw > 30) {
+                resultDraw = 30;
+            }
+            result.push(resultDraw);
+            return result
         }
         if (examPoints > 100) {
-            result = random(0, 25) + random(0, 10) + random(0, 3);
+            let result = [];
+            let statBonus = (skills / 4) + (attitude / 4) + (luck / 4);
+            let resultDraw = random(0, 25) + random(0, 10) + random(0, 3) + statBonus;
+            if (resultDraw > 30) {
+                resultDraw = 30;
+            }
+            result.push(resultDraw);
+            return result
         }
     }
-    if (result > 30) {
-        result = 30;
+    else {
+        let result = [];
+        let statBonus = (skills / 4) + (attitude / 4) + (luck / 4);
+        let resultDraw = random(0, 25) + statBonus;
+        if (resultDraw > 30) {
+            resultDraw = 30;
+        }
+        result.push(resultDraw);
+        return result
     }
-    return result
 }
 
 export const finalProjectResult = (score) => {

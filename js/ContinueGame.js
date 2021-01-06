@@ -30,17 +30,49 @@ const ContinueGame = () => {
 
     return (
 
-        <div className={"continueGameContainer"}>
-            <p>Witamy ponownie</p>
+        <div className={"continueGameContainer"} style={{
+            display: "flex",
+            flexDirection: "column",
+            padding: 20,
+        }}>
+            <h3 style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: 20
+            }}>Witamy ponownie! Oto Twoi studenci:</h3>
+            <div style={{display: "flex",
+                justifyContent: "space-between",
+            marginBottom: -5}}><h5 style={{width: 400,
+                padding: 20,
+                border: "1px dotted black",
+                }}>IMIĘ</h5><h5 style={{width: 360,
+                padding: 20,
+                    border: "1px dotted black",}}>
+                MODUŁ</h5><h5 style={{width: 400,
+                border: "1px dotted black",
+                padding: 20,
+            }}>PUNKTY</h5></div>
             {
                 playersArr.map((player) => {
                     console.log(player.id, `gracz o id: ${player.id}`);
                     console.log(player.inventory, "inventorz");
                     console.log(player.inventory.length, "inventorz dlugosc");
                     return (
-                        <li key={player.id}>{player.name} {player.moduleName} {player.id}
-                            <button onClick={() => handleContinue(player.id)}>Kontynuuj grę</button>
-                            <button onClick={() => {handleRemovePlayer(player.id)}}>Skasuj gracza</button>
+                        <li style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            border: "1px dotted black",
+                            padding: 20,
+
+                        }} key={player.id}><strong style={{width: 400}}>{player.name}</strong><strong style={{width: 400}}>{player.moduleName}
+                        </strong><strong style={{width: 0}}>{player.score}</strong>
+                            <div>
+                                <button style={{width: 160, transform: "translateX(70px)"}} onClick={() => handleContinue(player.id)}>kontynuuj/podgląd</button>
+                                <button style={{width: 160, transform: "translateX(70px)"}} onClick={() => {handleRemovePlayer(player.id)}}>skasuj gracza</button>
+                            </div>
+
                         </li>
                     )
                 })

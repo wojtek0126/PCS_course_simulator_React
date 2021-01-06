@@ -38,7 +38,7 @@ const Shop = () => {
             console.log(playerMoney, "hajs gracza w ifie");
         }
         else {
-            console.log("nie stać Cię");
+            alert("Przykro mi, ilość zasobów jest niewystarczająca");
             afterBuy =  playerMoney;
         }
         if (afterBuy < 0) {

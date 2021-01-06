@@ -2,8 +2,10 @@ import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen, gameOverScreen} from "./viewControl";
 import {eventContainer, examDisplay} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
-import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
-    loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed} from "./functions";
+import {
+    examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
+    loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed, examPointsValidation
+} from "./functions";
 
 const ExtraExamTime = () => {
     const resultId = loadId();
@@ -22,8 +24,8 @@ const ExtraExamTime = () => {
         const sleep = parseInt(player.sleep);
         let attitude = parseInt(player.attitude);
         const health = parseInt(player.health);
-        let examPoints = examScoringSystem(skills, luck, attitude, sleep);
-
+        let examPointsRaw = examScoringSystem(skills, luck, attitude, sleep);
+        let examPoints = examPointsValidation(examPointsRaw);
         console.log(examPoints, ' punkty za egzamin');
         localStorage.setItem("examPoints", examPoints);
         let result = isExamPassedByPoints(examPoints);

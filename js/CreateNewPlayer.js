@@ -27,14 +27,32 @@ const CreateNewPlayer = () => {
     localStorage.setItem('playerName', playerName);
 
     return (
-            <div className={"startGameContainer"}>
-                <p>Witaj graczu. Podaj swoje imię ,aby rozpocząć</p>
-                <form  onSubmit={() => createNewPlayer(playerName)} action="">
-                    <label htmlFor="">podaj imię
-                        <input  onChange={e => setPlayerName(e.target.value)} type="text"/>
+            <div className={"startGameContainer"} >
+                <h3 style={{
+                    textAlign: "center",
+                    marginBottom: 40,
+                    marginTop: 180
+                }}>Witaj graczu. Podaj swoje imię ,aby rozpocząć.</h3>
+                <form style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}  onSubmit={() => createNewPlayer(playerName)} action="">
+                    <label style={{
+                        marginRight: 20,
+                        textTransform: 'uppercase'
+                    }} htmlFor="">podaj imię:
+                        <input style={{
+                            marginLeft: 20
+                        }}onChange={e => setPlayerName(e.target.value)} type="text"/>
                     </label>
-                    <button type="submit" >Rozpocznij grę</button>
-                    <button  onClick={backToMainMenu}>Powrót do menu</button>
+                    <div style={{
+                        transform: "translateY(-5px)"
+                    }}>
+                        <button type="submit" >Rozpocznij grę</button>
+                        <button  onClick={backToMainMenu}>Powrót do menu</button>
+                    </div>
+
                 </form>
             </div>
     )

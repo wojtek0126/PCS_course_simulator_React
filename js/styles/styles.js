@@ -37,7 +37,7 @@ export const menuContainer = {
 
 //action screen below
 export const actionNameField = {
-    border: "2px dotted blue",
+    border: "1px dotted black",
     display: "flex",
     flexDirection: "column",
     background: "silver",
@@ -50,19 +50,19 @@ export const actionScreenList = {
     background: "silver",
     padding: 20,
     listStyle: "none",
-    border: "2px dotted blue",
+    border: "1px dotted black",
     margin: 0
 }
 
 export const actionScreenListElements = {
     padding: 10,
-    border: "2px dotted black",
+    border: "1px dotted black",
     display: "flex",
     justifyContent: "space-between"
 }
 
 export const actionElement = {
-    border: "2px dotted blue",
+    border: "1px dotted black",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "silver",
@@ -70,7 +70,7 @@ export const actionElement = {
 }
 
 export const actionInvTitle = {
-    border: "2px dotted blue",
+    border: "1px dotted black",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -84,7 +84,7 @@ export const actionInvTitleText = {
 }
 
 export const actionInventory = {
-    border: "2px solid black",
+    border: "1px solid black",
     display: "flex",
     height: 40,
     flexDirection: "column",
@@ -101,7 +101,9 @@ export const eventContainer = {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    border: "2px dotted black"
+    border: "1px dotted black",
+    padding: 20,
+    textAlign: "center"
 }
 export const examDisplay = {
     padding: "10px 20px",
@@ -113,7 +115,7 @@ export const shopItem = {
 }
 
 export const shopInventory = {
-    border: "1px solid black",
+    border: "1px dotted black",
     display: "flex",
     fontSize: 16,
     justifyContent: "space-between",
@@ -123,13 +125,15 @@ export const shopInventory = {
 }
 
 export const successPlayerCreate = {
-    border: "1px solid black",
+    border: "1px dotted black",
     display: "flex",
     fontSize: 16,
     justifyContent: "center",
     flexDirection: "column",
     overflow: "auto",
-    alignItems: "center"
+    alignItems: "center",
+    padding: 20,
+    marginTop: 180
 }
 
 // export const successPlayerCreateText = {

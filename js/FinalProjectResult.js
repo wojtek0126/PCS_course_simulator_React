@@ -43,10 +43,11 @@ const FinalProjectResult = () => {
 
     return (
         <div style={eventContainer}>
+            <h1 style={examDisplay}>GRA UKOŃCZONA</h1>
             <h2 style={examDisplay}>Rezultat Twojego projektu końcowego:</h2>
             <p style={examDisplay}>{endingName}</p>
             <p style={examDisplay}>Zdobyte punkty za projekt: {endingProjectScore}</p>
-            <p style={examDisplay}>Zdobyte punkty razem: {endingScore}</p>
+            <p style={examDisplay}>Punkty pozostałe na końcu: {endingScore}</p>
             <p style={examDisplay}>{endingDesc}</p>
             <h3 style={examDisplay}>Twoja nagroda podsumowująca: {endPrize}</h3>
             <button onClick={backToMainMenu}>zapisz wynik i wróć do menu głównego</button>

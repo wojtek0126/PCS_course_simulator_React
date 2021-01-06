@@ -27,13 +27,24 @@ const Inventory = () => {
     console.log(itemsMapArr, " itemsy w inv gracza po oprawieniu");
     let itemsObjects = addArr(itemsForSale);
     console.log(itemsObjects, " itemsy pełne obiekty");
+    // if (itemsObjects[item - 1] !== undefined) {
+    //     location.reload();
+    //     console.log(itemsObjects[item - 1], "nie")
+    // }
+    // else {
+    //     console.log(itemsObjects[item - 1], "to jest")
+    // }
+
+  // try {
+  //     itemsObjects[item - 1];
+  // }
+  // catch (e) {
+  //
+  // }
+
 
     const useItem = (item) => {
-        if (item === undefined) {
-            location.reload()
-        }
-
-        let extractWholeItem = itemsObjects[item - 1]
+        let extractWholeItem = itemsObjects[item - 1];
         console.log(extractWholeItem, "  itema");
         console.log(extractWholeItem.luck, "dawaj !!")
         console.log(itemsMapArr, "zbiór z którego odejmuje się element po uzyciu");
@@ -76,19 +87,28 @@ const Inventory = () => {
             endingNumber: player.endingNumber,
             gameOver: false
         };
-
         updatePlayerStats(resultId, modified);
-        location.reload()
+        location.reload();
     }
 
-    return (
+    try {
+        itemsMapArr.map((item) => {
+            console.log(itemsObjects[item - 1].itemName, "jest item w try catch");
+        })
+    } catch (e) {
+        location.reload();
+    }
+
+        return (
         <div style={shopInventory}>
-            <h2>Twój inwentaż:</h2>
+            <h2 style={{
+                padding: "20px 0"
+            }}>Twój inwentaż:</h2>
             {
                 itemsMapArr.map((item, index) => {
                     return (
                         <li style={shopItem} key={index}>{itemsObjects[item - 1].itemName}
-                        <button onClick={() => useItem(item)}>użyj</button></li>
+                            <button onClick={() => useItem(item)}>użyj</button></li>
                     )
                 })
             }
