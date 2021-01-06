@@ -27,26 +27,26 @@ const Shop = () => {
     console.log(itemsArr, "obecny inwentaż gracza");
     console.log(playerMoney, "hajs");
 
-    // console.log(day, "dzien");
-
     const buyItem = (item) => {
-        console.log(playerMoney, "player money")
+        console.log(playerMoney, "player money");
         let itemPrice = itemsForSale[item].itemPrice;
-
+        let afterBuy = 0;
         if (playerMoney >= itemPrice) {
             console.log("stać Cię");
             player.items.push(itemsForSale[item].id);
+            afterBuy =  playerMoney - itemPrice;
             console.log(playerMoney, "hajs gracza w ifie");
         }
         else {
             console.log("nie stać Cię");
+            afterBuy =  playerMoney;
         }
-        let afterBuy =  playerMoney - itemPrice;
-        if (afterBuy > 0) {
+        if (afterBuy < 0) {
             afterBuy = 0
         }
         console.log(itemPrice, "cena");
         console.log(playerMoney, "hajs gracza");
+        console.log(afterBuy, "hajs po kupieniu powinien")
 
         const modified = {
             id: player.id,
@@ -74,12 +74,11 @@ const Shop = () => {
             gameOver: false
         };
         console.log(player.items,"itemsy po naciśnięciu");
-        // location.reload();
         updatePlayerStats(resultId, modified);
         location.reload();
     }
 
-    const goToEvent = () => {
+    const goToEventDraw = () => {
         if (player.day !== undefined) {
             let day = player.day;
             let week = player.week;
@@ -140,12 +139,10 @@ const Shop = () => {
         eventDrawScreen();
     }
 
-// do player inventory wjeżdża tylko item id.
     return (
         <div style={shopInventory}>
             <h2>Witaj w sklepie, {player.name}</h2>
             <p>Dostępne przedmioty</p>
-
                 {
                     itemsForSale.map((item, index) => {
                         return (
@@ -159,7 +156,7 @@ const Shop = () => {
                     })
                 }
             <p>Twoje punkty: {player.score}</p>
-            <button onClick={goToEvent}>kontynuuj</button>
+            <button onClick={goToEventDraw}>kontynuuj</button>
         </div>
     )
 }
