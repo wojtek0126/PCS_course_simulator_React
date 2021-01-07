@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import {backToMainMenu, activateActionScreen} from "./viewControl";
 import {handleRemovePlayer, displayCurrentPlayer, saveId} from "./functions";
 import {getPlayers, getPlayerForActionScreen} from "./fetch";
-import {buttons, continueGameListElements, shopBackground, continueListContainer} from "./styles/styles";
+import {buttons, continueGameListElements, shopBackground, continueListContainer, shopButtons} from "./styles/styles";
 
 
 const ContinueGame = () => {
@@ -47,8 +47,8 @@ const ContinueGame = () => {
                             <li style={continueGameListElements} key={player.id}><strong style={{width: 400}}>{player.name}</strong><strong style={{width: 400}}>{player.moduleName}
                             </strong>
                                 <div>
-                                    <button style={buttons} onClick={() => handleContinue(player.id)}>kontynuuj/podgląd</button>
-                                    <button style={buttons} onClick={() => {handleRemovePlayer(player.id)}}>skasuj gracza</button>
+                                    <button style={shopButtons} onClick={() => handleContinue(player.id)}>kontynuuj/podgląd</button>
+                                    <button style={shopButtons} onClick={() => {handleRemovePlayer(player.id)}}>skasuj gracza</button>
                                 </div>
 
                             </li>
