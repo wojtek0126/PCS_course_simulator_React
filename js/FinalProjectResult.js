@@ -1,7 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {getEndings, getPlayerForEventDraw} from "./fetch";
 import {backToMainMenu} from "./viewControl";
-import {eventContainer, examDisplay, buttons, examResultBackground, finalResultBackground} from "./styles/styles";
+import {
+    eventContainer,
+    examDisplay,
+    buttons,
+    examResultBackground,
+    finalResultBackground,
+    endingContainer
+} from "./styles/styles";
 
 const FinalProjectResult = () => {
     const resultId = localStorage.getItem('continuePlayerId')
@@ -43,7 +50,7 @@ const FinalProjectResult = () => {
 
     return (
         <div style={finalResultBackground}>
-        <div style={eventContainer}>
+        <div style={endingContainer}>
             <h1 style={examDisplay}>GRA UKOŃCZONA</h1>
             <h2 style={examDisplay}>Rezultat Twojego projektu końcowego:</h2>
             <p style={examDisplay}>{endingName}</p>

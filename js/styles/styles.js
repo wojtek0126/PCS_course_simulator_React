@@ -383,6 +383,24 @@ export const eventContainer = {
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
 }
+
+export const endingContainer = {
+    width: "80vw",
+    height: "80vh",
+    background: "silver",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    border: "5px solid black",
+    padding: 20,
+    borderRadius: 10,
+    textAlign: "center",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+}
 //
 export const examDisplay = {
     padding: "10px 20px",
