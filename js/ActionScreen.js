@@ -140,7 +140,7 @@ const ActionScreen = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: 20
+                // paddingTop: 20
             }}>
                 <button style={buttons} className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
                 <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>

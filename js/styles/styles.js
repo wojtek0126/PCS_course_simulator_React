@@ -236,7 +236,7 @@ export const actionNameField = {
     padding: 20,
     borderRadius: 10,
     width: "90vw",
-    transform: "translateY(20px)",
+    transform: "translateY(40px)",
     backgroundImage: "url(" + "images/steel.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -257,7 +257,7 @@ export const actionScreenList = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    transform: "translateY(20px)"
+    transform: "translateY(30px)"
 }
 
 export const actionScreenListElements = {
@@ -551,10 +551,10 @@ export const createPlayerBackground = {
 
 export const wholeScreenBackground = {
     backgroundImage: "url(" + "images/background1.png" + ")",
-    backgroundPosition: 'center',
+    // backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    // height: "100vh",
+    height: "100vh",
     display: "flex",
     flexDirection : "column",
     justifyContent: "center",
