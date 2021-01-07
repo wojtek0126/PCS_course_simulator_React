@@ -1,11 +1,17 @@
 body {
-    background-color: gold;
+    background-color: whitesmoke;
+    font-family: 'Hanalei Fill', cursive;
 }
 
 a {
     text-decoration: none;
 }
 
-a:hover {
-    color: purple;
-}
+/*.main-menu--image {*/
+/* background-image: url("./images/classsroom5.jpg");*/
+/* background-position: center;*/
+/* background-size: cover;*/
+/* background-repeat: no-repeat;*/
+/* opacity: 1;*/
+/*}*/
+

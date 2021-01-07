@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
-import {eventContainer, examDisplay} from "./styles/styles";
+import {buttons, eventContainer, examDisplay} from "./styles/styles";
 import {examPrizeAssign, loadId} from "./functions";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 
@@ -59,7 +59,7 @@ const SkipExam = () => {
             Masz na to czas do czwartku wieczór.Powodzenia.
             </p>
 
-            <button onClick={skipExamButton}>kontynuuj</button>
+            <button style={buttons} onClick={skipExamButton}>kontynuuj</button>
         </div>
     )
 }

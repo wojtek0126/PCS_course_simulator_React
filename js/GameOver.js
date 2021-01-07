@@ -3,6 +3,7 @@ import {backToMainMenu} from "./viewControl";
 import {eventContainer, examDisplay} from "./styles/styles";
 import {loadId, causeOfGameOver} from "./functions";
 import {getPlayerForEventDraw} from "./fetch";
+import {buttons} from "./styles/styles";
 
 const GameOver = () => {
     const resultId = loadId();
@@ -27,7 +28,7 @@ const GameOver = () => {
            <p style={examDisplay} className={"causeOfDeath"}>Przyczyna porażki: {causeOfGameOver(health, attendance, isExamPassed)}</p>
            <p style={examDisplay}>Zdobyte punkty:{player.score}</p>
             <p style={examDisplay}>Nie poddawaj się!</p>
-           <button onClick={backToMainMenu}>Powrót do menu głównego</button>
+           <button style={buttons} onClick={backToMainMenu}>Powrót do menu głównego</button>
         </div>
     )
 }

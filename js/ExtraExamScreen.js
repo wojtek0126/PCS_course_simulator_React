@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen, gameOverScreen} from "./viewControl";
-import {eventContainer, examDisplay} from "./styles/styles";
+import {buttons, eventContainer, examDisplay} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {
     examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
@@ -85,8 +85,8 @@ const ExtraExamTime = () => {
             <p style={examDisplay}>Ten egzamin pisany jest w przypadku niezaliczenia bądź nie stawienia się na pierwszej próbie.
                 Jest to ostateczna szansa na kontynuowanie nauki na tej edycji kursu</p>
             <p style={examDisplay}>Twój wybór: </p>
-            <button onClick={drawTheResult}>Podchodzę do egzaminu</button>
-            <button>Nie podchodzę do egzaminu</button>
+            <button style={buttons}onClick={drawTheResult}>Podchodzę do egzaminu</button>
+            <button style={buttons}>Nie podchodzę do egzaminu</button>
             </div>
     )
 }

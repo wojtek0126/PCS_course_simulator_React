@@ -3,6 +3,7 @@ import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {updatePlayerStats, getPlayerForEventDraw} from "./fetch";
 import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
 import {moduleNames} from "./variables";
+import {buttons, doHomeworkBackground} from "./styles/styles";
 
 
 const DoHomework = () => {
@@ -54,7 +55,7 @@ const DoHomework = () => {
         let verifiedHealth = statValidation(health, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
-        if (day === 6 || day === 11 || day === 16 || day === 21 || day === 26 || day === 31) {
+        if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30) {
             weekNumber++;
             moduleName = moduleNames[weekNumber-1];
         }
@@ -62,8 +63,9 @@ const DoHomework = () => {
             weekNumber = parseInt(week);
             moduleName = moduleNames[weekNumber-1];
         }
-        const healthDeg = statChainDegenerate(verifiedSleep, verifiedHealth);
-        console.log(healthDeg, " healthdeg")
+        if (verifiedSleep === 0) {
+            verifiedHealth--;
+        }
 
         const modified = {
             id: player.id,
@@ -76,7 +78,7 @@ const DoHomework = () => {
             buffs: buffs,
             inventory: inventory,
             items: items,
-            health: healthDeg,
+            health: verifiedHealth,
             sleep: verifiedSleep,
             skills: verifiedSkill,
             attitude: attitudeUp,
@@ -96,14 +98,14 @@ const DoHomework = () => {
     };
 
     return (
-        <>
+        <div style={doHomeworkBackground}>
             <h1 className={"activityDesc"}>Po szkole odrabiasz pracę domową</h1>
             <p className={"effectDesc"}>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
-            <button onClick={doHomeworkContinue}>Zakończ pracę</button>
-            <button onClick={shopScreen}>odwiedź sklep</button>
+            <button style={buttons} onClick={doHomeworkContinue}>Zakończ pracę</button>
+            <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
             <p>nastąpi losowanie zdarzenia</p>
-            <button onClick={backToMainMenu}>powrót do menu</button>
-        </>
+            <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+        </div>
     )
 }
 

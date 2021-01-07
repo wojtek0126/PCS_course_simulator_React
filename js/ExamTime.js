@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen} from "./viewControl";
-import {eventContainer, examDisplay} from "./styles/styles";
+import {eventContainer, examDisplay, buttons} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
     loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed, examPointsValidation} from "./functions";
@@ -82,8 +82,8 @@ console.log(player.luck, "plajer luck w exam");
             {/*niesłąwnego trofeum z face plantem</p>*/}
             <p style={examDisplay}>Twój wybór: </p>
             <div style={{display: "inline"}}>
-                <button onClick={drawTheResult}>podchodzę do egzaminu</button>
-                <button onClick={skipExamScreen}>nie podchodzę do egzaminu</button>
+                <button style={buttons} onClick={drawTheResult}>podchodzę do egzaminu</button>
+                <button style={buttons} onClick={skipExamScreen}>nie podchodzę do egzaminu</button>
             </div>
         </div>
     )

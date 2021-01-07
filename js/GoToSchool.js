@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore, loadId} from "./functions";
+import {buttons, goSchoolBackground} from "./styles/styles";
 
 const GoToSchool = () => {
     const resultId = loadId();
@@ -70,14 +71,14 @@ const GoToSchool = () => {
     };
 
     return (
-        <>
+        <div style={goSchoolBackground}>
         <h1>Poszedłeś do szkoły</h1>
         <p>wiedza+1, sen - 1, punkty + 5</p>
-            <button onClick={wentToSchoolContinue}>Wracasz ze szkoły do domu</button>
-            <button onClick={shopScreen}>odwiedź sklep</button>
+            <button style={buttons} onClick={wentToSchoolContinue}>Wracasz ze szkoły do domu</button>
+            <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
             <p>nastąpi losowanie zdarzenia</p>
-            <button onClick={backToMainMenu}>powrót do menu</button>
-            </>
+            <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+            </div>
     )
 }
 

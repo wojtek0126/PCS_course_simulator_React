@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {backToMainMenu, shopScreen, eventDrawScreen} from "./viewControl";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore, loadId} from "./functions";
+import {buttons, skipSchoolBackground} from "./styles/styles";
 
 const SkipSchoolAndRest = () => {
     const resultId = loadId();
@@ -92,14 +93,14 @@ console.log()
     }
 
     return (
-        <>
+        <div style={skipSchoolBackground}>
             <h1>Odpoczywasz w domu</h1>
             <p className={"effectDesc"}>motywacja -1, wiedza -1, zdrowie +1, sen +1, punkty +2, frekwencja - 3</p>
-            <button onClick={skipSchoolContinue}>zakończ odpoczynek</button>
-            <button onClick={shopScreen}>odwiedź sklep</button>
+            <button style={buttons} onClick={skipSchoolContinue}>zakończ odpoczynek</button>
+            <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
             <p>nastąpi losowanie zdarzenia</p>
-            <button onClick={backToMainMenu}>powrót do menu</button>
-        </>
+            <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+        </div>
     )
 }
 

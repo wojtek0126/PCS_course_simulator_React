@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {eventDrawScreen} from "./viewControl";
-import {shopItem, shopInventory, shopItemTop} from "./styles/styles";
+import {shopItem, shopInventory, shopItemTop, buttons, shopItemsParagraph, shopPlayerPoints, shopWelcomeText, shopBackground, wholeScreenBackground} from "./styles/styles";
 import {getPlayerForEventDraw, getItemsForSale, updatePlayerStats} from "./fetch";
 import {loadId} from "./functions";
 import {moduleNames} from "./variables";
@@ -141,25 +141,13 @@ const Shop = () => {
     }
 
     return (
-        <>
+        <div style={wholeScreenBackground}>
         <div style={shopInventory}>
-            <h2 style={{
-                marginTop: 20
-            }}>Witaj w sklepie, {player.name}</h2>
+            <h2 style={shopWelcomeText}>Witaj w sklepie, {player.name}</h2>
             <StickyContainer>
-                <Sticky>{({ style, isSticky = true }) =>   <p style={{
-                    border: "1px dotted black",
-                    padding: 10,
-                    // width: "100%"
-                    // position: "sticky",
-                    // top: 0
-                }}>Twoje punkty: {player.score}</p>}</Sticky>
+                <Sticky>{({ style, isSticky = true }) => <p style={shopPlayerPoints}>Twoje punkty: {player.score}</p>}</Sticky>
             </StickyContainer>
-            <p style={{
-                border: "1px solid black",
-                marginBottom: -1,
-                width: "100%"
-            }}>Dostępne przedmioty:</p>
+            <p style={shopItemsParagraph}>Dostępne przedmioty:</p>
                 {
                     itemsForSale.map((item, index) => {
                         return (
@@ -167,20 +155,14 @@ const Shop = () => {
                                 <p style={shopItemTop}>{item.itemName}</p>
                                 <p style={shopItem}>{item.itemEffect}</p>
                                 <p style={shopItem}>cena: {item.itemPrice}</p>
-                                <button style={
-                                    {
-                                        width: "100%"
-                                    }} onClick={() => buyItem(item.id - 1)}>kup 1 x {item.itemName}</button>
+                                <button style={buttons} onClick={() => buyItem(item.id - 1)}>kup 1 x {item.itemName}</button>
                             </div>
                         )
                     })
                 }
-            <button style={
-                {
-                width: "100%"
-            }} onClick={goToEventDraw}>kontynuuj</button>
+            <button style={buttons} onClick={goToEventDraw}>kontynuuj</button>
         </div>
-            </>
+            </div>
     )
 }
 

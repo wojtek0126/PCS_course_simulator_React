@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
 import {eventDrawHandler, statValidation, validateScore} from "./functions";
 import {updatePlayerStats, getEvents, getPlayerForEventDraw} from "./fetch";
-import {eventContainer} from "./styles/styles";
+import {buttons, eventContainer, eventBackground} from "./styles/styles";
 
 const EventDraw = () => {
     const resultId = localStorage.getItem('continuePlayerId')
@@ -36,7 +36,13 @@ useEffect(() => {
             alert(draw.eventName, "wpadło undefined i przeszło!")
         }
         else {
-            alert(draw.eventName)
+            if (draw === undefined || player.luck === undefined) {
+                location.reload()
+            }
+            else {
+                alert(draw.eventName, "wylosowano: ")
+            }
+
         }
 
         let items = player.items;
@@ -82,30 +88,30 @@ useEffect(() => {
             endingNumber: player.endingNumber,
             gameOver: false
         };
-        if (player.attendance !== null) {
-            updatePlayerStats(plId, modified);
-        }
-        else {
+        if (player.attendance === null || verifiedHealth === null || draw.eventName === undefined) {
             alert("babol");
             location.reload();
+        }
+        else {
+            updatePlayerStats(plId, modified);
         }
 
         activateActionScreen()
     }
 
  return (
+     <div style={eventBackground}>
         <div style={eventContainer}>
-            <h2>Drogi graczu. Czas na losowanie zdarzenia losowego. Im większe jest
+            <h2>Drogi graczu. Czas na losowanie zdarzenia. Im większe jest
             Twoje aktualne szczęście, tym bardziej prawdopodobne, że los będzie przychylny.</h2>
             {/*<p className={'eventNameDisplay'}>{draw.eventName}</p>*/}
             {/*<p>{draw.eventDescription}</p>*/}
             {/*<p>{draw.eventEffect1}</p>*/}
             {/*<p>{draw.eventEffect2}</p>*/}
-            <button style={{
-                marginTop: 40
-            }} className={"drawEventBtn"} onClick={() => eventDrawContinue()}>losuj zdarzenie</button>
+            <button style={buttons} className={"drawEventBtn"} onClick={() => eventDrawContinue()}>losuj zdarzenie</button>
         </div>
-    )
+     </div>
+ )
 }
 
 export default EventDraw

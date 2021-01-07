@@ -5,7 +5,7 @@ import {backToMainMenu, goToSchool, skipSchoolAndRest,
 import {getPlayerForEventDraw} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck, dateGameOverCheck, addArr, attendanceGameOverCheck} from "./functions";
 import {actionNameField, actionScreenList, actionScreenListElements,
-        actionElement, actionInventory, actionInvTitle, actionInvTitleText} from "./styles/styles";
+        actionElement, actionInventory, actionInvTitle, actionInvTitleText, buttons, wholeScreenBackground, actionElementFlat, actionElementBottom} from "./styles/styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ActionScreen = () => {
@@ -108,7 +108,7 @@ const ActionScreen = () => {
     gameOverCheck(gameOver, true);
 
     return (
-        <div className={"actionScreenContainer"}>
+        <div style={wholeScreenBackground} className={"actionScreenContainer"}>
 
             <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}</div>
             <ul style={actionScreenList} className={"actionPlayerStats"}>
@@ -119,10 +119,10 @@ const ActionScreen = () => {
                 <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}<FontAwesomeIcon icon="question" /></li>
                 <li style={actionScreenListElements}>PUNKTY: {score}<FontAwesomeIcon icon="coins" /></li>
             </ul>
-            <div style={actionInvTitle}>
-                <p style={actionInvTitleText}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
-            </div>
-            <div className={"actionInventory"} style={actionInventory}>
+            {/*<div style={actionInvTitle}>*/}
+                <p style={actionElement}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
+            {/*</div>*/}
+            <div className={"actionInventory"} style={actionElementFlat}>
                 {
                     arr.map((item, index) => {
                         return <p key={index}>{item}</p>
@@ -130,20 +130,27 @@ const ActionScreen = () => {
                 }
             </div>
             {/*<div>{}</div>*/}
-            <div className={"actionBuffs"} style={actionElement}>Aktualne zdarzenie: {actualEvent}</div>
-            <div className={"actionCalendar"} style={actionElement}>Tydzień: {week}, Dzień: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
-            <button className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
-            <button className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>
-            <button className={"doHomeworkButton"} onClick={doHomework}>zrób pracę domową</button>
-            <button className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
-            <button className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
-            <button className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
-            <button className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
-            <button className={"startEndGameProjectButton"} style={{
-                display: "none"
-            }} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
-            <button className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
-            <button className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
+            <div className={"actionBuffs"} style={actionElementFlat}>Aktualne zdarzenie: {actualEvent}</div>
+            <div className={"actionCalendar"} style={actionElementBottom}>Tydzień: {week}, Dzień kursu: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingTop: 20
+            }}>
+                <button style={buttons} className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
+                <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>
+                <button style={buttons} className={"doHomeworkButton"} onClick={doHomework}>zrób pracę domową</button>
+                <button style={buttons} className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
+                <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
+                <button style={buttons} className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
+                <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
+                <button style={buttons} className={"startEndGameProjectButton"} style={{
+                    display: "none"
+                }} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
+                <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
+                <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
+            </div>
         </div>
     )
 }

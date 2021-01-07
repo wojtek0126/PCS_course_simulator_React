@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
-import {eventContainer, examDisplay} from "./styles/styles";
+import {eventContainer, examDisplay, buttons} from "./styles/styles";
 import {getPlayerForEventDraw} from "./fetch";
 import {loadId} from "./functions";
 
@@ -23,7 +23,7 @@ const ExamResult = () => {
             <p style={examDisplay}>Egzamin z: {player.moduleName}</p>
             <h2 style={examDisplay}>Rezultat Twojego egzaminu: {resultDisplay}</h2>
             <p style={examDisplay}>Zdobyte punkty: {resultPoints}</p>
-            <button  style={examDisplay} onClick={activateActionScreen}>kontynuuj</button>
+            <button  style={buttons} onClick={activateActionScreen}>kontynuuj</button>
         </div>
     )
 }

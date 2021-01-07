@@ -3,6 +3,7 @@ import {backToMainMenu, eventDrawScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
 import {moduleNames} from "./variables";
+import {buttons} from "./styles/styles";
 
 const GoSleepEvening = () => {
     const resultId = loadId();
@@ -50,7 +51,7 @@ const GoSleepEvening = () => {
         let verifiedHealth = statValidation(healthUp, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
-        if (day === 6 || day === 11 || day === 16 || day === 21 || day === 26 || day === 31) {
+        if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30) {
             weekNumber++;
             moduleName = moduleNames[weekNumber-1];
         }
@@ -58,10 +59,9 @@ const GoSleepEvening = () => {
             weekNumber = parseInt(week);
             moduleName = moduleNames[weekNumber-1];
         }
-
-        const healthDeg = statChainDegenerate(verifiedSleep, verifiedHealth);
-        console.log(healthDeg, " healthdeg")
-        console.log(verifiedHealth, verifiedSleep, "verifiedy do degenera")
+        if (verifiedSleep === 0) {
+            verifiedHealth--;
+        }
         const modified = {
             id: player.id,
             name: playerName,
@@ -73,7 +73,7 @@ const GoSleepEvening = () => {
             buffs: buffs,
             inventory: inventory,
             items: items,
-            health: healthDeg,
+            health: verifiedHealth,
             sleep: verifiedSleep,
             skills: skills,
             attitude: attitude,
@@ -96,9 +96,9 @@ const GoSleepEvening = () => {
         <>
             <h1>Po szkole idziesz spać</h1>
             <p>sen + 1, zdrowie + 1, punkty + 4</p>
-            <button onClick={goSleepEveningContinue}>zakończ odpoczynek</button>
+            <button style={buttons} onClick={goSleepEveningContinue}>zakończ odpoczynek</button>
             <p>nastąpi losowanie zdarzenia</p>
-            <button onClick={backToMainMenu}>powrót do menu</button>
+            <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
         </>
     )
 }

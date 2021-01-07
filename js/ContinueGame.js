@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import {backToMainMenu, activateActionScreen} from "./viewControl";
 import {handleRemovePlayer, displayCurrentPlayer, saveId} from "./functions";
 import {getPlayers, getPlayerForActionScreen} from "./fetch";
+import {buttons, continueGameListElements} from "./styles/styles";
 
 
 const ContinueGame = () => {
@@ -59,25 +60,18 @@ const ContinueGame = () => {
                     console.log(player.inventory, "inventorz");
                     console.log(player.inventory.length, "inventorz dlugosc");
                     return (
-                        <li style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            border: "1px dotted black",
-                            padding: 20,
-
-                        }} key={player.id}><strong style={{width: 400}}>{player.name}</strong><strong style={{width: 400}}>{player.moduleName}
+                        <li style={continueGameListElements} key={player.id}><strong style={{width: 400}}>{player.name}</strong><strong style={{width: 400}}>{player.moduleName}
                         </strong><strong style={{width: 0}}>{player.score}</strong>
                             <div>
-                                <button style={{width: 160, transform: "translateX(70px)"}} onClick={() => handleContinue(player.id)}>kontynuuj/podgląd</button>
-                                <button style={{width: 160, transform: "translateX(70px)"}} onClick={() => {handleRemovePlayer(player.id)}}>skasuj gracza</button>
+                                <button style={buttons} onClick={() => handleContinue(player.id)}>kontynuuj/podgląd</button>
+                                <button style={buttons} onClick={() => {handleRemovePlayer(player.id)}}>skasuj gracza</button>
                             </div>
 
                         </li>
                     )
                 })
             }
-                <button onClick={backToMainMenu}>Powrót do menu</button>
+                <button style={buttons} onClick={backToMainMenu}>Powrót do menu</button>
         </div>
     )
 }

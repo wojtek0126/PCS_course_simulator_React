@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
 import {loadId, addArr, statValidation, removeItemOnce} from "./functions";
 import {getItemsForSale, getPlayerForEventDraw, updatePlayerStats} from "./fetch";
-import {shopItem, shopInventory} from "./styles/styles";
+import {shopItem, shopInventory, buttons} from "./styles/styles";
 
 const Inventory = () => {
     const resultId = loadId();
@@ -112,7 +112,7 @@ const Inventory = () => {
                     )
                 })
             }
-            <button onClick={activateActionScreen}>zamknij</button>
+            <button style={buttons} onClick={activateActionScreen}>zamknij</button>
         </div>
     )
 }

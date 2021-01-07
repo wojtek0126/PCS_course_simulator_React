@@ -51,7 +51,7 @@ const GoParty = () => {
         let verifiedHealth = statValidation(drawHealth, 0, 10);
         let verifiedScore = validateScore(scoreUp);
 
-        if (day === 6 || day === 11 || day === 16 || day === 21 || day === 26 || day === 31) {
+        if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30) {
             weekNumber++;
             moduleName = moduleNames[weekNumber-1];
         }
@@ -59,8 +59,10 @@ const GoParty = () => {
             weekNumber = parseInt(week);
             moduleName = moduleNames[weekNumber-1];
         }
-      const healthDeg = statChainDegenerate(verifiedSleep, verifiedHealth);
-    console.log(healthDeg, " healthdeg")
+        if (verifiedSleep === 0) {
+            verifiedHealth--;
+        }
+        console.log(health, " sleep")
         const modified = {
             id: player.id,
             name: playerName,
@@ -72,7 +74,7 @@ const GoParty = () => {
             buffs: buffs,
             inventory: inventory,
             items: items,
-            health: healthDeg,
+            health: verifiedHealth,
             sleep: verifiedSleep,
             skills: verifiedSkill,
             attitude: attitudeUp,
