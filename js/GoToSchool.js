@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore, loadId} from "./functions";
-import {buttons, goSchoolBackground} from "./styles/styles";
+import {buttons, goSchoolBackground, eventContainer} from "./styles/styles";
 
 const GoToSchool = () => {
     const resultId = loadId();
@@ -72,13 +72,15 @@ const GoToSchool = () => {
 
     return (
         <div style={goSchoolBackground}>
-        <h1>Poszedłeś do szkoły</h1>
-        <p>wiedza+1, sen - 1, punkty + 5</p>
-            <button style={buttons} onClick={wentToSchoolContinue}>Wracasz ze szkoły do domu</button>
-            <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
-            <p>nastąpi losowanie zdarzenia</p>
-            <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+            <div style={eventContainer}>
+                <h1>Poszedłeś do szkoły</h1>
+                <p>wiedza+1, sen - 1, punkty + 5</p>
+                <button style={buttons} onClick={wentToSchoolContinue}>Wracasz ze szkoły do domu</button>
+                <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
+                <p>nastąpi losowanie zdarzenia</p>
+                <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
             </div>
+        </div>
     )
 }
 

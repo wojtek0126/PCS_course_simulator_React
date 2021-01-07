@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {getPlayers, removePlayer} from "./fetch";
 import {activateActionScreen} from "./viewControl";
 import {saveId, createNewPlayer} from "./functions";
-import {wholeScreenBackground, successPlayerCreate, buttons} from "./styles/styles";
+import {wholeScreenBackground, successPlayerCreate, buttons, inventoryBackground} from "./styles/styles";
 
 const SuccessPlayerCreate = () => {
     let plNam = localStorage.getItem('playerName');
@@ -38,7 +38,7 @@ const SuccessPlayerCreate = () => {
     }
 
     return (
-        <div style={wholeScreenBackground}>
+        <div style={inventoryBackground}>
             <div style={successPlayerCreate}>
                 <h2>Witaj {plNam}</h2>
                 <p style={{marginBottom: 20}}>Aby przejść dalej, naciśnij przycisk kontynuuj</p>

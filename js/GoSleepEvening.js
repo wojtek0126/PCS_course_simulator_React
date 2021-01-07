@@ -3,7 +3,7 @@ import {backToMainMenu, eventDrawScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
 import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
 import {moduleNames} from "./variables";
-import {buttons} from "./styles/styles";
+import {buttons, sleepBackground, eventContainer} from "./styles/styles";
 
 const GoSleepEvening = () => {
     const resultId = loadId();
@@ -93,13 +93,15 @@ const GoSleepEvening = () => {
     };
 
     return (
-        <>
-            <h1>Po szkole idziesz spać</h1>
-            <p>sen + 1, zdrowie + 1, punkty + 4</p>
-            <button style={buttons} onClick={goSleepEveningContinue}>zakończ odpoczynek</button>
-            <p>nastąpi losowanie zdarzenia</p>
-            <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
-        </>
+        <div style={sleepBackground}>
+            <div style={eventContainer}>
+                <h1>Po szkole idziesz spać</h1>
+                <p>sen + 1, zdrowie + 1, punkty + 4</p>
+                <button style={buttons} onClick={goSleepEveningContinue}>zakończ odpoczynek</button>
+                <p>nastąpi losowanie zdarzenia</p>
+                <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+            </div>
+        </div>
     )
 }
 

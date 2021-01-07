@@ -3,7 +3,7 @@ import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {updatePlayerStats, getPlayerForEventDraw} from "./fetch";
 import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
 import {moduleNames} from "./variables";
-import {buttons, doHomeworkBackground} from "./styles/styles";
+import {buttons, doHomeworkBackground, eventContainer} from "./styles/styles";
 
 
 const DoHomework = () => {
@@ -99,12 +99,14 @@ const DoHomework = () => {
 
     return (
         <div style={doHomeworkBackground}>
-            <h1 className={"activityDesc"}>Po szkole odrabiasz pracę domową</h1>
-            <p className={"effectDesc"}>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
-            <button style={buttons} onClick={doHomeworkContinue}>Zakończ pracę</button>
-            <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
-            <p>nastąpi losowanie zdarzenia</p>
-            <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+            <div style={eventContainer}>
+                <h1 className={"activityDesc"}>Po szkole odrabiasz pracę domową</h1>
+                <p className={"effectDesc"}>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
+                <button style={buttons} onClick={doHomeworkContinue}>Zakończ pracę</button>
+                <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
+                <p>nastąpi losowanie zdarzenia</p>
+                <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+            </div>
         </div>
     )
 }

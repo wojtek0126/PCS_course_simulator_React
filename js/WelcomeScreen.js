@@ -55,6 +55,7 @@ const link5Out = () => {
 const WelcomeScreen = () => {
 
     return (
+        <>
         <div style={mainBackground}>
             <h1 style={menuTitle}><span style={menuTitleText}>Symulator kursu IT</span></h1>
             <p style={menuTitleSmall}><strong style={{color: "blue"}}>Python</strong>
@@ -73,7 +74,11 @@ const WelcomeScreen = () => {
             </div>
             <div style={menuBotomPart}></div>
         </div>
+
         </div>
+
+        </>
+
     )
 }
 

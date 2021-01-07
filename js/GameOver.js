@@ -3,7 +3,7 @@ import {backToMainMenu} from "./viewControl";
 import {eventContainer, examDisplay} from "./styles/styles";
 import {loadId, causeOfGameOver} from "./functions";
 import {getPlayerForEventDraw} from "./fetch";
-import {buttons} from "./styles/styles";
+import {buttons, gameOverBackground} from "./styles/styles";
 
 const GameOver = () => {
     const resultId = loadId();
@@ -22,13 +22,15 @@ const GameOver = () => {
     console.log(inventoryArr)
 
     return (
-        <div style={eventContainer}>
-           <h2 style={examDisplay}>Przegrana</h2>
-           <p style={examDisplay} >Niestety nie udało Ci się ukończyć kursu za tym podejściem </p>
-           <p style={examDisplay} className={"causeOfDeath"}>Przyczyna porażki: {causeOfGameOver(health, attendance, isExamPassed)}</p>
-           <p style={examDisplay}>Zdobyte punkty:{player.score}</p>
-            <p style={examDisplay}>Nie poddawaj się!</p>
-           <button style={buttons} onClick={backToMainMenu}>Powrót do menu głównego</button>
+        <div style={gameOverBackground}>
+            <div style={eventContainer}>
+                <h2 style={examDisplay}>Przegrana</h2>
+                <p style={examDisplay} >Niestety nie udało Ci się ukończyć kursu za tym podejściem </p>
+                <p style={examDisplay} className={"causeOfDeath"}>Przyczyna porażki: {causeOfGameOver(health, attendance, isExamPassed)}</p>
+                <p style={examDisplay}>Zdobyte punkty:{player.score}</p>
+                <p style={examDisplay}>Nie poddawaj się!</p>
+                <button style={buttons} onClick={backToMainMenu}>Powrót do menu głównego</button>
+            </div>
         </div>
     )
 }

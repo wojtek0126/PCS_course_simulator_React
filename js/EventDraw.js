@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
 import {eventDrawHandler, statValidation, validateScore} from "./functions";
 import {updatePlayerStats, getEvents, getPlayerForEventDraw} from "./fetch";
-import {buttons, eventContainer, eventBackground} from "./styles/styles";
+import {buttons, eventContainer, eventBackground, noGoldPopUp} from "./styles/styles";
 
 const EventDraw = () => {
     const resultId = localStorage.getItem('continuePlayerId')
@@ -15,6 +15,7 @@ useEffect(() => {
 },[]);
 
     const eventDrawContinue = () => {
+        const noGold = document.querySelector(".noGold");
         const drawEventBtn = document.querySelector(".drawEventBtn");
         setTimeout(() => {
             setInterval(() => {
@@ -23,7 +24,12 @@ useEffect(() => {
             // setInterval(() => {
             //     drawEventBtn.style.backgroundColor = "white";
             // }, 1000);
-            drawEventBtn.innerHTML = "w razie gdyby losowanie nie powiodło się, naciśnij ponownie"
+            drawEventBtn.innerHTML = "w razie gdyby losowanie nie powiodło się, naciśnij ponownie";
+            noGold.style.display = "flex";
+            setTimeout(() => {
+                noGold.style.display = "none";
+            }, 1000);
+
         }, 200);
 
         const luck = player.luck;
@@ -34,13 +40,14 @@ useEffect(() => {
         }
         else if (draw.eventName === undefined){
             alert(draw.eventName, "wpadło undefined i przeszło!")
+            location.reload()
         }
         else {
             if (draw === undefined || player.luck === undefined) {
                 location.reload()
             }
             else {
-                alert(draw.eventName, "wylosowano: ")
+                console.log("pass");
             }
 
         }
@@ -93,6 +100,8 @@ useEffect(() => {
             location.reload();
         }
         else {
+            noGold.innerHTML = "zdarzenie wylosowane pomyślnie"
+            noGold.style.display = "flex";
             updatePlayerStats(plId, modified);
         }
 
@@ -102,6 +111,7 @@ useEffect(() => {
  return (
      <div style={eventBackground}>
         <div style={eventContainer}>
+            <div style={noGoldPopUp} className={"noGold"}>losowanie nie powiodło się, spróbuj jeszcze raz</div>
             <h2>Drogi graczu. Czas na losowanie zdarzenia. Im większe jest
             Twoje aktualne szczęście, tym bardziej prawdopodobne, że los będzie przychylny.</h2>
             {/*<p className={'eventNameDisplay'}>{draw.eventName}</p>*/}

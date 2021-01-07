@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
-import {eventContainer, examDisplay, buttons} from "./styles/styles";
+import {eventContainer, examDisplay, buttons, examResultBackground} from "./styles/styles";
 import {getPlayerForEventDraw} from "./fetch";
 import {loadId} from "./functions";
 
@@ -19,11 +19,13 @@ const ExamResult = () => {
     console.log(resultPoints, ' punkty za egzamin');
 
     return (
-        <div style={eventContainer}>
-            <p style={examDisplay}>Egzamin z: {player.moduleName}</p>
-            <h2 style={examDisplay}>Rezultat Twojego egzaminu: {resultDisplay}</h2>
-            <p style={examDisplay}>Zdobyte punkty: {resultPoints}</p>
-            <button  style={buttons} onClick={activateActionScreen}>kontynuuj</button>
+        <div style={examResultBackground}>
+            <div style={eventContainer}>
+                <p style={examDisplay}>Egzamin z: {player.moduleName}</p>
+                <h2 style={examDisplay}>Rezultat Twojego egzaminu: {resultDisplay}</h2>
+                <p style={examDisplay}>Zdobyte punkty: {resultPoints}</p>
+                <button  style={buttons} onClick={activateActionScreen}>kontynuuj</button>
+            </div>
         </div>
     )
 }

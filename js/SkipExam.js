@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
-import {buttons, eventContainer, examDisplay} from "./styles/styles";
+import {buttons, eventContainer, examDisplay, skipExamBackground} from "./styles/styles";
 import {examPrizeAssign, loadId} from "./functions";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 
@@ -53,13 +53,14 @@ const SkipExam = () => {
 
 
     return (
-        <div style={eventContainer}>
-            <h2>Zrezygnowałeś z udziału w tym egzaminie</h2>
-            <p style={examDisplay}>Istnieje jeszcze możliwość zdania egzaminu poprawkowego.
-            Masz na to czas do czwartku wieczór.Powodzenia.
-            </p>
-
-            <button style={buttons} onClick={skipExamButton}>kontynuuj</button>
+        <div style={skipExamBackground}>
+            <div style={eventContainer}>
+                <h2>Zrezygnowałeś z udziału w tym egzaminie</h2>
+                <p style={examDisplay}>Istnieje jeszcze możliwość zdania egzaminu poprawkowego.
+                    Masz na to czas do czwartku wieczór.Powodzenia.
+                </p>
+                <button style={buttons} onClick={skipExamButton}>kontynuuj</button>
+            </div>
         </div>
     )
 }

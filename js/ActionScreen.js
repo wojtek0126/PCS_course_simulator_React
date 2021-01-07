@@ -4,8 +4,12 @@ import {backToMainMenu, goToSchool, skipSchoolAndRest,
         inventoryScreen, extraExamScreen, finalProjectScreen, finalProjectResultScreen} from "./viewControl";
 import {getPlayerForEventDraw} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck, dateGameOverCheck, addArr, attendanceGameOverCheck} from "./functions";
-import {actionNameField, actionScreenList, actionScreenListElements,
-        actionElement, actionInventory, actionInvTitle, actionInvTitleText, buttons, wholeScreenBackground, actionElementFlat, actionElementBottom} from "./styles/styles";
+import {
+    actionNameField, actionScreenList, actionScreenListElements,
+    actionElement, actionInventory, actionPrizes, actionElementBottom2,
+    buttons, wholeScreenBackground, actionElementBottom, buttonFinalProject,
+    bookIcon, lifeIcon, bedIcon, brainIcon, luckIcon, coinIcon, userIcon, inventoryBackground
+} from "./styles/styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ActionScreen = () => {
@@ -110,19 +114,19 @@ const ActionScreen = () => {
     return (
         <div style={wholeScreenBackground} className={"actionScreenContainer"}>
 
-            <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}</div>
+            <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}<div style={userIcon}></div></div>
             <ul style={actionScreenList} className={"actionPlayerStats"}>
-                <li style={actionScreenListElements}>ZDROWIE: {health}  <FontAwesomeIcon icon="heart" /></li>
-                <li style={actionScreenListElements}>SEN: {sleep}<FontAwesomeIcon icon="bed" /></li>
-                <li style={actionScreenListElements}>WIEDZA: {skills}<FontAwesomeIcon icon="book" /></li>
-                <li style={actionScreenListElements}>MOTYWACJA: {attitude}<FontAwesomeIcon icon="brain" /></li>
-                <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}<FontAwesomeIcon icon="question" /></li>
-                <li style={actionScreenListElements}>PUNKTY: {score}<FontAwesomeIcon icon="coins" /></li>
+                <li style={actionScreenListElements}>ZDROWIE: {health}  <div style={lifeIcon}></div></li>
+                <li style={actionScreenListElements}>SEN: {sleep}<div style={bedIcon}></div></li>
+                <li style={actionScreenListElements}>WIEDZA: {skills}<div style={bookIcon}></div></li>
+                <li style={actionScreenListElements}>MOTYWACJA: {attitude}<div style={brainIcon}></div></li>
+                <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}<div style={luckIcon}></div></li>
+                <li style={actionScreenListElements}>PUNKTY: {score}<div style={coinIcon}></div></li>
             </ul>
             {/*<div style={actionInvTitle}>*/}
                 <p style={actionElement}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
             {/*</div>*/}
-            <div className={"actionInventory"} style={actionElementFlat}>
+            <div className={"actionInventory"} style={actionPrizes}>
                 {
                     arr.map((item, index) => {
                         return <p key={index}>{item}</p>
@@ -130,8 +134,8 @@ const ActionScreen = () => {
                 }
             </div>
             {/*<div>{}</div>*/}
-            <div className={"actionBuffs"} style={actionElementFlat}>Aktualne zdarzenie: {actualEvent}</div>
-            <div className={"actionCalendar"} style={actionElementBottom}>Tydzień: {week}, Dzień kursu: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
+            <div className={"actionBuffs"} style={actionElementBottom}>Aktualne zdarzenie: {actualEvent}</div>
+            <div className={"actionCalendar"} style={actionElementBottom2}>Tydzień: {week}, Dzień kursu: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
@@ -145,9 +149,7 @@ const ActionScreen = () => {
                 <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
                 <button style={buttons} className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
                 <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
-                <button style={buttons} className={"startEndGameProjectButton"} style={{
-                    display: "none"
-                }} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
+                <button style={buttonFinalProject} className={"startEndGameProjectButton"} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
                 <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
                 <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
             </div>

@@ -4,7 +4,47 @@ export const buttons = {
     fontFamily: ['Hanalei Fill', "cursive"],
     padding: "10px 20px",
     borderRadius: "10px",
-    marginBottom: 20
+    marginBottom: 20,
+    backgroundImage: "url(" + "images/wood.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+}
+
+export const buttonFinalProject = {
+    fontFamily: ['Hanalei Fill', "cursive"],
+    padding: "10px 20px",
+    borderRadius: "10px",
+    marginBottom: 20,
+    backgroundImage: "url(" + "images/wood.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    display: "none"
+}
+
+export const shopButtonToMenu = {
+    fontFamily: ['Hanalei Fill', "cursive"],
+    padding: "10px 20px",
+    borderRadius: "10px",
+    marginBottom: 20,
+    backgroundImage: "url(" + "images/wood.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    marginTop: 10
+}
+
+export const shopButtons = {
+    width: 200,
+    fontFamily: ['Hanalei Fill', "cursive"],
+    padding: "10px 20px",
+    borderRadius: "10px",
+    marginBottom: 20,
+    backgroundImage: "url(" + "images/wood.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
 }
 
 export const links = {
@@ -18,6 +58,23 @@ export const linksHover = {
     textDecoration: "none",
     fontSize: "1.5em"
 };
+
+export const continueListContainer = {
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    display: "flex",
+    flexDirection: "column",
+    padding: 20,
+    width: "90vw",
+    border: "5px solid black",
+    borderRadius: 10,
+    height: "100vh",
+    overflow: "auto"
+
+}
+
 export const menuContainer = {
     // height: "500%",
     display: "flex",
@@ -29,7 +86,8 @@ export const menuContainer = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundOpacity: "1"
+    backgroundOpacity: "1",
+    height: 166
 };
 
 export const menuOptions = {
@@ -66,22 +124,123 @@ export  const menuTitleText = {
 }
 
 export const menuBotomPart = {
-    height: 382,
-    width: 1800,
+    height: 50,
+    width: "100vw",
     backgroundImage: "url(" + "images/background1.png" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
+
 }
 
 //action screen below
+
+
+export const timeIcon = {
+    backgroundImage: "url(" + "images/timer.gif" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    height: 30,
+    borderRadius: "50%"
+}
+export const userIcon = {
+    backgroundImage: "url(" + "images/user.gif" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    height: 30,
+    borderRadius: "50%"
+}
+
+
+export const coinIcon = {
+    backgroundImage: "url(" + "images/coin.gif" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    height: 30,
+    borderRadius: "50%"
+}
+
+export const luckIcon = {
+    backgroundImage: "url(" + "images/luck.gif" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    borderRadius: "50%",
+    height: 30
+}
+
+export const brainIcon = {
+    backgroundImage: "url(" + "images/brain.png" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    height: 30,
+    borderRadius: "50%"
+}
+
+export const bookIcon = {
+    backgroundImage: "url(" + "images/book.png" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    height: 30,
+    borderRadius: "50%"
+}
+
+export const lifeIcon = {
+    backgroundImage: "url(" + "images/life.gif" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    height: 30,
+    borderRadius: "50%"
+}
+
+export const bedIcon = {
+    backgroundImage: "url(" + "images/bed.png" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    border: "1px solid black",
+    width: 30,
+    height: 30,
+    borderRadius: "50%"
+}
+
+
+
 export const actionNameField = {
-    border: "1px dotted black",
+    border: "5px solid black",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     background: "silver",
     padding: 20,
     borderRadius: 10,
+    width: "90vw",
+    transform: "translateY(20px)",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
 }
 
 export const actionScreenList = {
@@ -90,49 +249,94 @@ export const actionScreenList = {
     background: "silver",
     padding: 20,
     listStyle: "none",
-    border: "1px dotted black",
+    border: "5px solid black",
     margin: 35,
     borderRadius: 10,
+    width: "90vw",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    transform: "translateY(20px)"
 }
 
 export const actionScreenListElements = {
     padding: 10,
     border: "1px dotted black",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+
 }
 
 export const actionElement = {
-    border: "1px dotted black",
+    border: "5px solid black",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "silver",
     padding: "10px 20px",
     borderRadius: 10,
     alignItems: "center",
-    marginBottom: -9
+    marginBottom: -9,
+    width: "90vw",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
 }
 
-export const actionElementFlat = {
+export const actionPrizes = {
     border: "1px dotted black",
+    borderLeft: "5px solid black",
+    borderRight: "5px solid black",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "silver",
     padding: "10px 20px",
     // borderRadius: 10,
     alignItems: "center",
-    marginBottom: -9
+    // marginBottom: -9,
+    height: 50,
+    overflow: "auto",
+    width: "90vw",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
 }
 
 export const actionElementBottom = {
-    border: "1px dotted black",
+    borderLeft: "5px solid black",
+    borderRight: "5px solid black",
+    // border: "1px dotted black",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "silver",
     padding: "10px 20px",
     // borderRadius: 10,
     alignItems: "center",
+    width: "90vw",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
     // marginBottom: -9
+}
+
+export const actionElementBottom2 = {
+    borderBottom: "5px solid black",
+    borderLeft: "5px solid black",
+    borderRight: "5px solid black",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "silver",
+    padding: "10px 20px",
+    borderRadius: "0 0 10px 10px",
+    alignItems: "center",
+    width: "90vw",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
 }
 
 export const actionInvTitle = {
@@ -165,34 +369,46 @@ export const actionInventory = {
 export const eventContainer = {
     width: "60vw",
     height: "60vh",
-    background: "gold",
+    background: "silver",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    border: "1px solid black",
+    border: "5px solid black",
     padding: 20,
     borderRadius: 10,
-    textAlign: "center"
+    textAlign: "center",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
 }
 //
 export const examDisplay = {
     padding: "10px 20px",
     textAlign: "center",
 }
-export const shopItemTop = {
-    width: 350,
-    height: 300,
-    margin: 65,
+
+export const shopContainer = {
+    border: "5px solid black",
     display: "flex",
+    fontSize: 16,
+    justifyContent: "center",
     flexDirection: "column",
-    listStyle: "none",
-    justifyContent: "space-between",
-    border: "1px dotted black",
+    height: "auto",
+    textAlign: "center",
+    alignItems: "center",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
     borderRadius: 10,
-    backgroundColor: "gold"
+    width: "90vw",
+    marginBottom: 5,
+
 }
-export const shopItem = {
+
+export const shopItemTop = {
     width: 150,
     display: "flex",
     flexDirection: "column",
@@ -200,48 +416,40 @@ export const shopItem = {
     justifyContent: "space-between",
     border: "1px dotted black",
     borderRadius: 10,
-    backgroundColor: "gold"
+    backgroundColor: "gold",
+    marginBottom: 10
+}
+export const shopItem = {
+    width: 150,
+    margin: 0,
+    // overflow: "auto",
+    display: "flex",
+    flexDirection: "column",
+    listStyle: "none",
+    justifyContent: "space-between",
+    border: "1px dotted black",
+    borderRadius: 10,
+    backgroundColor: "gold",
+    // marginBottom: -10,
 
 }
 
 export const shopInventory = {
-    border: "1px dotted black",
+    border: "5px solid black",
     display: "flex",
     fontSize: 16,
-    justifyContent: "center",
-    flexDirection: "column",
-    overflow: "auto",
+    justifyContent: "space-around",
+    flexDirection: "row",
+    height: 80,
     textAlign: "center",
     alignItems: "center",
-    width: "100%",
-    backgroundImage: "url(" + "images/background1.png" + ")",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-}
-
-export const successPlayerCreate = {
-    // border: "1px dotted black",
-    display: "flex",
-    fontSize: 16,
-    justifyContent: "center",
-    flexDirection: "column",
-    overflow: "auto",
-    alignItems: "center",
-    paddingTop: 220,
-    // marginTop: 180,
-    // backgroundImage: "url(" + "images/background1.png" + ")",
-    // backgroundPosition: 'center',
-    // backgroundSize: 'cover',
-    // backgroundRepeat: 'no-repeat',
-}
-
-export const continueGameListElements = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    border: "1px dotted black",
-    padding: 20
+    borderRadius: 10,
+    width: "90vw",
+    // marginBottom: 5,
 }
 
 export const shopItemsParagraph = {
@@ -261,11 +469,76 @@ export const shopWelcomeText = {
 
 }
 
+export const successPlayerCreate = {
+    // border: "1px dotted black",
+    display: "flex",
+    fontSize: 16,
+    justifyContent: "center",
+    flexDirection: "column",
+    // overflow: "auto",
+    alignItems: "center",
+    // paddingTop: 220,
+    // marginTop: 180,
+    // backgroundImage: "url(" + "images/background1.png" + ")",
+    // backgroundPosition: 'center',
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+}
+
+export const inventory = {
+    border: "5px solid black",
+    display: "flex",
+    fontSize: 16,
+    justifyContent: "center",
+    flexDirection: "row",
+    overflow: "auto",
+    textAlign: "center",
+    alignItems: "center",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    borderRadius: 10,
+    width: "90vw",
+    marginBottom: 5,
+}
+
+export const inventoryItem = {
+    // width: 150,
+    margin: 10,
+    // marginRight: 50,
+    padding: 10,
+    // overflow: "auto",
+    // display: "flex",
+    flexDirection: "row",
+    listStyle: "none",
+    justifyContent: "space-between",
+    border: "1px dotted black",
+    borderRadius: 10,
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    marginBottom: 10,
+}
+
+
+
+export const continueGameListElements = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    border: "1px dotted black",
+    padding: 20
+}
+
 export const mainBackground = {
     backgroundImage: "url(" + "images/background1.png" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    width: "100vw"
 }
 
 export const createPlayerBackground = {
@@ -280,24 +553,29 @@ export const wholeScreenBackground = {
     backgroundImage: "url(" + "images/background1.png" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    height: "100vh"
-}
+    backgroundRepeat: 'repeat',
+    // height: "100vh",
+    display: "flex",
+    flexDirection : "column",
+    justifyContent: "center",
+    alignItems: "center"
 
-export const goSchoolBackground = {
-    backgroundImage: "url(" + "images/goschool.jpg" + ")",
+}
+//general pop up below
+export const noGoldPopUp = {
+    display: "none",
+    // flexDirection : "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 200,
+    height: 200,
+    border: "5px solid black",
+    backgroundImage: "url(" + "images/steel.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh"
-}
-
-export const doHomeworkBackground = {
-    backgroundImage: "url(" + "images/homework.jpg" + ")",
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    height: "100vh"
+    borderRadius: 10,
+    position: "absolute"
 }
 
 export const shopBackground = {
@@ -305,15 +583,84 @@ export const shopBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    height: "100vh"
+    height: "100vh",
+    display: "flex",
+    flexDirection : "column",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "auto"
+
 }
 
-export const skipSchoolBackground = {
-    backgroundImage: "url(" + "images/skippingschool3.jpg" + ")",
+export const inventoryBackground = {
+    backgroundImage: "url(" + "images/background1.png" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    height: "100vh"
+    height: "100vh",
+    display: "flex",
+    flexDirection : "column",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "auto"
+
+}
+
+
+
+export const goSchoolBackground = {
+    backgroundImage: "url(" + "images/classroom7.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const doHomeworkBackground = {
+    backgroundImage: "url(" + "images/homework.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+// export const shopBackground = {
+//     backgroundImage: "url(" + "images/background1.png" + ")",
+//     backgroundPosition: 'center',
+//     backgroundSize: 'cover',
+//     backgroundRepeat: 'repeat',
+//     height: "100vh",
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+// }
+
+export const skipSchoolBackground = {
+    backgroundImage: "url(" + "images/skip2.png" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const sleepBackground = {
+    backgroundImage: "url(" + "images/sleep.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 }
 
 
@@ -326,9 +673,84 @@ export const eventBackground = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-
 }
 
+export const examBackground = {
+    backgroundImage: "url(" + "images/exam.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const examResultBackground = {
+    backgroundImage: "url(" + "images/passfail4.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const finalResultBackground = {
+    backgroundImage: "url(" + "images/duck.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const partyBackground = {
+    backgroundImage: "url(" + "images/party2.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const skipExamBackground = {
+    backgroundImage: "url(" + "images/chicken.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const extraExamBackground = {
+    backgroundImage: "url(" + "images/lastchance3.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
+export const gameOverBackground = {
+    backgroundImage: "url(" + "images/gameover.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
 // export const successPlayerCreateText = {
 //     width: 800
 // }

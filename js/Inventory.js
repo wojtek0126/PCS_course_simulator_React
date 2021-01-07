@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
 import {loadId, addArr, statValidation, removeItemOnce} from "./functions";
 import {getItemsForSale, getPlayerForEventDraw, updatePlayerStats} from "./fetch";
-import {shopItem, shopInventory, buttons} from "./styles/styles";
+import {inventoryItem, inventory, buttons, inventoryBackground, noGoldPopUp} from "./styles/styles";
 
 const Inventory = () => {
     const resultId = loadId();
@@ -44,6 +44,10 @@ const Inventory = () => {
 
 
     const useItem = (item) => {
+        const noGold = document.querySelector(".noGold");
+        noGold.style.display = "flex";
+        // noGold.style.alignItems = "center";
+        // noGold.style.justifyContent = "center";
         let extractWholeItem = itemsObjects[item - 1];
         console.log(extractWholeItem, "  itema");
         console.log(extractWholeItem.luck, "dawaj !!")
@@ -100,20 +104,23 @@ const Inventory = () => {
     }
 
         return (
-        <div style={shopInventory}>
-            <h2 style={{
-                padding: "20px 0"
-            }}>Twój inwentaż:</h2>
-            {
-                itemsMapArr.map((item, index) => {
-                    return (
-                        <li style={shopItem} key={index}>{itemsObjects[item - 1].itemName}
-                            <button onClick={() => useItem(item)}>użyj</button></li>
-                    )
-                })
-            }
-            <button style={buttons} onClick={activateActionScreen}>zamknij</button>
-        </div>
+            <>
+            <div style={noGoldPopUp} className={"noGold"}>przedmiot został wykorzystany pomyślnie</div>
+            <div style={inventoryBackground}>
+                <h2>Twoje przedmioty: </h2>
+                <div style={inventory}>
+                    {
+                        itemsMapArr.map((item, index) => {
+                            return (
+                                <li style={inventoryItem} key={index}>{itemsObjects[item - 1].itemName}
+                                    <button style={buttons} onClick={() => useItem(item)}>użyj</button></li>
+                            )
+                        })
+                    }
+                </div>
+                <button style={buttons} onClick={activateActionScreen}>zamknij</button>
+            </div>
+                </>
     )
 }
 

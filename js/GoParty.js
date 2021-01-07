@@ -4,6 +4,7 @@ import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {statChainDegenerate, statValidation, validateScore} from "./functions";
 import {moduleNames} from "./variables";
 import {random, loadId} from "./functions";
+import {buttons, partyBackground, eventContainer} from "./styles/styles";
 
 const GoParty = () => {
     const resultId = loadId();
@@ -93,14 +94,16 @@ const GoParty = () => {
     };
 
     return (
-        <>
-            <h1>Idziesz wieczorem na imprezę</h1>
-            <p>sen - 2, motywacja +2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, punkty + 30</p>
-            <button onClick={goPartyContinue}>wróć z imprezy</button>
-            <button onClick={shopScreen}>odwiedź sklep</button>
-            <p>nastąpi losowanie zdarzenia</p>
-            <button onClick={backToMainMenu}>powrót do menu</button>
-        </>
+        <div style={partyBackground}>
+            <div style={eventContainer}>
+                <h1>Idziesz wieczorem na imprezę</h1>
+                <p>sen - 2, motywacja +2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, punkty + 30</p>
+                <button style={buttons} onClick={goPartyContinue}>wróć z imprezy</button>
+                <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
+                <p>nastąpi losowanie zdarzenia</p>
+                <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+            </div>
+        </div>
     )
 }
 

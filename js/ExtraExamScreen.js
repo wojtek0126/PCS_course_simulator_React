@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen, gameOverScreen} from "./viewControl";
-import {buttons, eventContainer, examDisplay} from "./styles/styles";
+import {buttons, eventContainer, examDisplay, extraExamBackground} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {
     examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
@@ -78,16 +78,20 @@ const ExtraExamTime = () => {
     }
 
     return (
-        <div style={eventContainer}>
-            <h2 style={examDisplay}>Witaj na egzaminie poprawkowym, --imię gracza--</h2>
-            <p style={examDisplay}>Egzamin z: --moduł--</p>
-            <p style={examDisplay}>Punkty na zaliczenie: 10/20 czyli 50%.</p>
-            <p style={examDisplay}>Ten egzamin pisany jest w przypadku niezaliczenia bądź nie stawienia się na pierwszej próbie.
-                Jest to ostateczna szansa na kontynuowanie nauki na tej edycji kursu</p>
-            <p style={examDisplay}>Twój wybór: </p>
-            <button style={buttons}onClick={drawTheResult}>Podchodzę do egzaminu</button>
-            <button style={buttons}>Nie podchodzę do egzaminu</button>
+        <div style={extraExamBackground}>
+            <div style={eventContainer}>
+                <h2 style={examDisplay}>Witaj na egzaminie poprawkowym, --imię gracza--</h2>
+                <p style={examDisplay}>Egzamin z: --moduł--</p>
+                <p style={examDisplay}>Punkty na zaliczenie: 10/20 czyli 50%.</p>
+                <p style={examDisplay}>Ten egzamin pisany jest w przypadku niezaliczenia bądź nie stawienia się na pierwszej próbie.
+                    Jest to ostateczna szansa na kontynuowanie nauki na tej edycji kursu</p>
+                <p style={examDisplay}>Twój wybór: </p>
+                <div style={{display: "flex"}}>
+                    <button style={buttons} onClick={drawTheResult}>Podchodzę do egzaminu</button>
+                    <button style={buttons}>Nie podchodzę do egzaminu</button>
+                </div>
             </div>
+        </div>
     )
 }
 

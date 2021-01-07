@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {eventDrawScreen} from "./viewControl";
-import {shopItem, shopInventory, shopItemTop, buttons, shopItemsParagraph, shopPlayerPoints, shopWelcomeText, shopBackground, wholeScreenBackground} from "./styles/styles";
+import {shopItem, shopInventory, shopButtons,
+    buttons, shopButtonToMenu, shopItemsParagraph, shopPlayerPoints, shopWelcomeText,
+    shopBackground, shopContainer, noGoldPopUp} from "./styles/styles";
 import {getPlayerForEventDraw, getItemsForSale, updatePlayerStats} from "./fetch";
 import {loadId} from "./functions";
 import {moduleNames} from "./variables";
@@ -29,6 +31,7 @@ const Shop = () => {
     console.log(playerMoney, "hajs");
 
     const buyItem = (item) => {
+        const noGold = document.querySelector(".noGold");
         console.log(playerMoney, "player money");
         let itemPrice = itemsForSale[item].itemPrice;
         let afterBuy = 0;
@@ -37,10 +40,13 @@ const Shop = () => {
             player.items.push(itemsForSale[item].id);
             afterBuy =  playerMoney - itemPrice;
             console.log(playerMoney, "hajs gracza w ifie");
+            noGold.innerHTML = "dokonano zakupu"
+            noGold.style.display = "flex";
         }
         else {
-            alert("Przykro mi, ilość zasobów jest niewystarczająca");
-            afterBuy =  playerMoney;
+            noGold.style.display = "flex";
+            afterBuy = playerMoney;
+
         }
         if (afterBuy < 0) {
             afterBuy = 0
@@ -101,7 +107,7 @@ const Shop = () => {
                 newDayPart = player.dayPart;
             }
 
-            if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30) {
+            if (day === 5 || day === 10 || day === 15 || day === 20 || day === 25 || day === 30 && dayPart ==="wieczór") {
                 week++;
                 currentModule = moduleNames[weekNumber-1];
             }
@@ -141,26 +147,35 @@ const Shop = () => {
     }
 
     return (
-        <div style={wholeScreenBackground}>
-        <div style={shopInventory}>
+
+        <div style={shopBackground}>
+        <div style={shopContainer}>
             <h2 style={shopWelcomeText}>Witaj w sklepie, {player.name}</h2>
             <StickyContainer>
                 <Sticky>{({ style, isSticky = true }) => <p style={shopPlayerPoints}>Twoje punkty: {player.score}</p>}</Sticky>
             </StickyContainer>
+            <div style={noGoldPopUp} className={"noGold"}>nie masz wystarczającej ilości punktów</div>
             <p style={shopItemsParagraph}>Dostępne przedmioty:</p>
                 {
                     itemsForSale.map((item, index) => {
                         return (
                             <div key={index} style={shopInventory}>
-                                <p style={shopItemTop}>{item.itemName}</p>
-                                <p style={shopItem}>{item.itemEffect}</p>
-                                <p style={shopItem}>cena: {item.itemPrice}</p>
-                                <button style={buttons} onClick={() => buyItem(item.id - 1)}>kup 1 x {item.itemName}</button>
+                                <div style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center"
+                                }}>
+                                    <p style={shopItem}>{item.itemName}</p>
+                                    <p style={shopItem}>{item.itemEffect}</p>
+                                    <p style={shopItem}>cena: {item.itemPrice}</p>
+                                </div>
+
+                                <button style={shopButtons} onClick={() => buyItem(item.id - 1)}>kup 1 x {item.itemName}</button>
                             </div>
                         )
                     })
                 }
-            <button style={buttons} onClick={goToEventDraw}>kontynuuj</button>
+            <button style={shopButtonToMenu} onClick={goToEventDraw}>kontynuuj</button>
         </div>
             </div>
     )

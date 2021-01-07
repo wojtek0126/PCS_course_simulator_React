@@ -27,21 +27,22 @@ const CreateNewPlayer = () => {
                 }}  onSubmit={() => createNewPlayer(playerName)} action="">
                     <label style={{
                         marginRight: 20,
-                        textTransform: 'uppercase'
+                        textTransform: 'uppercase',
+                        marginBottom: 28
                     }} htmlFor="">podaj imię:
                         <input style={{
                             marginLeft: 20,
                             borderRadius: 10,
                             fontFamily: ['Hanalei Fill', "cursive"],
                             height: 34,
-                            width: 180
+                            width: 180,
                         }}onChange={e => setPlayerName(e.target.value)} type="text"/>
                     </label>
                     <div style={{
                         transform: "translateY(-5px)"
                     }}>
                         <button style={buttons} type="submit" >Rozpocznij grę</button>
-                        <button style={buttons} onClick={backToMainMenu}>Powrót do menu</button>
+                        <button style={buttons} type="button" onClick={backToMainMenu}>Powrót do menu</button>
                     </div>
 
                 </form>

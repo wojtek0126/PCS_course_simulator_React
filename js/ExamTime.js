@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen} from "./viewControl";
-import {eventContainer, examDisplay, buttons} from "./styles/styles";
+import {eventContainer, examDisplay, buttons, examBackground} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
     loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed, examPointsValidation} from "./functions";
@@ -72,18 +72,20 @@ console.log(player.luck, "plajer luck w exam");
     }
 
     return (
-        <div style={eventContainer}>
-            <h2 style={examDisplay}>Czas na egzamin!</h2>
-            <p style={examDisplay}>Egzamin z: {player.moduleName}</p>
-            <p style={examDisplay}>Punkty na zaliczenie: 10/20</p>
-            {/*<p style={examDisplay}>Podpowiedź - w razie niskich statystyk możesz zaryzykować, rezygnując z pierwszego*/}
-            {/*podejścia i zdawać poprawkę nie oblewając egzaminu.*/}
-            {/*Masz wtedy już tylko jedną próbę i gorsze nagrody, jednak unikniesz zainkasowania*/}
-            {/*niesłąwnego trofeum z face plantem</p>*/}
-            <p style={examDisplay}>Twój wybór: </p>
-            <div style={{display: "inline"}}>
-                <button style={buttons} onClick={drawTheResult}>podchodzę do egzaminu</button>
-                <button style={buttons} onClick={skipExamScreen}>nie podchodzę do egzaminu</button>
+        <div style={examBackground}>
+            <div style={eventContainer}>
+                <h2 style={examDisplay}>Czas na egzamin!</h2>
+                <p style={examDisplay}>Egzamin z: {player.moduleName}</p>
+                <p style={examDisplay}>Punkty na zaliczenie: 10/20</p>
+                {/*<p style={examDisplay}>Podpowiedź - w razie niskich statystyk możesz zaryzykować, rezygnując z pierwszego*/}
+                {/*podejścia i zdawać poprawkę nie oblewając egzaminu.*/}
+                {/*Masz wtedy już tylko jedną próbę i gorsze nagrody, jednak unikniesz zainkasowania*/}
+                {/*niesłąwnego trofeum z face plantem</p>*/}
+                <p style={examDisplay}>Twój wybór: </p>
+                <div style={{display: "inline"}}>
+                    <button style={buttons} onClick={drawTheResult}>podchodzę do egzaminu</button>
+                    <button style={buttons} onClick={skipExamScreen}>nie podchodzę do egzaminu</button>
+                </div>
             </div>
         </div>
     )
