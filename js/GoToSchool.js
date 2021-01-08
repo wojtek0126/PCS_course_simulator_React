@@ -30,7 +30,7 @@ const GoToSchool = () => {
     let currentModule = player.moduleName;
     let week = player.week;
     let attendance = player.attendance;
-    let repeatingExam = player.repeatingExam;
+    // let repeatingExam = player.repeatingExam;
     console.log(playerName);
     const wentToSchoolContinue = () => {
         const sleepDown = parseInt(sleep - 1);
@@ -57,7 +57,7 @@ const GoToSchool = () => {
             attitude: attitude,
             luck: luck,
             attendance: attendance,
-            repeatingExam: repeatingExam,
+            repeatingExam: player.repeatingExam,
             examPassed: false,
             examPoints: 0,
             finalProjectDone: false,

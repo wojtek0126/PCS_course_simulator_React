@@ -27,7 +27,7 @@ const GoParty = () => {
     let day = player.day;
     let week = player.week;
     let attendance = player.attendance;
-    let repeatingExam = player.repeatingExam;
+    // let repeatingExam = player.repeatingExam;
 
     console.log(moduleNames[week-1], "mod");
     console.log(week, "week111");
@@ -81,7 +81,7 @@ const GoParty = () => {
             attitude: attitudeUp,
             luck: luck,
             attendance: attendance,
-            repeatingExam: repeatingExam,
+            repeatingExam: player.repeatingExam,
             examPassed: false,
             examPoints: 0,
             finalProjectDone: false,

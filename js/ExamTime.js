@@ -4,6 +4,7 @@ import {eventContainer, examDisplay, buttons, examBackground} from "./styles/sty
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
     loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed, examPointsValidation} from "./functions";
+import {moduleNames} from "./variables";
 
 const ExamTime = () => {
     const resultId = loadId();
@@ -42,15 +43,44 @@ console.log(player.luck, "plajer luck w exam");
         let verifiedAttitude = statValidation(attitude, 0, 10);
         let verifiedScore = validateScore(score);
         let plId = player.id;
+        let week = player.week;
+        let moduleFix = "player.moduleName";
+        if (player.day <= 5) {
+            week = 1;
+            moduleFix = moduleNames[0];
+        }
+        else if (player.day <= 10) {
+            week = 2;
+            moduleFix = moduleNames[1];
+        }
+        else if (player.day <= 15) {
+            week = 3;
+            moduleFix = moduleNames[2];
+        }
+        else if (player.day <= 20) {
+            week = 4;
+            moduleFix = moduleNames[3];
+        }
+        else if (player.day <= 25) {
+            week = 5;
+            moduleFix = moduleNames[4];
+        }
+        else if (player.day <= 30) {
+            week = 6;
+            moduleFix = moduleNames[5];
+        }
+        else {
+            week = player.week
+        }
 
         const modified = {
             id: player.id,
             name: player.name,
             score: verifiedScore + examPoints,
-            week: player.week,
+            week: week,
             day: player.day,
             dayPart: dayPartForward,
-            moduleName: player.moduleName,
+            moduleName: moduleFix,
             buffs: player.buffs,
             inventory: inventoryArr,
             items: player.items,

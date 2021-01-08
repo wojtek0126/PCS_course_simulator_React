@@ -219,6 +219,14 @@ export const dateGameOverCheck = (stat, value = 0) => {
     }
 }
 
+// export const dateCheckerWeek = (player) => {
+//     if (player.
+// }
+//
+// export const dateCheckerModule = (day) => {
+//     if (day
+//         }
+
 export const causeOfGameOver = (health, att, examPassed) => {
     let gameOverText = "";
     if (health === 0) {

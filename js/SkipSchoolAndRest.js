@@ -28,7 +28,7 @@ console.log()
     let currentModule = player.moduleName;
     let week = player.week;
     let attendance = player.attendance;
-    let repeatingExam = player.repeatingExam;
+    // let repeatingExam = player.repeatingExam;
     if (day > 30) {effectDesc.innerHTML = "zdrowie + 1, sen + 1, punkty + 5"};
 
     const skipSchoolContinue = () => {
@@ -79,8 +79,8 @@ console.log()
             attitude: verifiedAttitude,
             luck: luck,
             attendance: verifiedAttendance,
-            repeatingExam: repeatingExam,
-            examPassed: false,
+            repeatingExam: player.repeatingExam,
+            examPassed: player.examPassed,
             examPoints: 0,
             finalProjectDone: false,
             finalProjectScore: 0,
