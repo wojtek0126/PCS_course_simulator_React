@@ -2,6 +2,7 @@ import React from "react";
 // json-server --watch db.json --host 127.0.0.1
 // npm i react-router-dom --save
 import {API} from "./variables";
+import {nameInputValidation} from "./functions";
 
 export const getPlayers = (setArray) => {
     fetch(`${API}/players`)

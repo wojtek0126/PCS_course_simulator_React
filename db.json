@@ -80,6 +80,66 @@
         8.75
       ],
       "endingNumber": 2
+    },
+    {
+      "id": 7,
+      "name": "cvbvcbbc",
+      "score": 137,
+      "week": 2,
+      "day": 10,
+      "dayPart": "wieczór",
+      "moduleName": "Wstęp do baz danych",
+      "buffs": [],
+      "inventory": [
+        "identyfikator",
+        "brązowa kaczka",
+        "figurynka kurczaka",
+        "mała figurka z face palmem komandora"
+      ],
+      "items": [
+        2,
+        4
+      ],
+      "health": 7,
+      "sleep": 2,
+      "skills": 9,
+      "attitude": 8,
+      "luck": 10,
+      "attendance": 100,
+      "repeatingExam": true,
+      "examPassed": false,
+      "examPoints": 9,
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "endingNumber": 0,
+      "gameOver": true
+    },
+    {
+      "id": 11,
+      "name": "walu",
+      "score": 0,
+      "week": 1,
+      "day": 1,
+      "dayPart": "poranek",
+      "moduleName": "Wstęp do pythona",
+      "buffs": [],
+      "inventory": [
+        "identyfikator"
+      ],
+      "items": [],
+      "repeatingExam": false,
+      "health": 10,
+      "sleep": 7,
+      "skills": 6,
+      "attitude": 6,
+      "luck": 6,
+      "attendance": 100,
+      "examPassed": false,
+      "examPoints": 0,
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "endingNumber": 0,
+      "gameOver": false
     }
   ],
   "events": [

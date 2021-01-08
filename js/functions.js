@@ -455,5 +455,15 @@ export const clearStorageItems = (n) => {
     localStorage.removeItem("invLength")
 }
 
+export const nameInputValidation = (playerName) => {
+    if (playerName.length <= 1) {
+        alert("za krótkie imie");
+    }
+    else if (playerName.length > 30) {
+        alert("za długie imie");
+    }
+}
+
+
 
 

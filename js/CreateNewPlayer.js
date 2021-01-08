@@ -13,6 +13,18 @@ const CreateNewPlayer = () => {
     console.log(playerName, "playerName w create player")
     localStorage.setItem('playerName', playerName);
 
+    const nameInputWithValidation = (playerName) => {
+        if (playerName.length <= 1) {
+            alert("za krótkie imie");
+        }
+        else if (playerName.length > 30) {
+            alert("za długie imie");
+        }
+        else {
+            createNewPlayer(playerName);
+        }
+    }
+
     return (
             <div style={createPlayerBackground} className={"startGameContainer"} >
                 <h3 style={{
@@ -24,7 +36,7 @@ const CreateNewPlayer = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center"
-                }}  onSubmit={() => createNewPlayer(playerName)} action="">
+                }}  onSubmit={() => nameInputWithValidation(playerName)} action="">
                     <label style={{
                         marginRight: 20,
                         textTransform: 'uppercase',
