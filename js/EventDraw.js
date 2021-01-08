@@ -75,7 +75,7 @@ useEffect(() => {
             location.reload()
         }
         else {
-            alert("udało się");
+            // alert("udało się");
             localStorage.setItem("eventDrawn", draw.eventDescription);
         }
 
@@ -110,7 +110,7 @@ useEffect(() => {
             location.reload();
         }
         else {
-            noGold.innerHTML = "zdarzenie wylosowane pomyślnie"
+            noGold.innerHTML = `zdarzenie wylosowane pomyślnie: ${draw.eventName}`;
             noGold.style.display = "flex";
             updatePlayerStats(plId, modified);
         }

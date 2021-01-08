@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {eventContainer, examDisplay, buttons} from "./styles/styles";
+import {eventContainer, examDisplay, buttons, finalProjectBackground} from "./styles/styles";
 import {activateActionScreen, finalProjectResultScreen,} from "./viewControl";
 import {drawFinalProjectResultScore, loadId, finalProjectResult} from "./functions";
 import {getPlayerForEventDraw, getEndings, updatePlayerStats} from "./fetch";
@@ -81,11 +81,14 @@ const FinalProject = () => {
     }
 
     return (
-        <div style={eventContainer}>
-            <h2 style={examDisplay}>Czas na obronę Twojego projektu końcowego</h2>
-            <button style={buttons} onClick={startFinal}>oddaj projekt końcowy</button>
-            <button style={buttons} onClick={activateActionScreen}>jeszcze nie teraz</button>
+        <div style={finalProjectBackground}>
+            <div style={eventContainer}>
+                <h2 style={examDisplay}>Czas na obronę Twojego projektu końcowego</h2>
+                <button style={buttons} onClick={startFinal}>oddaj projekt końcowy</button>
+                <button style={buttons} onClick={activateActionScreen}>jeszcze nie teraz</button>
+            </div>
         </div>
+
     )
 }
 

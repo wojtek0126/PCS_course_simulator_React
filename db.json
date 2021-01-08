@@ -42,34 +42,44 @@
     {
       "id": 4,
       "name": "zex",
-      "score": 123,
-      "week": 3,
-      "day": 12,
+      "score": 76,
+      "week": 7,
+      "day": 31,
       "dayPart": "poranek",
-      "moduleName": "Zaawansowany python i flask",
+      "moduleName": "Czas na projekt końcowy",
       "buffs": [],
       "inventory": [
         "identyfikator",
         "złota kaczka",
         "mała figurka z face palmem komandora",
+        "brązowa kaczka",
+        "brązowa kaczka",
+        "mała figurka z face palmem komandora",
+        "platynowa kaczka",
+        "figurynka kurczaka",
+        "brązowa kaczka",
         "brązowa kaczka"
       ],
       "items": [
-        4
+        4,
+        1,
+        2,
+        2
       ],
-      "health": 4,
-      "sleep": 2,
-      "skills": 10,
-      "attitude": 5,
-      "luck": 0,
-      "attendance": 97,
+      "health": 9,
+      "sleep": 4,
+      "skills": 9,
+      "attitude": 6,
+      "luck": 4,
+      "attendance": 94,
       "repeatingExam": false,
       "examPassed": false,
       "examPoints": 0,
-      "finalProjectDone": false,
-      "finalProjectScore": 0,
-      "endingNumber": 0,
-      "gameOver": false
+      "finalProjectDone": true,
+      "finalProjectScore": [
+        8.75
+      ],
+      "endingNumber": 2
     }
   ],
   "events": [

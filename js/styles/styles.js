@@ -764,6 +764,17 @@ export const extraExamBackground = {
     alignItems: "center",
 }
 
+export const finalProjectBackground = {
+    backgroundImage: "url(" + "images/final1.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "97vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}
+
 export const gameOverBackground = {
     backgroundImage: "url(" + "images/gameover.jpg" + ")",
     backgroundPosition: 'center',
