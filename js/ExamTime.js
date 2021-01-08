@@ -34,6 +34,7 @@ console.log(player.luck, "plajer luck w exam");
         let setExamRepeatChance = assignExamRepeatIfFailed(examPoints);
         console.log(setExamRepeatChance, 'kjooo')
         let score = parseInt(player.score + examPoints);
+        const dayPartForward = "wieczór";
         let verifiedSkill = statValidation(skills, 0, 10);
         let verifiedSleep = statValidation(sleep, 0, 10);
         let verifiedHealth = statValidation(health, 0, 10);
@@ -48,7 +49,7 @@ console.log(player.luck, "plajer luck w exam");
             score: verifiedScore + examPoints,
             week: player.week,
             day: player.day,
-            dayPart: "wieczór",
+            dayPart: dayPartForward,
             moduleName: player.moduleName,
             buffs: player.buffs,
             inventory: inventoryArr,

@@ -8,7 +8,7 @@ import {
     actionNameField, actionScreenList, actionScreenListElements,
     actionElement, actionInventory, actionPrizes, actionElementBottom2,
     buttons, wholeScreenBackground, actionElementBottom, buttonFinalProject,
-    bookIcon, lifeIcon, bedIcon, brainIcon, luckIcon, coinIcon, userIcon, inventoryBackground
+    bookIcon, lifeIcon, bedIcon, brainIcon, luckIcon, coinIcon, userIcon, inventoryBackground, actionBottom
 } from "./styles/styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -124,34 +124,40 @@ const ActionScreen = () => {
                 <li style={actionScreenListElements}>PUNKTY: {score}<div style={coinIcon}></div></li>
             </ul>
             {/*<div style={actionInvTitle}>*/}
-                <p style={actionElement}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
-            {/*</div>*/}
-            <div className={"actionInventory"} style={actionPrizes}>
-                {
-                    arr.map((item, index) => {
-                        return <p key={index}>{item}</p>
-                    })
-                }
-            </div>
-            {/*<div>{}</div>*/}
-            <div className={"actionBuffs"} style={actionElementBottom}>Aktualne zdarzenie: {actualEvent}</div>
-            <div className={"actionCalendar"} style={actionElementBottom2}>Tydzień: {week}, Dzień kursu: {day} , Część dnia: {dayPart}, Moduł: {currentModule}</div>
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                // paddingTop: 20
-            }}>
-                <button style={buttons} className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
-                <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>
-                <button style={buttons} className={"doHomeworkButton"} onClick={doHomework}>zrób pracę domową</button>
-                <button style={buttons} className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
-                <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
-                <button style={buttons} className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
-                <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
-                <button style={buttonFinalProject} className={"startEndGameProjectButton"} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
-                <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
-                <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
+<div style={actionBottom}>
+    <p style={actionElement}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
+    {/*</div>*/}
+    <div className={"actionInventory"} style={actionPrizes}>
+        {
+            arr.map((item, index) => {
+                return <p key={index}>{item}</p>
+            })
+        }
+    </div>
+    {/*<div>{}</div>*/}
+    <div className={"actionBuffs"} style={actionElementBottom}>Aktualne zdarzenie: {actualEvent}</div>
+    <div className={"actionCalendar"} style={actionElementBottom2}>Tydzień: {week}, Dzień kursu: {day} ,
+        Część dnia: {dayPart}, Moduł: {currentModule}</div>
+    <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        // paddingTop: 20
+    }}>
+        <button style={buttons} className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
+        <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>
+        <button style={buttons} className={"doHomeworkButton"} onClick={doHomework}>zrób pracę domową</button>
+        <button style={buttons} className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
+        <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
+        <button style={buttons} className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
+        <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
+        <button style={buttonFinalProject} className={"startEndGameProjectButton"} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
+        <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
+        <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
+
+</div>
+
+
             </div>
         </div>
     )

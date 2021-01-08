@@ -10,24 +10,60 @@
   "players": [
     {
       "id": 2,
-      "name": "huj",
-      "score": 0,
+      "name": "reksio",
+      "score": 18,
       "week": 1,
-      "day": 1,
-      "dayPart": "poranek",
+      "day": 6,
+      "dayPart": "wieczór",
       "moduleName": "Wstęp do pythona",
       "buffs": [],
       "inventory": [
-        "identyfikator"
+        "identyfikator",
+        "mała figurka z face palmem komandora",
+        "mała figurka z face palmem komandora"
       ],
-      "items": [],
-      "repeatingExam": false,
+      "items": [
+        3
+      ],
       "health": 10,
-      "sleep": 7,
-      "skills": 3,
-      "attitude": 8,
-      "luck": 8,
+      "sleep": 3,
+      "skills": 5,
+      "attitude": 4,
+      "luck": 6,
       "attendance": 100,
+      "repeatingExam": true,
+      "examPassed": false,
+      "examPoints": 7,
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "endingNumber": 0,
+      "gameOver": true
+    },
+    {
+      "id": 4,
+      "name": "zex",
+      "score": 123,
+      "week": 3,
+      "day": 12,
+      "dayPart": "poranek",
+      "moduleName": "Zaawansowany python i flask",
+      "buffs": [],
+      "inventory": [
+        "identyfikator",
+        "złota kaczka",
+        "mała figurka z face palmem komandora",
+        "brązowa kaczka"
+      ],
+      "items": [
+        4
+      ],
+      "health": 4,
+      "sleep": 2,
+      "skills": 10,
+      "attitude": 5,
+      "luck": 0,
+      "attendance": 97,
+      "repeatingExam": false,
       "examPassed": false,
       "examPoints": 0,
       "finalProjectDone": false,

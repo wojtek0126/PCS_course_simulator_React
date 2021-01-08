@@ -40,7 +40,7 @@ export const shopButtons = {
     fontFamily: ['Hanalei Fill', "cursive"],
     padding: "10px 20px",
     borderRadius: "10px",
-    marginBottom: 20,
+    // marginBottom: 20,
     backgroundImage: "url(" + "images/wood.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -236,7 +236,7 @@ export const actionNameField = {
     padding: 20,
     borderRadius: 10,
     width: "90vw",
-    transform: "translateY(40px)",
+    transform: "translateY(52px)",
     backgroundImage: "url(" + "images/steel.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -257,7 +257,11 @@ export const actionScreenList = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    transform: "translateY(30px)"
+    transform: "translateY(20px)"
+}
+
+export const actionBottom = {
+    transform: "translateY(-28px)"
 }
 
 export const actionScreenListElements = {
@@ -291,13 +295,13 @@ export const actionPrizes = {
     display: "flex",
     flexDirection: "column",
     backgroundColor: "silver",
-    padding: "10px 20px",
+    // padding: "20px 20px",
     // borderRadius: 10,
     alignItems: "center",
     // marginBottom: -9,
     height: 50,
     overflow: "auto",
-    width: "90vw",
+    // width: "90vw",
     backgroundImage: "url(" + "images/steel.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -413,7 +417,7 @@ export const shopContainer = {
     fontSize: 16,
     justifyContent: "center",
     flexDirection: "column",
-    height: "auto",
+    // height: "auto",
     textAlign: "center",
     alignItems: "center",
     backgroundImage: "url(" + "images/steel.jpg" + ")",
@@ -423,6 +427,7 @@ export const shopContainer = {
     borderRadius: 10,
     width: "90vw",
     marginBottom: 5,
+    height: "90vh"
 
 }
 
@@ -445,7 +450,7 @@ export const shopItem = {
     flexDirection: "column",
     listStyle: "none",
     justifyContent: "space-between",
-    border: "1px dotted black",
+    border: "1px solid black",
     borderRadius: 10,
     backgroundColor: "gold",
     // marginBottom: -10,
@@ -453,7 +458,7 @@ export const shopItem = {
 }
 
 export const shopInventory = {
-    border: "5px solid black",
+    border: "1px solid black",
     display: "flex",
     fontSize: 16,
     justifyContent: "space-around",
@@ -483,7 +488,7 @@ export const shopPlayerPoints = {
     backgroundColor: "gold"
 }
 export const shopWelcomeText = {
-    marginTop: 20,
+    // marginTop: 20,
 
 }
 
@@ -555,7 +560,7 @@ export const mainBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     width: "100vw"
 }
 
@@ -564,7 +569,7 @@ export const createPlayerBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh"
+    height: "97vh"
 }
 
 export const wholeScreenBackground = {
@@ -572,7 +577,7 @@ export const wholeScreenBackground = {
     // backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     flexDirection : "column",
     justifyContent: "center",
@@ -601,7 +606,7 @@ export const shopBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     flexDirection : "column",
     justifyContent: "center",
@@ -615,7 +620,7 @@ export const inventoryBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     flexDirection : "column",
     justifyContent: "center",
@@ -631,7 +636,7 @@ export const goSchoolBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -642,7 +647,7 @@ export const doHomeworkBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -664,7 +669,7 @@ export const skipSchoolBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -675,7 +680,7 @@ export const sleepBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -687,7 +692,7 @@ export const eventBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -698,7 +703,7 @@ export const examBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -709,7 +714,7 @@ export const examResultBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -720,7 +725,7 @@ export const finalResultBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -731,7 +736,7 @@ export const partyBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -742,7 +747,7 @@ export const skipExamBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -753,7 +758,7 @@ export const extraExamBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -764,7 +769,7 @@ export const gameOverBackground = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: "100vh",
+    height: "97vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

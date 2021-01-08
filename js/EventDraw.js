@@ -15,6 +15,7 @@ useEffect(() => {
 },[]);
 
     const eventDrawContinue = () => {
+        const nothingHappened = "Tym razem nie przydarzyło Ci sie nic nadzwyczajnego";
         const noGold = document.querySelector(".noGold");
         const drawEventBtn = document.querySelector(".drawEventBtn");
         setTimeout(() => {
@@ -68,7 +69,16 @@ useEffect(() => {
         let verifiedAttitude = statValidation(attitude, 0, 10);
         let verifiedScore = validateScore(score);
         let plId = player.id;
-        localStorage.setItem("eventDrawn", draw.eventDescription);
+        if (draw === undefined || player.luck === undefined) {
+            alert("nie udało się")
+            localStorage.setItem("eventDrawn", nothingHappened);
+            location.reload()
+        }
+        else {
+            alert("udało się");
+            localStorage.setItem("eventDrawn", draw.eventDescription);
+        }
+
 
         const modified = {
             id: player.id,
