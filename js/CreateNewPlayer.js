@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import {createNewPlayer} from "./functions";
 import {backToMainMenu, successPlayerCreateScreen} from "./viewControl";
-import {buttons, createPlayerBackground} from "./styles/styles";
+import {buttons, createPlayerBackground, noGoldPopUp} from "./styles/styles";
 
 
 //add login after engine works
 
 const CreateNewPlayer = () => {
+    const noGold = document.querySelector(".noGold");
 
     const [playerName, setPlayerName] = useState("");
 
@@ -15,18 +16,22 @@ const CreateNewPlayer = () => {
 
     const nameInputWithValidation = (playerName) => {
         if (playerName.length <= 1) {
-            alert("za krótkie imie");
+            noGold.innerHTML = "wpisałeś za krótkie imię, spróbuj ponownie";
+            noGold.style.display = "flex";
         }
         else if (playerName.length > 30) {
-            alert("za długie imie");
+            noGold.innerHTML = "wpisałeś za długie imię, spróbuj ponownie";
+            noGold.style.display = "flex";
         }
         else {
+            noGold.style.display = "flex";
             createNewPlayer(playerName);
         }
     }
 
     return (
             <div style={createPlayerBackground} className={"startGameContainer"} >
+                <div style={noGoldPopUp} className={"noGold"}>Dane wprowadzone poprawnie</div>
                 <h3 style={{
                     textAlign: "center",
                     marginBottom: 40,
