@@ -13,15 +13,26 @@ useEffect(() => {
     getEvents(setAllEvents);
     getPlayerForEventDraw(resultId, setPlayer);
 },[]);
+    // alert(allEvents, "eventy czy są?")
+
 
     const eventDrawContinue = () => {
+        if (allEvents === undefined || allEvents === null) {
+            alert("bobeventyzdu")
+            location.reload()
+        }
+        // alert(player, "czy jest player?")
+        if (player === undefined || player === null) {
+            alert("bobplajerzdu")
+            location.reload()
+        }
         const nothingHappened = "Tym razem nie przydarzyło Ci sie nic nadzwyczajnego";
         const noGold = document.querySelector(".noGold");
         const drawEventBtn = document.querySelector(".drawEventBtn");
         setTimeout(() => {
-            setInterval(() => {
-                drawEventBtn.style.backgroundColor = "green";
-            }, 1000);
+            // setInterval(() => {
+            //     drawEventBtn.style.backgroundColor = "green";
+            // }, 1000);
             // setInterval(() => {
             //     drawEventBtn.style.backgroundColor = "white";
             // }, 1000);
@@ -32,26 +43,33 @@ useEffect(() => {
             }, 1000);
 
         }, 200);
+        if (allEvents === undefined) {
+            location.reload()
+        }
 
         const luck = player.luck;
-        const draw = eventDrawHandler(luck, allEvents)
-        if (draw === undefined) {
-            alert(draw.eventName, "wpadło undefined i przeszło!")
-            location.reload()
-        }
-        else if (draw.eventName === undefined){
-            alert(draw.eventName, "wpadło undefined i przeszło!")
-            location.reload()
-        }
-        else {
-            if (draw === undefined || player.luck === undefined) {
-                location.reload()
-            }
-            else {
-                console.log("pass");
-            }
-
-        }
+        let draw = eventDrawHandler(luck, allEvents);
+        // if (draw.eventName === undefined) {
+        //     alert("wpadło undefined i przeszło!")
+        //     let draw2 = eventDrawHandler(luck, allEvents);
+        //     alert(player.luck);
+        //     alert(allEvents[0].eventName);
+        //     alert(draw2.eventName)
+        //     location.reload()
+        // }
+        // else if (draw.eventName === undefined){
+        //     alert(draw.eventName, "wpadło undefined i przeszło!")
+        //     location.reload()
+        // }
+        // else {
+        //     if (draw === undefined || player.luck === undefined) {
+        //         location.reload()
+        //     }
+        //     else {
+        //         console.log("pass");
+        //     }
+        //
+        // }
 
         let items = player.items;
         let luckMod = parseInt(player.luck + draw.luck);
@@ -69,13 +87,22 @@ useEffect(() => {
         let verifiedAttitude = statValidation(attitude, 0, 10);
         let verifiedScore = validateScore(score);
         let plId = player.id;
-        if (draw === undefined || player.luck === undefined) {
-            alert("nie udało się")
+        // if (draw === undefined || player.luck === undefined) {
+        //     alert("nie udało się")
+        //     localStorage.setItem("eventDrawn", nothingHappened);
+        //     location.reload()
+        // }
+        // else {
+        //     // alert("udało się");
+        //     localStorage.setItem("eventDrawn", draw.eventDescription);
+        // }
+        if (player.attendance === null || verifiedHealth === null || draw.eventName === undefined) {
+            alert("babol");
             localStorage.setItem("eventDrawn", nothingHappened);
-            location.reload()
+            // let draw = eventDrawHandler(luck, allEvents);
+            location.reload();
         }
         else {
-            // alert("udało się");
             localStorage.setItem("eventDrawn", draw.eventDescription);
         }
 
@@ -105,11 +132,7 @@ useEffect(() => {
             endingNumber: player.endingNumber,
             gameOver: false
         };
-        if (player.attendance === null || verifiedHealth === null || draw.eventName === undefined) {
-            alert("babol");
-            location.reload();
-        }
-        else {
+        if (draw.eventName !== undefined) {
             noGold.innerHTML = `zdarzenie wylosowane pomyślnie: ${draw.eventName}`;
             noGold.style.display = "flex";
             updatePlayerStats(plId, modified);

@@ -147,53 +147,35 @@ export const switchModuleForward = (currentDay, lastDay, weekNumber, setNewWeek)
 export const eventDrawHandler = (luck, eventArray) => {
     let negativeArr = [];
     let positiveArr = [];
-    let modifier = random(1, 10);
+    let arr = [];
+    let modifier = random(0, 10);
 
     let pick = "";
     eventArray.map((event) => {
-       if (event.eventType === "positive") {
-           positiveArr.push(event);
-       }
-       else {
-           negativeArr.push(event);
-       }
-    });
-    if (luck <= 0) {
-        pick = negativeArr[random(0, negativeArr.length)];
+        arr.push(event)
+           if (event.eventType === "positive") {
+               positiveArr.push(event);
+           }
+           else {
+               negativeArr.push(event);
+           }
+    })
+    if (luck === 0 && modifier <= 8) {
+        pick = negativeArr[random(0, negativeArr.length)]
     }
-    else if (luck <= 3) {
-        if (modifier > 3) {
-            pick = negativeArr[random(0, negativeArr.length)];
-        }
-        else {
-            pick = positiveArr[random(0, negativeArr.length)];
-        }
+    else if (luck === 0 && modifier > 8) {
+        pick = positiveArr[random(0, positiveArr.length)]
     }
-    else if (luck <= 5) {
-        if (modifier <= 5) {
-            pick = negativeArr[random(0, negativeArr.length)];
-        }
-        else {
-            pick = positiveArr[random(0, negativeArr.length)];
-        }
+    else if (luck === 10 && modifier > 2) {
+        pick = positiveArr[random(0, positiveArr.length)]
     }
-    else if (luck >= 7) {
-        if (modifier >= 7) {
-            pick = negativeArr[random(0, negativeArr.length)];
-        }
-        else {
-            pick = positiveArr[random(0, negativeArr.length)];
-        }
+    else if (luck === 10 && modifier <= 2) {
+        pick = negativeArr[random(0, negativeArr.length)]
     }
-    else if (luck === 10) {
-        if (modifier >= 8) {
-            pick = negativeArr[random(0, negativeArr.length)];
-        }
-        else {
-            pick = positiveArr[random(0, negativeArr.length)];
-        }
+    else {
+        pick = arr[random(0, arr.length)];
     }
-    console.log(pick, " event draw pick w funkcji eventDrawHandler")
+
     return pick
 }
 
