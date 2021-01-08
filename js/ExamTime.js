@@ -2,14 +2,27 @@ import React, {useState, useEffect} from "react";
 import {skipExamScreen, examResultScreen} from "./viewControl";
 import {eventContainer, examDisplay, buttons, examBackground} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
-import {examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
-    loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed, examPointsValidation} from "./functions";
+import {
+    examScoringSystem,
+    isExamPassedByPoints,
+    statValidation,
+    validateScore,
+    loadId,
+    examPrizeAssign,
+    examResultToLocalStorage,
+    assignExamRepeatIfFailed,
+    examPointsValidation,
+    onHoverJpgSwapButtons
+} from "./functions";
 import {moduleNames} from "./variables";
 
 const ExamTime = () => {
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
     const inventoryArr = player.inventory;
+
+    const goBtn = document.querySelector(".go");
+    const noExamBtn = document.querySelector(".noExamBtn");
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -114,8 +127,12 @@ console.log(player.luck, "plajer luck w exam");
                 {/*niesłąwnego trofeum z face plantem</p>*/}
                 <p style={examDisplay}>Twój wybór: </p>
                 <div style={{display: "inline"}}>
-                    <button style={buttons} onClick={drawTheResult}>podchodzę do egzaminu</button>
-                    <button style={buttons} onClick={skipExamScreen}>nie podchodzę do egzaminu</button>
+                    <button className={"go"} style={buttons} onClick={drawTheResult}
+                            onMouseEnter={() => onHoverJpgSwapButtons(goBtn)}
+                            onMouseOut={() => onHoverJpgSwapButtons(goBtn, 1)}>podchodzę do egzaminu</button>
+                    <button className={"noExamBtn"} style={buttons} onClick={skipExamScreen}
+                            onMouseEnter={() => onHoverJpgSwapButtons(noExamBtn)}
+                            onMouseOut={() => onHoverJpgSwapButtons(noExamBtn, 1)}>nie podchodzę do egzaminu</button>
                 </div>
             </div>
         </div>

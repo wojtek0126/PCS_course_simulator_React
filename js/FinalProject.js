@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {eventContainer, examDisplay, buttons, finalProjectBackground} from "./styles/styles";
 import {activateActionScreen, finalProjectResultScreen,} from "./viewControl";
-import {drawFinalProjectResultScore, loadId, finalProjectResult} from "./functions";
+import {drawFinalProjectResultScore, loadId, finalProjectResult, onHoverJpgSwapButtons} from "./functions";
 import {getPlayerForEventDraw, getEndings, updatePlayerStats} from "./fetch";
 
 const FinalProject = () => {
@@ -9,6 +9,9 @@ const FinalProject = () => {
     const [player, setPlayer] = useState([]);
     const  [endings, setEndings] = useState([]);
     const inventoryArr = player.inventory;
+
+    const goBtn = document.querySelector(".go");
+    const noExamBtn = document.querySelector(".noExamBtn");
 
     useEffect(() => {
         getEndings(setEndings);
@@ -84,8 +87,12 @@ const FinalProject = () => {
         <div style={finalProjectBackground}>
             <div style={eventContainer}>
                 <h2 style={examDisplay}>Czas na obronę Twojego projektu końcowego</h2>
-                <button style={buttons} onClick={startFinal}>oddaj projekt końcowy</button>
-                <button style={buttons} onClick={activateActionScreen}>jeszcze nie teraz</button>
+                <button className={"go"} style={buttons} onClick={startFinal}
+                        onMouseEnter={() => onHoverJpgSwapButtons(goBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(goBtn, 1)}>oddaj projekt końcowy</button>
+                <button className={"noExamBtn"} style={buttons} onClick={activateActionScreen}
+                        onMouseEnter={() => onHoverJpgSwapButtons(noExamBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(noExamBtn, 1)}>jeszcze nie teraz</button>
             </div>
         </div>
 

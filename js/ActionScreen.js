@@ -3,7 +3,7 @@ import {backToMainMenu, goToSchool, skipSchoolAndRest,
         doHomework, goSleepEvening,goPartyScreen, examScreen,
         inventoryScreen, extraExamScreen, finalProjectScreen, finalProjectResultScreen} from "./viewControl";
 import {getPlayerForEventDraw} from "./fetch";
-import {buttonOnOff, loadId, gameOverCheck, dateGameOverCheck, addArr, attendanceGameOverCheck} from "./functions";
+import {buttonOnOff, loadId, gameOverCheck, dateGameOverCheck, addArr, attendanceGameOverCheck, onHoverJpgSwapButtons} from "./functions";
 import {
     actionNameField, actionScreenList, actionScreenListElements,
     actionElement, actionInventory, actionPrizes, actionElementBottom2,
@@ -61,6 +61,7 @@ const ActionScreen = () => {
     const useItemButton = document.querySelector(".useItemButton");
     const endGameProjectButton = document.querySelector(".startEndGameProjectButton");
     const eventDisplay = document.querySelector(".actionBuffs");
+    const menuButton = document.querySelector(".backToMenuButton");
 
     if (dayPart === "poranek") {
         buttonOnOff(goSleepBtn, "none");
@@ -144,16 +145,27 @@ const ActionScreen = () => {
         alignItems: "center",
         // paddingTop: 20
     }}>
-        <button style={buttons} className={"goSchoolButton"} onClick={goToSchool}>idź do szkoły</button>
-        <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}>odpocznij</button>
-        <button style={buttons} className={"doHomeworkButton"} onClick={doHomework}>zrób pracę domową</button>
-        <button style={buttons} className={"goSleepButton"} onClick={goSleepEvening}>idź spać</button>
-        <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}>idź na imprezę</button>
-        <button style={buttons} className={"takeExamButton"} onClick={examScreen}>podejdź do egzaminu</button>
-        <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}>podejdź do poprawki</button>
-        <button style={buttonFinalProject} className={"startEndGameProjectButton"} onClick={finalProjectScreen}>zacznij projekt końcowy</button>
-        <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}>użyj przedmiotu</button>
-        <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}>powrót do menu</button>
+        <button style={buttons} className={"goSchoolButton"} onClick={goToSchool} onMouseEnter={() => onHoverJpgSwapButtons(goSchoolBtn)}
+                onMouseOut={() => onHoverJpgSwapButtons(goSchoolBtn, 1)}>
+            idź do szkoły</button>
+        <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}
+                onMouseEnter={() => onHoverJpgSwapButtons(skipSchoolBtn)} onMouseOut={() => onHoverJpgSwapButtons(skipSchoolBtn, 1)}>śpij dalej</button>
+        <button style={buttons} className={"doHomeworkButton"} onClick={doHomework}
+                onMouseEnter={() => onHoverJpgSwapButtons(doHomeworkBtn)} onMouseOut={() => onHoverJpgSwapButtons(doHomeworkBtn, 1)}>zrób pracę domową</button>
+        <button style={buttons} className={"goSleepButton"} onClick={goSleepEvening}
+                onMouseEnter={() => onHoverJpgSwapButtons(goSleepBtn)} onMouseOut={() => onHoverJpgSwapButtons(goSleepBtn, 1)}>idź spać</button>
+        <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}
+                onMouseEnter={() => onHoverJpgSwapButtons(goPartyBtn)} onMouseOut={() => onHoverJpgSwapButtons(goPartyBtn, 1)}>idź na imprezę</button>
+        <button style={buttons} className={"takeExamButton"} onClick={examScreen}
+                onMouseEnter={() => onHoverJpgSwapButtons(takeExamBtn)} onMouseOut={() => onHoverJpgSwapButtons(takeExamBtn, 1)}>podejdź do egzaminu</button>
+        <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}
+                onMouseEnter={() => onHoverJpgSwapButtons(takeExtraExamButton)} onMouseOut={() => onHoverJpgSwapButtons(takeExtraExamButton, 1)}>podejdź do poprawki</button>
+        <button style={buttonFinalProject} className={"startEndGameProjectButton"} onClick={finalProjectScreen}
+                onMouseEnter={() => onHoverJpgSwapButtons(endGameProjectButton)} onMouseOut={() => onHoverJpgSwapButtons(endGameProjectButton, 1)}>zacznij projekt końcowy</button>
+        <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}
+                onMouseEnter={() => onHoverJpgSwapButtons(useItemButton)} onMouseOut={() => onHoverJpgSwapButtons(useItemButton, 1)}>użyj przedmiotu</button>
+        <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}
+                onMouseEnter={() => onHoverJpgSwapButtons(menuButton)} onMouseOut={() => onHoverJpgSwapButtons(menuButton, 1)}>powrót do menu</button>
 
 </div>
 

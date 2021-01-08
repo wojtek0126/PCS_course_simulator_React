@@ -3,14 +3,25 @@ import {skipExamScreen, examResultScreen, gameOverScreen, activateActionScreen} 
 import {buttons, eventContainer, examDisplay, extraExamBackground} from "./styles/styles";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {
-    examScoringSystem, isExamPassedByPoints, statValidation, validateScore,
-    loadId, examPrizeAssign, examResultToLocalStorage, assignExamRepeatIfFailed, examPointsValidation
+    examScoringSystem,
+    isExamPassedByPoints,
+    statValidation,
+    validateScore,
+    loadId,
+    examPrizeAssign,
+    examResultToLocalStorage,
+    assignExamRepeatIfFailed,
+    examPointsValidation,
+    onHoverJpgSwapButtons
 } from "./functions";
 
 const ExtraExamTime = () => {
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
     const inventoryArr = player.inventory;
+
+    const goBtn = document.querySelector(".go");
+    const noExamBtn = document.querySelector(".noExamBtn");
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -87,8 +98,12 @@ const ExtraExamTime = () => {
                     Jest to ostateczna szansa na kontynuowanie nauki na tej edycji kursu</p>
                 <p style={examDisplay}>Twój wybór: </p>
                 <div style={{display: "flex"}}>
-                    <button style={buttons} onClick={drawTheResult}>Podchodzę do egzaminu</button>
-                    <button style={buttons} onClick={activateActionScreen}>Nie podchodzę do egzaminu</button>
+                    <button className={"go"} style={buttons} onClick={drawTheResult}
+                            onMouseEnter={() => onHoverJpgSwapButtons(goBtn)}
+                            onMouseOut={() => onHoverJpgSwapButtons(goBtn, 1)}>Podchodzę do egzaminu</button>
+                    <button className={noExamBtn} style={buttons} onClick={activateActionScreen}
+                            onMouseEnter={() => onHoverJpgSwapButtons(noExamBtn)}
+                            onMouseOut={() => onHoverJpgSwapButtons(noExamBtn, 1)}>Nie podchodzę do egzaminu</button>
                 </div>
             </div>
         </div>

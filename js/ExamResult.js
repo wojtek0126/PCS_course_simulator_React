@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
 import {eventContainer, examDisplay, buttons, examResultBackground} from "./styles/styles";
 import {getPlayerForEventDraw} from "./fetch";
-import {loadId} from "./functions";
+import {loadId, onHoverJpgSwapButtons} from "./functions";
 
 
 const ExamResult = () => {
@@ -10,6 +10,8 @@ const ExamResult = () => {
     const resultDisplay = localStorage.getItem("displayExamResult");
     const resultPoints = localStorage.getItem("examPoints");
     const [player, setPlayer] = useState([]);
+
+    const goBtn = document.querySelector(".go");
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -24,7 +26,9 @@ const ExamResult = () => {
                 <p style={examDisplay}>Egzamin z: {player.moduleName}</p>
                 <h2 style={examDisplay}>Rezultat Twojego egzaminu: {resultDisplay}</h2>
                 <p style={examDisplay}>Zdobyte punkty: {resultPoints}</p>
-                <button  style={buttons} onClick={activateActionScreen}>kontynuuj</button>
+                <button  className={"go"} style={buttons} onClick={activateActionScreen}
+                         onMouseEnter={() => onHoverJpgSwapButtons(goBtn)}
+                         onMouseOut={() => onHoverJpgSwapButtons(goBtn, 1)}>kontynuuj</button>
             </div>
         </div>
     )

@@ -9,11 +9,14 @@ import {
     finalResultBackground,
     endingContainer
 } from "./styles/styles";
+import {onHoverJpgSwapButtons} from "./functions";
 
 const FinalProjectResult = () => {
     const resultId = localStorage.getItem('continuePlayerId')
     const  [endings, setEndings] = useState([]);
     const [player, setPlayer] = useState([]);
+
+    const menuBtn = document.querySelector(".menu");
 
     useEffect(() => {
         getEndings(setEndings);
@@ -58,7 +61,9 @@ const FinalProjectResult = () => {
             <p style={examDisplay}>Punkty pozostałe na końcu: {endingScore}</p>
             <p style={examDisplay}>{endingDesc}</p>
             <h3 style={examDisplay}>Twoja nagroda podsumowująca: {endPrize}</h3>
-            <button style={buttons} onClick={backToMainMenu}>zapisz wynik i wróć do menu głównego</button>
+            <button className={"menuBtn"} style={buttons} onClick={backToMainMenu}
+                    onMouseEnter={() => onHoverJpgSwapButtons(menuBtn)}
+                    onMouseOut={() => onHoverJpgSwapButtons(menuBtn, 1)}>zapisz wynik i wróć do menu głównego</button>
         </div>
         </div>
     )

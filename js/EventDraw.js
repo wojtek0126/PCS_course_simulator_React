@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
-import {eventDrawHandler, statValidation, validateScore} from "./functions";
+import {eventDrawHandler, onHoverJpgSwapButtons, statValidation, validateScore} from "./functions";
 import {updatePlayerStats, getEvents, getPlayerForEventDraw} from "./fetch";
 import {buttons, eventContainer, eventBackground, noGoldPopUp} from "./styles/styles";
 
@@ -9,19 +9,18 @@ const EventDraw = () => {
     const  [allEvents, setAllEvents] = useState([]);
     const [player, setPlayer] = useState([]);
 
+    const drawEventBtn = document.querySelector(".drawEventBtn");
+
 useEffect(() => {
     getEvents(setAllEvents);
     getPlayerForEventDraw(resultId, setPlayer);
 },[]);
-    // alert(allEvents, "eventy czy są?")
-
 
     const eventDrawContinue = () => {
         if (allEvents === undefined || allEvents === null) {
             alert("bobeventyzdu")
             location.reload()
         }
-        // alert(player, "czy jest player?")
         if (player === undefined || player === null) {
             alert("bobplajerzdu")
             location.reload()
@@ -30,12 +29,6 @@ useEffect(() => {
         const noGold = document.querySelector(".noGold");
         const drawEventBtn = document.querySelector(".drawEventBtn");
         setTimeout(() => {
-            // setInterval(() => {
-            //     drawEventBtn.style.backgroundColor = "green";
-            // }, 1000);
-            // setInterval(() => {
-            //     drawEventBtn.style.backgroundColor = "white";
-            // }, 1000);
             drawEventBtn.innerHTML = "w razie gdyby losowanie nie powiodło się, naciśnij ponownie";
             noGold.style.display = "flex";
             setTimeout(() => {
@@ -49,27 +42,6 @@ useEffect(() => {
 
         const luck = player.luck;
         let draw = eventDrawHandler(luck, allEvents);
-        // if (draw.eventName === undefined) {
-        //     alert("wpadło undefined i przeszło!")
-        //     let draw2 = eventDrawHandler(luck, allEvents);
-        //     alert(player.luck);
-        //     alert(allEvents[0].eventName);
-        //     alert(draw2.eventName)
-        //     location.reload()
-        // }
-        // else if (draw.eventName === undefined){
-        //     alert(draw.eventName, "wpadło undefined i przeszło!")
-        //     location.reload()
-        // }
-        // else {
-        //     if (draw === undefined || player.luck === undefined) {
-        //         location.reload()
-        //     }
-        //     else {
-        //         console.log("pass");
-        //     }
-        //
-        // }
 
         let items = player.items;
         let luckMod = parseInt(player.luck + draw.luck);
@@ -87,15 +59,7 @@ useEffect(() => {
         let verifiedAttitude = statValidation(attitude, 0, 10);
         let verifiedScore = validateScore(score);
         let plId = player.id;
-        // if (draw === undefined || player.luck === undefined) {
-        //     alert("nie udało się")
-        //     localStorage.setItem("eventDrawn", nothingHappened);
-        //     location.reload()
-        // }
-        // else {
-        //     // alert("udało się");
-        //     localStorage.setItem("eventDrawn", draw.eventDescription);
-        // }
+
         if (player.attendance === null || verifiedHealth === null || draw.eventName === undefined) {
             alert("babol");
             localStorage.setItem("eventDrawn", nothingHappened);
@@ -105,7 +69,6 @@ useEffect(() => {
         else {
             localStorage.setItem("eventDrawn", draw.eventDescription);
         }
-
 
         const modified = {
             id: player.id,
@@ -151,7 +114,9 @@ useEffect(() => {
             {/*<p>{draw.eventDescription}</p>*/}
             {/*<p>{draw.eventEffect1}</p>*/}
             {/*<p>{draw.eventEffect2}</p>*/}
-            <button style={buttons} className={"drawEventBtn"} onClick={() => eventDrawContinue()}>losuj zdarzenie</button>
+            <button style={buttons} className={"drawEventBtn"} onClick={() => eventDrawContinue()}
+                    onMouseEnter={() => onHoverJpgSwapButtons(drawEventBtn)}
+                    onMouseOut={() => onHoverJpgSwapButtons(drawEventBtn, 1)}>losuj zdarzenie</button>
         </div>
      </div>
  )

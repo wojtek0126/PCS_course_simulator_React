@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {updatePlayerStats, getPlayerForEventDraw} from "./fetch";
-import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
+import {statValidation, validateScore, loadId, statChainDegenerate, onHoverJpgSwapButtons} from "./functions";
 import {moduleNames} from "./variables";
 import {buttons, doHomeworkBackground, eventContainer} from "./styles/styles";
 
@@ -13,6 +13,10 @@ const DoHomework = () => {
     const [playerBuffs, setPlayerBuffs] = useState([]);
     const effectDesc = document.querySelector(".effectDesc");
     const activityDesc = document.querySelector(".activityDesc");
+
+    const goBtn = document.querySelector(".go");
+    const shopBtn = document.querySelector(".shop");
+    const menuBtn = document.querySelector(".menu");
 
     useEffect(() => {
        getPlayerForEventDraw(resultId, setPlayer);
@@ -102,10 +106,16 @@ const DoHomework = () => {
             <div style={eventContainer}>
                 <h1 className={"activityDesc"}>Po szkole odrabiasz pracę domową</h1>
                 <p className={"effectDesc"}>wiedza + 1, sen -1, motywacja + 1, punkty + 10</p>
-                <button style={buttons} onClick={doHomeworkContinue}>Zakończ pracę</button>
-                <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
+                <button className={"go"} style={buttons} onClick={doHomeworkContinue}
+                        onMouseEnter={() => onHoverJpgSwapButtons(goBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(goBtn, 1)}>Zakończ pracę</button>
+                <button className={"shop"} style={buttons} onClick={shopScreen}
+                        onMouseEnter={() => onHoverJpgSwapButtons(shopBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(shopBtn, 1)}>odwiedź sklep</button>
                 <p>nastąpi losowanie zdarzenia</p>
-                <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+                <button className={"menu"} style={buttons} onClick={backToMainMenu}
+                        onMouseEnter={() => onHoverJpgSwapButtons(menuBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(menuBtn, 1)}>powrót do menu</button>
             </div>
         </div>
     )

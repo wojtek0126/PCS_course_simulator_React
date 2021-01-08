@@ -219,13 +219,10 @@ export const dateGameOverCheck = (stat, value = 0) => {
     }
 }
 
-// export const dateCheckerWeek = (player) => {
-//     if (player.
-// }
-//
-// export const dateCheckerModule = (day) => {
-//     if (day
-//         }
+export const onHoverJpgSwapButtons = (target, value = 0.7) => {
+    target.style.opacity = value
+        // backgroundImage = `url(` + `images/${imageName}.jpg` + `)`;
+}
 
 export const causeOfGameOver = (health, att, examPassed) => {
     let gameOverText = "";
