@@ -467,6 +467,30 @@ export const nameInputValidation = (playerName) => {
     }
 }
 
-
+// const viewControl = (isOn) => {
+//     const disabled = false;
+//     const enabled = true
+//     localStorage.setItem('welcomeScreen', 'false');
+//     localStorage.setItem('continueGameScreen', 'false');
+//     localStorage.setItem('createNewPlayerScreen', 'false');
+//     localStorage.setItem('actionScreen', 'true');
+//     localStorage.setItem('goToSchoolScreen', 'false');
+//     localStorage.setItem('skipAndRestScreen', 'false');
+//     localStorage.setItem('goToSleepScreen', 'false');
+//     localStorage.setItem('doHomeworkScreen', 'false');
+//     localStorage.setItem('successNewPlayerCreateScreen', 'false');
+//     localStorage.setItem('goSleepEveningScreen', 'false');
+//     localStorage.setItem('goPartyScreen', 'false');
+//     localStorage.setItem('gameOverScreen', 'false');
+//     localStorage.setItem('examScreen', 'false');
+//     localStorage.setItem('extraExamScreen', 'false');
+//     localStorage.setItem('examResultScreen', 'false');
+//     localStorage.setItem('skipExamScreen', 'false');
+//     localStorage.setItem('eventDrawScreen', 'false');
+//     localStorage.setItem('shopScreen', 'false');
+//     localStorage.setItem('finalProjectScreen', 'false');
+//     localStorage.setItem('finalProjectResultScreen', 'false');
+//     localStorage.setItem('inventoryScreen', 'false');
+// }
 
 

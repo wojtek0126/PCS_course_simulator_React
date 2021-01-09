@@ -49,7 +49,9 @@ const CreateNewPlayer = () => {
         });
         //avoid duplicates level 1
         if (isValid === true) {
+            isValid = false;
             createNewPlayer(playerName);
+
         }
 
         // else {
