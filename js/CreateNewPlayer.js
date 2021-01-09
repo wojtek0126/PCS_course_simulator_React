@@ -51,7 +51,6 @@ const CreateNewPlayer = () => {
         if (isValid === true) {
             isValid = false;
             createNewPlayer(playerName);
-
         }
 
         // else {
