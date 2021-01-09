@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen, shopScreen} from "./viewControl";
 import {getPlayerForEventDraw, updatePlayerStats} from "./fetch";
-import {statChainDegenerate, statValidation, validateScore} from "./functions";
+import {onHoverJpgSwapButtons, statChainDegenerate, statValidation, validateScore} from "./functions";
 import {moduleNames} from "./variables";
 import {random, loadId} from "./functions";
 import {buttons, partyBackground, eventContainer} from "./styles/styles";
@@ -9,6 +9,9 @@ import {buttons, partyBackground, eventContainer} from "./styles/styles";
 const GoParty = () => {
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
+    const goBtn = document.querySelector(".go");
+    const shopBtn = document.querySelector(".shop");
+    const menuBtn = document.querySelector(".menu");
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -60,6 +63,33 @@ const GoParty = () => {
             weekNumber = parseInt(week);
             moduleName = moduleNames[weekNumber-1];
         }
+        if (player.day <= 5) {
+            weekNumber = 1;
+            moduleName = moduleNames[0];
+        }
+        else if (player.day <= 10) {
+            weekNumber = 2;
+            moduleName = moduleNames[1];
+        }
+        else if (player.day <= 15) {
+            weekNumber = 3;
+            moduleName = moduleNames[2];
+        }
+        else if (player.day <= 20) {
+            weekNumber = 4;
+            moduleName = moduleNames[3];
+        }
+        else if (player.day <= 25) {
+            weekNumber = 5;
+            moduleName = moduleNames[4];
+        }
+        else if (player.day <= 30) {
+            weekNumber = 6;
+            moduleName = moduleNames[5];
+        }
+        else {
+            weekNumber = player.week
+        }
         if (verifiedSleep === 0) {
             verifiedHealth--;
         }
@@ -98,10 +128,16 @@ const GoParty = () => {
             <div style={eventContainer}>
                 <h1>Idziesz wieczorem na imprezę</h1>
                 <p>sen - 2, motywacja +2, możliwość utraty zdrowia 0 - 5, możliwość utraty wiedzy do - 1, punkty + 30</p>
-                <button style={buttons} onClick={goPartyContinue}>wróć z imprezy</button>
-                <button style={buttons} onClick={shopScreen}>odwiedź sklep</button>
+                <button className={"go"} style={buttons} onClick={goPartyContinue}
+                        onMouseEnter={() => onHoverJpgSwapButtons(goBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(goBtn, 1)}>wróć z imprezy</button>
+                <button className={"shop"} style={buttons} onClick={shopScreen}
+                        onMouseEnter={() => onHoverJpgSwapButtons(shopBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(shopBtn, 1)}>odwiedź sklep</button>
                 <p>nastąpi losowanie zdarzenia</p>
-                <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+                <button className={"menu"} style={buttons} onClick={backToMainMenu}
+                        onMouseEnter={() => onHoverJpgSwapButtons(menuBtn)}
+                        onMouseOut={() => onHoverJpgSwapButtons(menuBtn, 1)}>powrót do menu</button>
             </div>
         </div>
     )

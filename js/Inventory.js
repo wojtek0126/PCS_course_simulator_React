@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {activateActionScreen} from "./viewControl";
-import {loadId, addArr, statValidation, removeItemOnce} from "./functions";
+import {loadId, addArr, statValidation, removeItemOnce, onHoverJpgSwapButtons} from "./functions";
 import {getItemsForSale, getPlayerForEventDraw, updatePlayerStats} from "./fetch";
 import {inventoryItem, inventory, buttons, inventoryBackground, noGoldPopUp} from "./styles/styles";
 
@@ -9,6 +9,7 @@ const Inventory = () => {
     const [player, setPlayer] = useState([]);
     const [itemsArr, setItemsArr] = useState([]);
     const [itemsForSale, setItemsForSale] = useState([]);
+    const menuBtn = document.querySelector(".menu");
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -27,27 +28,10 @@ const Inventory = () => {
     console.log(itemsMapArr, " itemsy w inv gracza po oprawieniu");
     let itemsObjects = addArr(itemsForSale);
     console.log(itemsObjects, " itemsy pełne obiekty");
-    // if (itemsObjects[item - 1] !== undefined) {
-    //     location.reload();
-    //     console.log(itemsObjects[item - 1], "nie")
-    // }
-    // else {
-    //     console.log(itemsObjects[item - 1], "to jest")
-    // }
-
-  // try {
-  //     itemsObjects[item - 1];
-  // }
-  // catch (e) {
-  //
-  // }
-
 
     const useItem = (item) => {
         const noGold = document.querySelector(".noGold");
         noGold.style.display = "flex";
-        // noGold.style.alignItems = "center";
-        // noGold.style.justifyContent = "center";
         let extractWholeItem = itemsObjects[item - 1];
         console.log(extractWholeItem, "  itema");
         console.log(extractWholeItem.luck, "dawaj !!")
@@ -102,7 +86,7 @@ const Inventory = () => {
     } catch (e) {
         location.reload();
     }
-
+    // let useBtn = document.getElementsByClassName(`use`);
         return (
             <>
             <div style={noGoldPopUp} className={"noGold"}>przedmiot został wykorzystany pomyślnie</div>
@@ -111,14 +95,16 @@ const Inventory = () => {
                 <div style={inventory}>
                     {
                         itemsMapArr.map((item, index) => {
+
                             return (
                                 <li style={inventoryItem} key={index}>{itemsObjects[item - 1].itemName}
-                                    <button style={buttons} onClick={() => useItem(item)}>użyj</button></li>
+                                    <button className={`use`} style={buttons} onClick={() => useItem(item)}>użyj</button></li>
                             )
                         })
                     }
                 </div>
-                <button style={buttons} onClick={activateActionScreen}>zamknij</button>
+                <button className={"menu"} style={buttons} onClick={activateActionScreen}
+                        onMouseEnter={() => onHoverJpgSwapButtons(menuBtn)} onMouseOut={() => onHoverJpgSwapButtons(menuBtn, 1)}>zamknij</button>
             </div>
                 </>
     )

@@ -20,7 +20,6 @@ const ExamTime = () => {
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
     const inventoryArr = player.inventory;
-
     const goBtn = document.querySelector(".go");
     const noExamBtn = document.querySelector(".noExamBtn");
 
@@ -57,7 +56,7 @@ console.log(player.luck, "plajer luck w exam");
         let verifiedScore = validateScore(score);
         let plId = player.id;
         let week = player.week;
-        let moduleFix = "player.moduleName";
+        let moduleFix = player.moduleName;
         if (player.day <= 5) {
             week = 1;
             moduleFix = moduleNames[0];
@@ -121,10 +120,6 @@ console.log(player.luck, "plajer luck w exam");
                 <h2 style={examDisplay}>Czas na egzamin!</h2>
                 <p style={examDisplay}>Egzamin z: {player.moduleName}</p>
                 <p style={examDisplay}>Punkty na zaliczenie: 10/20</p>
-                {/*<p style={examDisplay}>Podpowiedź - w razie niskich statystyk możesz zaryzykować, rezygnując z pierwszego*/}
-                {/*podejścia i zdawać poprawkę nie oblewając egzaminu.*/}
-                {/*Masz wtedy już tylko jedną próbę i gorsze nagrody, jednak unikniesz zainkasowania*/}
-                {/*niesłąwnego trofeum z face plantem</p>*/}
                 <p style={examDisplay}>Twój wybór: </p>
                 <div style={{display: "inline"}}>
                     <button className={"go"} style={buttons} onClick={drawTheResult}

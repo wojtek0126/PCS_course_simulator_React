@@ -4,7 +4,7 @@ import {shopItem, shopInventory, shopButtons,
     buttons, shopButtonToMenu, shopItemsParagraph, shopPlayerPoints, shopWelcomeText,
     shopBackground, shopContainer, noGoldPopUp} from "./styles/styles";
 import {getPlayerForEventDraw, getItemsForSale, updatePlayerStats} from "./fetch";
-import {loadId} from "./functions";
+import {loadId, onHoverJpgSwapButtons} from "./functions";
 import {moduleNames} from "./variables";
 import { StickyContainer, Sticky } from 'react-sticky';
 
@@ -14,6 +14,9 @@ const Shop = () => {
     const [itemsForSale, setItemsForSale] = useState([]);
     const [itemsArr, setItemsArr] = useState([]);
     const [playerMoney, setPlayerMoney] = useState([]);
+    // const buyBtn = document.querySelector(".buy");
+    const menuBtn = document.querySelector(".menu");
+
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -147,7 +150,6 @@ const Shop = () => {
     }
 
     return (
-
         <div style={shopBackground}>
         <div style={shopContainer}>
             <h2 style={shopWelcomeText}>Witaj w sklepie, {player.name}</h2>
@@ -170,12 +172,15 @@ const Shop = () => {
                                     <p style={shopItem}>cena: {item.itemPrice}</p>
                                 </div>
 
-                                <button style={shopButtons} onClick={() => buyItem(item.id - 1)}>kup 1 x {item.itemName}</button>
+                                <button className={"buy"} style={shopButtons} onClick={() => buyItem(item.id - 1)}>
+                                    kup 1 x {item.itemName}</button>
                             </div>
                         )
                     })
                 }
-            <button style={shopButtonToMenu} onClick={goToEventDraw}>kontynuuj</button>
+            <button className={"menu"} style={shopButtonToMenu} onClick={goToEventDraw}
+                    onMouseEnter={() => onHoverJpgSwapButtons(menuBtn)}
+                    onMouseOut={() => onHoverJpgSwapButtons(menuBtn, 1)}>kontynuuj</button>
         </div>
             </div>
     )

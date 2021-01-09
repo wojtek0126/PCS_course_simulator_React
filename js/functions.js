@@ -224,6 +224,22 @@ export const onHoverJpgSwapButtons = (target, value = 0.7) => {
         // backgroundImage = `url(` + `images/${imageName}.jpg` + `)`;
 }
 
+export const onHoverSwapButtons2 = (targetClass, value = 0.7) => {
+    let obj = document.querySelector(`.${targetClass}`);
+    if (obj) {
+        obj.style.opacity = value
+    }
+    else {
+        setTimeout(() => {
+            let obj = document.querySelector(`.${targetClass}`);
+            if (obj) {
+                obj.style.opacity = value
+            }
+        },200 )
+    }
+    // backgroundImage = `url(` + `images/${imageName}.jpg` + `)`;
+}
+
 export const causeOfGameOver = (health, att, examPassed) => {
     let gameOverText = "";
     if (health === 0) {

@@ -5,10 +5,27 @@ import {backToMainMenu, goToSchool, skipSchoolAndRest,
 import {getPlayerForEventDraw} from "./fetch";
 import {buttonOnOff, loadId, gameOverCheck, dateGameOverCheck, addArr, attendanceGameOverCheck, onHoverJpgSwapButtons} from "./functions";
 import {
-    actionNameField, actionScreenList, actionScreenListElements,
-    actionElement, actionInventory, actionPrizes, actionElementBottom2,
-    buttons, wholeScreenBackground, actionElementBottom, buttonFinalProject,
-    bookIcon, lifeIcon, bedIcon, brainIcon, luckIcon, coinIcon, userIcon, inventoryBackground, actionBottom
+    actionNameField,
+    actionScreenList,
+    actionScreenListElements,
+    actionElement,
+    actionInventory,
+    actionPrizes,
+    actionElementBottom2,
+    buttons,
+    wholeScreenBackground,
+    actionElementBottom,
+    buttonFinalProject,
+    bookIcon,
+    lifeIcon,
+    bedIcon,
+    brainIcon,
+    luckIcon,
+    coinIcon,
+    userIcon,
+    inventoryBackground,
+    actionBottom,
+    buttonsContainer
 } from "./styles/styles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -135,16 +152,10 @@ const ActionScreen = () => {
             })
         }
     </div>
-    {/*<div>{}</div>*/}
     <div className={"actionBuffs"} style={actionElementBottom}>Aktualne zdarzenie: {actualEvent}</div>
     <div className={"actionCalendar"} style={actionElementBottom2}>Tydzień: {week}, Dzień kursu: {day} ,
         Część dnia: {dayPart}, Moduł: {currentModule}</div>
-    <div style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        // paddingTop: 20
-    }}>
+    <div style={buttonsContainer}>
         <button style={buttons} className={"goSchoolButton"} onClick={goToSchool} onMouseEnter={() => onHoverJpgSwapButtons(goSchoolBtn)}
                 onMouseOut={() => onHoverJpgSwapButtons(goSchoolBtn, 1)}>
             idź do szkoły</button>
@@ -168,8 +179,6 @@ const ActionScreen = () => {
                 onMouseEnter={() => onHoverJpgSwapButtons(menuButton)} onMouseOut={() => onHoverJpgSwapButtons(menuButton, 1)}>powrót do menu</button>
 
 </div>
-
-
             </div>
         </div>
     )

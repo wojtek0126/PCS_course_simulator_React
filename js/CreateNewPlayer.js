@@ -7,11 +7,11 @@ import {buttons, createPlayerBackground, noGoldPopUp} from "./styles/styles";
 //add login after engine works
 
 const CreateNewPlayer = () => {
+    const [playerName, setPlayerName] = useState("");
     const noGold = document.querySelector(".noGold");
     const createBtn = document.querySelector(".create");
     const menuBtn = document.querySelector(".menu");
 
-    const [playerName, setPlayerName] = useState("");
 
     console.log(playerName, "playerName w create player")
     localStorage.setItem('playerName', playerName);
@@ -19,8 +19,7 @@ const CreateNewPlayer = () => {
     const nameInputWithValidation = (playerName) => {
         let playerNameArr = playerName.split('');
         let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-
-
+        let isValid = false
         playerNameArr.map((element) => {
             if (!isNaN(element)) {
                 noGold.innerHTML = "poproszę o imię bez cyfr";
@@ -45,9 +44,13 @@ const CreateNewPlayer = () => {
             }
             else {
                 noGold.style.display = "flex";
-                createNewPlayer(playerName);
+                isValid = true;
             }
         });
+        //avoid duplicates level 1
+        if (isValid === true) {
+            createNewPlayer(playerName);
+        }
 
         // else {
         //     noGold.style.display = "flex";
@@ -84,8 +87,7 @@ const CreateNewPlayer = () => {
                     <div style={{
                         transform: "translateY(-5px)"
                     }}>
-                        <button className={"create"} style={buttons} type="submit"
-                                onMouseEnter={() => onHoverJpgSwapButtons(createBtn)}
+                        <button className={"create"} style={buttons} type="submit" onMouseEnter={() => onHoverSwapButtons2("create")}
                                 onMouseOut={() => onHoverJpgSwapButtons(createBtn, 1)}>Rozpocznij grę</button>
                         <button className={"menu"} style={buttons} type="button" onClick={backToMainMenu}
                                 onMouseEnter={() => onHoverJpgSwapButtons(menuBtn)}

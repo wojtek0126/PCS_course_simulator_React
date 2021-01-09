@@ -1,16 +1,15 @@
 import React, {useState, useEffect} from "react";
 import {backToMainMenu, eventDrawScreen} from "./viewControl";
 import {getPlayerForEventDraw, getSelectedPlayerFromList, updatePlayerStats} from "./fetch";
-import {statValidation, validateScore, loadId, statChainDegenerate} from "./functions";
+import {statValidation, validateScore, loadId, statChainDegenerate, onHoverJpgSwapButtons} from "./functions";
 import {moduleNames} from "./variables";
 import {buttons, sleepBackground, eventContainer} from "./styles/styles";
 
 const GoSleepEvening = () => {
     const resultId = loadId();
     const [player, setPlayer] = useState([]);
-    const [inventoryArr, setInventoryArr] = useState([]);
-    const [playerBuffs, setPlayerBuffs] = useState([]);
-
+    const goBtn = document.querySelector(".go");
+    const menuBtn = document.querySelector(".menu");
 
     useEffect(() => {
         getPlayerForEventDraw(resultId, setPlayer);
@@ -59,6 +58,33 @@ const GoSleepEvening = () => {
             weekNumber = parseInt(week);
             moduleName = moduleNames[weekNumber-1];
         }
+        if (player.day <= 5) {
+            weekNumber = 1;
+            moduleName = moduleNames[0];
+        }
+        else if (player.day <= 10) {
+            weekNumber = 2;
+            moduleName = moduleNames[1];
+        }
+        else if (player.day <= 15) {
+            weekNumber = 3;
+            moduleName = moduleNames[2];
+        }
+        else if (player.day <= 20) {
+            weekNumber = 4;
+            moduleName = moduleNames[3];
+        }
+        else if (player.day <= 25) {
+            weekNumber = 5;
+            moduleName = moduleNames[4];
+        }
+        else if (player.day <= 30) {
+            weekNumber = 6;
+            moduleName = moduleNames[5];
+        }
+        else {
+            weekNumber = player.week
+        }
         if (verifiedSleep === 0) {
             verifiedHealth--;
         }
@@ -97,9 +123,13 @@ const GoSleepEvening = () => {
             <div style={eventContainer}>
                 <h1>Po szkole idziesz spać</h1>
                 <p>sen + 1, zdrowie + 1, punkty + 4</p>
-                <button style={buttons} onClick={goSleepEveningContinue}>zakończ odpoczynek</button>
+                <button className={"go"} style={buttons} onClick={goSleepEveningContinue}
+                        onMouseEnter={() => onHoverJpgSwapButtons(goBtn)} onMouseOut={() => onHoverJpgSwapButtons(goBtn, 1)}>
+                    zakończ odpoczynek</button>
                 <p>nastąpi losowanie zdarzenia</p>
-                <button style={buttons} onClick={backToMainMenu}>powrót do menu</button>
+                <button className={"menu"} style={buttons} onClick={backToMainMenu}
+                        onMouseEnter={() => onHoverJpgSwapButtons(menuBtn)} onMouseOut={() => onHoverJpgSwapButtons(menuBtn, 1)}>
+                    powrót do menu</button>
             </div>
         </div>
     )

@@ -134,7 +134,12 @@ export const menuBotomPart = {
 }
 
 //action screen below
-
+export const buttonsContainer = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    // paddingTop: 20
+}
 
 export const timeIcon = {
     backgroundImage: "url(" + "images/timer.gif" + ")",
@@ -306,6 +311,7 @@ export const actionPrizes = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
+    color: "green"
 }
 
 export const actionElementBottom = {
@@ -785,7 +791,5 @@ export const gameOverBackground = {
     justifyContent: "center",
     alignItems: "center",
 }
-// export const successPlayerCreateText = {
-//     width: 800
-// }
+
 

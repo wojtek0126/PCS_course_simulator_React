@@ -29,7 +29,7 @@ useEffect(() => {
         const noGold = document.querySelector(".noGold");
         const drawEventBtn = document.querySelector(".drawEventBtn");
         setTimeout(() => {
-            drawEventBtn.innerHTML = "w razie gdyby losowanie nie powiodło się, naciśnij ponownie";
+            drawEventBtn.innerHTML = "naciśnij ponownie";
             noGold.style.display = "flex";
             setTimeout(() => {
                 noGold.style.display = "none";
@@ -107,13 +107,9 @@ useEffect(() => {
  return (
      <div style={eventBackground}>
         <div style={eventContainer}>
-            <div style={noGoldPopUp} className={"noGold"}>losowanie nie powiodło się, spróbuj jeszcze raz</div>
+            <div style={noGoldPopUp} className={"noGold"}>naciśnij ponownie</div>
             <h2>Drogi graczu. Czas na losowanie zdarzenia. Im większe jest
             Twoje aktualne szczęście, tym bardziej prawdopodobne, że los będzie przychylny.</h2>
-            {/*<p className={'eventNameDisplay'}>{draw.eventName}</p>*/}
-            {/*<p>{draw.eventDescription}</p>*/}
-            {/*<p>{draw.eventEffect1}</p>*/}
-            {/*<p>{draw.eventEffect2}</p>*/}
             <button style={buttons} className={"drawEventBtn"} onClick={() => eventDrawContinue()}
                     onMouseEnter={() => onHoverJpgSwapButtons(drawEventBtn)}
                     onMouseOut={() => onHoverJpgSwapButtons(drawEventBtn, 1)}>losuj zdarzenie</button>

@@ -8,18 +8,14 @@ import {buttons, continueGameListElements, shopBackground, continueListContainer
 const ContinueGame = () => {
     const [playersArr, setPlayersArr] = useState([]);
     const [playerId, setPlayerId] = useState([]);
-
     const menuBtn = document.querySelector(".menu");
     const continueBtn = document.querySelector(".continue");
     const deleteBtn = document.querySelector(".delete");
 
-    // const actionScreen = localStorage.getItem('actionScreen');
-    // console.log(actionScreen, ' action')
-
     useEffect(() => {
         getPlayers(setPlayersArr);
-
     },[])
+
     console.log(playerId, "playerId w continue game");
     const data = (playerId);
     saveId(data);
@@ -29,7 +25,6 @@ const ContinueGame = () => {
         playersArr.map((el) => {
             setPlayerId(id)
         })
-
         activateActionScreen()
     }
 
@@ -52,13 +47,10 @@ const ContinueGame = () => {
                             </strong>
                                 <div>
                                     <button className={"continue"} style={shopButtons} onClick={() => handleContinue(player.id)}
-                                            onMouseEnter={() => onHoverJpgSwapButtons(continueBtn)}
-                                            onMouseOut={() => onHoverJpgSwapButtons(continueBtn, 1)}>kontynuuj/podgląd</button>
+                                          >kontynuuj/podgląd</button>
                                     <button className={"delete"} style={shopButtons} onClick={() => {handleRemovePlayer(player.id)}}
-                                            onMouseEnter={() => onHoverJpgSwapButtons(deleteBtn)}
-                                            onMouseOut={() => onHoverJpgSwapButtons(deleteBtn, 1)}>skasuj gracza</button>
+                                            >skasuj gracza</button>
                                 </div>
-
                             </li>
                         )
                     })
