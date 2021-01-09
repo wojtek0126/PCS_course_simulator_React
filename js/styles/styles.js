@@ -250,6 +250,7 @@ export const actionNameField = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
+    fontSize: "1.1em",
 }
 
 export const actionScreenList = {

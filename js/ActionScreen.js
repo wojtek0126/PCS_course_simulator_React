@@ -27,7 +27,7 @@ import {
     actionBottom,
     buttonsContainer
 } from "./styles/styles";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Favicon from 'react-favicon';
 
 const ActionScreen = () => {
 
@@ -134,7 +134,7 @@ const ActionScreen = () => {
 
     return (
         <div style={wholeScreenBackground} className={"actionScreenContainer"}>
-
+            <Favicon url="public/favicon.ico" />
             <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}
                 <div className={"actionCalendar"} style={actionElementBottom2}>Tydzień: {week}, {currentModule}
                     <span style={{color: "brown"}}><span style={{color: "black"}}>Dzień kursu: {day}, Część dnia:</span> {dayPart}</span></div><div style={userIcon}></div></div>
@@ -146,43 +146,40 @@ const ActionScreen = () => {
                 <li style={actionScreenListElements}>SZCZĘŚCIE: {luck}<div style={luckIcon}></div></li>
                 <li style={actionScreenListElements}>PUNKTY: {score}<div style={coinIcon}></div></li>
             </ul>
-            {/*<div style={actionInvTitle}>*/}
-<div style={actionBottom}>
-    <div className={"actionBuffs"} style={actionElementBottom}>aktualne zdarzenie: {actualEvent}</div>
-    <p style={actionElement}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
-    {/*</div>*/}
-    <div className={"actionInventory"} style={actionPrizes}>
-        {
-            arr.map((item, index) => {
-                return <p key={index}>{item}</p>
-            })
-        }
-    </div>
+            <div style={actionBottom}>
+                <div className={"actionBuffs"} style={actionElementBottom}>aktualne zdarzenie: {actualEvent}</div>
+                <p style={actionElement}>Twoje nagrody:</p>
+                <div className={"actionInventory"} style={actionPrizes}>
+                    {
+                        arr.map((item, index) => {
+                            return <p key={index}>{item}</p>
+                        })
+                    }
+                </div>
 
-    <div style={buttonsContainer}>
-        <button style={buttons} className={"goSchoolButton"} onClick={goToSchool} onMouseEnter={() => onHoverJpgSwapButtons(goSchoolBtn)}
-                onMouseOut={() => onHoverJpgSwapButtons(goSchoolBtn, 1)}>
-            idź do szkoły</button>
-        <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}
-                onMouseEnter={() => onHoverJpgSwapButtons(skipSchoolBtn)} onMouseOut={() => onHoverJpgSwapButtons(skipSchoolBtn, 1)}>śpij dalej</button>
-        <button style={buttons} className={"doHomeworkButton"} onClick={doHomework}
-                onMouseEnter={() => onHoverJpgSwapButtons(doHomeworkBtn)} onMouseOut={() => onHoverJpgSwapButtons(doHomeworkBtn, 1)}>zrób pracę domową</button>
-        <button style={buttons} className={"goSleepButton"} onClick={goSleepEvening}
-                onMouseEnter={() => onHoverJpgSwapButtons(goSleepBtn)} onMouseOut={() => onHoverJpgSwapButtons(goSleepBtn, 1)}>idź spać</button>
-        <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}
-                onMouseEnter={() => onHoverJpgSwapButtons(goPartyBtn)} onMouseOut={() => onHoverJpgSwapButtons(goPartyBtn, 1)}>idź na imprezę</button>
-        <button style={buttons} className={"takeExamButton"} onClick={examScreen}
-                onMouseEnter={() => onHoverJpgSwapButtons(takeExamBtn)} onMouseOut={() => onHoverJpgSwapButtons(takeExamBtn, 1)}>podejdź do egzaminu</button>
-        <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}
-                onMouseEnter={() => onHoverJpgSwapButtons(takeExtraExamButton)} onMouseOut={() => onHoverJpgSwapButtons(takeExtraExamButton, 1)}>podejdź do poprawki</button>
-        <button style={buttonFinalProject} className={"startEndGameProjectButton"} onClick={finalProjectScreen}
-                onMouseEnter={() => onHoverJpgSwapButtons(endGameProjectButton)} onMouseOut={() => onHoverJpgSwapButtons(endGameProjectButton, 1)}>zacznij projekt końcowy</button>
-        <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}
-                onMouseEnter={() => onHoverJpgSwapButtons(useItemButton)} onMouseOut={() => onHoverJpgSwapButtons(useItemButton, 1)}>użyj przedmiotu</button>
-        <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}
-                onMouseEnter={() => onHoverJpgSwapButtons(menuButton)} onMouseOut={() => onHoverJpgSwapButtons(menuButton, 1)}>powrót do menu</button>
-
-</div>
+                <div style={buttonsContainer}>
+                    <button style={buttons} className={"goSchoolButton"} onClick={goToSchool} onMouseEnter={() => onHoverJpgSwapButtons(goSchoolBtn)}
+                            onMouseOut={() => onHoverJpgSwapButtons(goSchoolBtn, 1)}>
+                        idź do szkoły</button>
+                    <button style={buttons} className={"skipAndRestButton"} onClick={skipSchoolAndRest}
+                            onMouseEnter={() => onHoverJpgSwapButtons(skipSchoolBtn)} onMouseOut={() => onHoverJpgSwapButtons(skipSchoolBtn, 1)}>śpij dalej</button>
+                    <button style={buttons} className={"doHomeworkButton"} onClick={doHomework}
+                            onMouseEnter={() => onHoverJpgSwapButtons(doHomeworkBtn)} onMouseOut={() => onHoverJpgSwapButtons(doHomeworkBtn, 1)}>zrób pracę domową</button>
+                    <button style={buttons} className={"goSleepButton"} onClick={goSleepEvening}
+                            onMouseEnter={() => onHoverJpgSwapButtons(goSleepBtn)} onMouseOut={() => onHoverJpgSwapButtons(goSleepBtn, 1)}>idź spać</button>
+                    <button style={buttons} className={"goPartyButton"} onClick={goPartyScreen}
+                            onMouseEnter={() => onHoverJpgSwapButtons(goPartyBtn)} onMouseOut={() => onHoverJpgSwapButtons(goPartyBtn, 1)}>idź na imprezę</button>
+                    <button style={buttons} className={"takeExamButton"} onClick={examScreen}
+                            onMouseEnter={() => onHoverJpgSwapButtons(takeExamBtn)} onMouseOut={() => onHoverJpgSwapButtons(takeExamBtn, 1)}>podejdź do egzaminu</button>
+                    <button style={buttons} className={"takeExtraExamButton"} onClick={extraExamScreen}
+                            onMouseEnter={() => onHoverJpgSwapButtons(takeExtraExamButton)} onMouseOut={() => onHoverJpgSwapButtons(takeExtraExamButton, 1)}>podejdź do poprawki</button>
+                    <button style={buttonFinalProject} className={"startEndGameProjectButton"} onClick={finalProjectScreen}
+                            onMouseEnter={() => onHoverJpgSwapButtons(endGameProjectButton)} onMouseOut={() => onHoverJpgSwapButtons(endGameProjectButton, 1)}>zacznij projekt końcowy</button>
+                    <button style={buttons} className={"useItemButton"} onClick={inventoryScreen}
+                            onMouseEnter={() => onHoverJpgSwapButtons(useItemButton)} onMouseOut={() => onHoverJpgSwapButtons(useItemButton, 1)}>użyj przedmiotu</button>
+                    <button style={buttons} className={"backToMenuButton"} onClick={backToMainMenu}
+                            onMouseEnter={() => onHoverJpgSwapButtons(menuButton)} onMouseOut={() => onHoverJpgSwapButtons(menuButton, 1)}>powrót do menu</button>
+                </div>
             </div>
         </div>
     )

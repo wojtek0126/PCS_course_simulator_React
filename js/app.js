@@ -21,7 +21,7 @@ import FinalProject from "./FinalProject";
 import FinalProjectResult from "./FinalProjectResult";
 import Inventory from "./Inventory";
 // localStorage.setItem('actionScreen', 'true');
-// import './style.css'
+
 
 const App = () => {
 
