@@ -123,6 +123,9 @@ const ActionScreen = () => {
     if (day === 1 && dayPart === "poranek") {
         eventDisplay.innerHTML = "Aktualne zdarzenia: rozpoczynasz kurs Pythona. Powodzenia!"
     }
+    if (repeatingExam === true) {
+        buttonOnOff(endGameProjectButton, "none");
+    }
 
     dateGameOverCheck(day, 35)
     gameOverCheck(health, 0);
@@ -132,7 +135,9 @@ const ActionScreen = () => {
     return (
         <div style={wholeScreenBackground} className={"actionScreenContainer"}>
 
-            <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}<div style={userIcon}></div></div>
+            <div className={"actionNameField"} style={actionNameField}>Imię gracza: {playerName}
+                <div className={"actionCalendar"} style={actionElementBottom2}>Tydzień: {week}, {currentModule}
+                    <span style={{color: "brown"}}><span style={{color: "black"}}>Dzień kursu: {day}, Część dnia:</span> {dayPart}</span></div><div style={userIcon}></div></div>
             <ul style={actionScreenList} className={"actionPlayerStats"}>
                 <li style={actionScreenListElements}>ZDROWIE: {health}  <div style={lifeIcon}></div></li>
                 <li style={actionScreenListElements}>SEN: {sleep}<div style={bedIcon}></div></li>
@@ -143,6 +148,7 @@ const ActionScreen = () => {
             </ul>
             {/*<div style={actionInvTitle}>*/}
 <div style={actionBottom}>
+    <div className={"actionBuffs"} style={actionElementBottom}>aktualne zdarzenie: {actualEvent}</div>
     <p style={actionElement}>Twoje nagrody:<FontAwesomeIcon icon="treasure-chest" /></p>
     {/*</div>*/}
     <div className={"actionInventory"} style={actionPrizes}>
@@ -152,9 +158,7 @@ const ActionScreen = () => {
             })
         }
     </div>
-    <div className={"actionBuffs"} style={actionElementBottom}>Aktualne zdarzenie: {actualEvent}</div>
-    <div className={"actionCalendar"} style={actionElementBottom2}>Tydzień: {week}, Dzień kursu: {day} ,
-        Część dnia: {dayPart}, Moduł: {currentModule}</div>
+
     <div style={buttonsContainer}>
         <button style={buttons} className={"goSchoolButton"} onClick={goToSchool} onMouseEnter={() => onHoverJpgSwapButtons(goSchoolBtn)}
                 onMouseOut={() => onHoverJpgSwapButtons(goSchoolBtn, 1)}>

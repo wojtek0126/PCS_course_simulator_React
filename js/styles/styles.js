@@ -1,5 +1,9 @@
 import React from "react";
 
+const borderIcons  = "1px solid black";
+const borderThickSolid  = "1px solid black";
+const padding1020 = "10px 20px";
+
 export const buttons = {
     fontFamily: ['Hanalei Fill', "cursive"],
     padding: "10px 20px",
@@ -262,7 +266,7 @@ export const actionScreenList = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    transform: "translateY(20px)"
+    transform: "translateY(32px)"
 }
 
 export const actionBottom = {
@@ -311,12 +315,16 @@ export const actionPrizes = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
-    color: "green"
+    color: "brown",
+    borderBottom: "5px solid black",
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
 }
 
 export const actionElementBottom = {
     borderLeft: "5px solid black",
     borderRight: "5px solid black",
+    borderBottom: "5px solid black",
     // border: "1px dotted black",
     display: "flex",
     flexDirection: "column",
@@ -329,24 +337,26 @@ export const actionElementBottom = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
     // marginBottom: -9
 }
 
 export const actionElementBottom2 = {
-    borderBottom: "5px solid black",
-    borderLeft: "5px solid black",
-    borderRight: "5px solid black",
+    border: "1px dotted black",
+    borderLeft: "1px dotted blue",
     display: "flex",
     flexDirection: "column",
     backgroundColor: "silver",
     padding: "10px 20px",
-    borderRadius: "0 0 10px 10px",
+    borderRadius: 10,
     alignItems: "center",
-    width: "90vw",
+    // width: "90vw",
     backgroundImage: "url(" + "images/steel.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
+    borderTop: "1px dotted blue"
 }
 
 export const actionInvTitle = {
@@ -373,7 +383,8 @@ export const actionInventory = {
     backgroundColor: "silver",
     padding: "10px 20px",
     overflow:  "auto",
-    borderRadius: 10
+    borderRadius: 10,
+    borderBottom: borderThickSolid,
 }
 
 export const eventContainer = {
@@ -528,7 +539,7 @@ export const inventory = {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     borderRadius: 10,
-    width: "90vw",
+    maxWidth: "90vw",
     marginBottom: 5,
 }
 
@@ -579,7 +590,7 @@ export const createPlayerBackground = {
 }
 
 export const wholeScreenBackground = {
-    backgroundImage: "url(" + "images/background1.png" + ")",
+    backgroundImage: "url(" + "images/bedroom.jpg" + ")",
     // backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
@@ -588,8 +599,8 @@ export const wholeScreenBackground = {
     flexDirection : "column",
     justifyContent: "center",
     alignItems: "center"
-
 }
+
 //general pop up below
 export const noGoldPopUp = {
     display: "none",
@@ -608,7 +619,7 @@ export const noGoldPopUp = {
 }
 
 export const shopBackground = {
-    backgroundImage: "url(" + "images/background1.png" + ")",
+    backgroundImage: "url(" + "images/shop2.jpg" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
@@ -622,7 +633,21 @@ export const shopBackground = {
 }
 
 export const inventoryBackground = {
-    backgroundImage: "url(" + "images/background1.png" + ")",
+    backgroundImage: "url(" + "images/chest.png" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    height: "97vh",
+    display: "flex",
+    flexDirection : "column",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "auto"
+
+}
+
+export const welcomeNewPlayerBackground = {
+    backgroundImage: "url(" + "images/welcome.png" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
@@ -716,7 +741,7 @@ export const examBackground = {
 }
 
 export const examResultBackground = {
-    backgroundImage: "url(" + "images/passfail4.jpg" + ")",
+    backgroundImage: "url(" + "images/passfail.png" + ")",
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -791,5 +816,7 @@ export const gameOverBackground = {
     justifyContent: "center",
     alignItems: "center",
 }
+
+
 
 
