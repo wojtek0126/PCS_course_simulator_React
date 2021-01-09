@@ -591,7 +591,7 @@ export const createPlayerBackground = {
 }
 
 export const wholeScreenBackground = {
-    backgroundImage: "url(" + "images/bedroom.jpg" + ")",
+    backgroundImage: "url(" + "images/background1.png" + ")",
     // backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'repeat',
