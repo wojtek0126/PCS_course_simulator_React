@@ -1,11 +1,12 @@
 # PCS_course_simulator_React
-This is brovser-based video-game that loosely simulates tough life of student taking part in programming boot camp. 
-For requirement purposes it is made with React.js. Because dead-end was really short, I have used all very first things I knew that would work,
-at this stage ignoring performance or code cleanness - it was suppose to pass the presentation first. Of course I am back to this app to fix remaining bugs and
-actually rebuild it completely, it will be responsive, styled with Sass instead of inline. Looking forward to make clean functions and different structure.
-Game views will be done with router, no more with local storage idea that killed performance and created few extra bugs to deal with.
-RWD will be added, and API will go into firebase or such, because local Json won't work outside my machine.
-Game consists of welcome screen, several game views, players storage, shop, inventory, has stats and working logic.
+This is brovser-based video-game that loosely simulates tough life of programming boot camp student. 
+Player got stats drawn and goes through 6 modules and if all six exams passed, players going for final project. Ending and final score being saved.
+Player's progress can be saved and resumed anytime.
+It is made with React.js and Node.js. 
+Unless deployed through firebase or such it needs to be cloned, 'npm i' and local Json launched in localhost.
+Game consists of welcome screen, several game views, players storage, shop, inventory, etc. It has player stats, results and working logic.
 One game is about half an hour and is turn based with decisions, inventory and shop.
-Tech used so far: React.js, local storage, inline styles stored in .js file, Json fetch API. Big rebuild WIP. 
+Tech used so far: React.js, Node.js. Fetch to communicate with Json.db.
+Known two bugs to be fixed: not 100% correct RWD and it tends during create player phase to duplicate player and forgets to load initial status. 
+So far after returning to menu and removing buggy players new players loading properly from there.
 
