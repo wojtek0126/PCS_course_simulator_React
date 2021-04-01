@@ -1,5 +1,5 @@
 # PCS_course_simulator_React
-This is brovser-based video-game that loosely simulates tough life of programming boot camp student. 
+This is browser-based video-game that loosely simulates tough life of programming boot camp student. 
 Player got stats drawn and goes through 6 modules and if all six exams passed, players going for final project. Ending and final score being saved.
 Player's progress can be saved and resumed anytime.
 It is made with React.js and Node.js. 
