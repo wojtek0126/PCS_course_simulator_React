@@ -7,7 +7,35 @@
       "players": []
     }
   ],
-  "players": [],
+  "players": [
+    {
+      "id": 4,
+      "name": "ert",
+      "score": 16,
+      "week": 1,
+      "day": 1,
+      "dayPart": "wieczór",
+      "moduleName": "Wstęp do pythona",
+      "buffs": [],
+      "inventory": [
+        "identyfikator"
+      ],
+      "items": [],
+      "health": 10,
+      "sleep": 8,
+      "skills": 3,
+      "attitude": 7,
+      "luck": 6,
+      "attendance": 100,
+      "repeatingExam": false,
+      "examPassed": false,
+      "examPoints": 0,
+      "finalProjectDone": false,
+      "finalProjectScore": 0,
+      "endingNumber": 0,
+      "gameOver": false
+    }
+  ],
   "events": [
     {
       "id": 1,
