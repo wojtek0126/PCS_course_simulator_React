@@ -10,3 +10,6 @@ Tech used so far: React.js, Node.js. Fetch to communicate with Json.db.
 Known two bugs to be fixed: not 100% correct RWD and it tends during create player phase to duplicate player and forgets to load initial status. 
 So far after returning to menu and removing buggy players new players loading properly from there.
 
+*TO LAUNCH LOCALLY AT CURRENT STAGE: 
+- Go to "root" dir and launch: "json-server --watch db.json --host 127.0.0.1"
+- Type this into devtools console when app is launched locally: "localStorage.setItem('createNewPlayerScreen', 'true');" and refresh page
